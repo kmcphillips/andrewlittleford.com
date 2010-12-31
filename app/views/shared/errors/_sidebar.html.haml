@@ -1,0 +1,6 @@
+- if Track.count > 0
+  %a{:href => "#", :onclick => "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=400, width=650, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"} Listen
+- else
+  = link_to "No Tracks", "#"
+
+= render :partial => 'shared/admin_nav' if controller.current_user

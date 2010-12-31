@@ -17,8 +17,8 @@ class Image < ActiveRecord::Base
 
   before_validation :set_sort_order, :on => :create
 
-  scope :all_active, where(:active => true).order("created_at DESC")
-  scope :all_inactive, where(:active => false).order("created_at DESC")
+  scope :all_active, where(:active => true)
+  scope :all_inactive, where(:active => false)
   scope :for_gallery, lambda{ |g| where(:gallery_id => g.id) }
   scope :in_order, order("sort_order ASC")
   scope :most_recently_updated, order("updated_at DESC").limit(1)
