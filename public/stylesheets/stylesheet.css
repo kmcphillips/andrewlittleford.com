@@ -1,0 +1,519 @@
+/***** Andrewlittleford.com - Main *****/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #F4F3E5;
+    color: #F6F3CF;
+    font-family: LatinModernMonoProp10Regular, serif;
+    font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+a {
+    color: #7D7B56;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #C52115;
+    text-decoration: underline;
+}
+
+a:visited {
+}
+
+/*** Structure ***/
+
+#wrapper {
+    margin: 0 auto;
+    width: 650px;
+    padding-bottom: 18px;
+}
+
+#header {
+    width: 650px;
+    padding: 0;
+    margin: 0;
+    height: 174px;
+}
+
+#header h1 {
+    float: left;
+    padding: 20px;
+    margin: 0px;
+}
+
+#header a img {
+  border: 0;
+}
+
+
+#header a:hover img {
+  border: 0;
+}
+
+#nav {
+    width: 650px;
+    padding: 0;
+    margin: 0;
+}
+
+#content {
+    width: 650px;
+    margin: 0;
+    padding: 0;
+    background: #3D1020;
+}
+
+#content .minheight {
+    height: 400px;
+    float: right;
+    width: 1px;
+}
+
+#content .minheight_clear {
+    clear: both;
+    height: 1px;
+    overflow: hidden;
+}
+
+#footer {
+    width: 650px;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+}
+
+/*** Navigation ***/
+
+#nav .bar {
+    width: 100%;
+    margin: 0;
+    font-size: 1.25em;
+    font-family: LatinModernMonoProp10Regular, serif;
+    background: none;
+}
+
+#nav .bar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: normal;
+}
+
+#nav .bar li {
+    float: left;
+}
+
+#nav .bar a {
+    color: #4B3733;
+    display: block;
+    text-decoration: none;
+    border: none;
+    padding: 10px;
+}
+
+#nav .bar a:hover {
+    color: #C52115;
+    text-decoration: none;
+}
+
+/*** box spacers ***/
+
+.box_full {
+    background: #9E8855;
+    padding: 3px;
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    font-size: 1.1em;
+}
+
+.box_full a {
+    color: #4B3733;
+}
+
+.box_full a:hover {
+    color: #C52115;
+}
+
+.box_full p {
+    float: right;
+    font-weight: bold;
+}
+
+.box_full p.listen {
+}
+
+.credits {
+  font-size: 1em;
+  font-weight: bold;
+  border: 0;
+}
+
+.credits a img {
+  border: 0;
+}
+
+/****** Content ******/
+
+#content .main {
+    padding: 24px;
+}
+
+#content .preview {
+    margin: 30px 0 18px 0;
+}
+
+#content .preview h2 {
+    background-color: #7E7708;
+    padding: 8px;
+}
+
+/*** News ***/
+
+.post {
+    padding: 8px 0 32px 0;
+}
+
+.post h1 {
+    padding: 0 0 1px 0;
+    border-bottom: 1px solid #7E7708;
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    font-size: 1.3em;
+}
+
+.post h1 a {
+    color: #e4ebc1;
+    text-decoration: none;
+}
+
+.post h1 a:hover {
+    color: #D0CC91;
+    text-decoration: none;
+}
+
+.post h3 {
+    color: #474A3A;
+    font-size: 1.1em;
+    text-align: right;
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+}
+
+.post .body {
+    border-left: 5px solid #4b3733;
+    padding: 6px;
+}
+
+.post_pagination {
+    margin: 24px 0;
+    border-top: 1px solid #7E7708;
+    font-size: 1.2em;
+}
+
+.post_pagination .pagination {
+    text-align: center;
+}
+
+.post_pagination .pagination em, .post_pagination .pagination a, .post_pagination .pagination span {
+    margin: 0 3px;
+}
+
+.post_pagination .previous_page {
+    float: left;
+}
+
+
+.post_pagination .next_page {
+    float: right;
+}
+
+.post_pagination .pagination .disabled {
+    visibility: hidden;
+}
+
+h2.event {
+    margin: 10px 0 40px 0;
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    font-size: 1.9em;
+    /* border-bottom: 3px solid #7E7708; */
+    color: #474A3A;
+}
+
+
+/*** Blocks ***/
+
+.bio_image {
+	float: right;
+	margin: 0 0 20px 20px;
+}
+
+.gallery_header {
+    text-align: center;
+    color: #F6F3CF;
+    font-family: LatinModernMonoProp10Regular, serif;
+    font-weight: bold;
+    font-size: 1.3em;
+    padding: 20px 40px;
+}
+
+.gallery_header a img {
+    border: none;
+    text-decoration: none;
+}
+
+.gallery_header a:hover img {
+    border: none;
+    text-decoration: none;
+}
+
+.gallery_back {
+    margin: 24px 0;
+    border-top: 1px solid #7E7708;
+    font-size: 1.2em;
+}
+
+ul.links {
+	
+}
+
+ul.links li {
+	border-left: 5px solid #4b3733;
+	padding: 0 0 0 2px;
+	margin: 12px 0 ;
+	list-style: none;
+}
+
+ul.links li p.link {
+	font-size: 1.4em;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+ul.links li p {
+	padding: 5px;
+	margin-left: 10px;
+}
+
+
+/*** Gallery ***/
+
+a img.thumb {
+	border: 8px solid #7D7B56;
+	margin: 12px 5px;
+}
+
+a:hover img.thumb {
+	border: 8px solid #C52115;
+}
+
+#image_sortable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0
+}
+
+#image_sortable li {
+	float: left;
+	text-align: right;
+	height: 120px;
+	width: 120px;
+	border: 8px solid #7D7B56;
+	padding: 0px;
+	margin: 12px 5px;
+}
+
+#image_sortable li .delete {
+	padding: 101px 3px 0 0;
+}
+
+
+/*** Styles ***/
+
+.clear {
+    clear: both
+}
+
+.bold {
+    font-weignt: bold;
+}
+
+.left_float {
+    float: left;
+}
+
+.right_float {
+    float: right;
+}
+
+.hidden {
+    display: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.no_border {
+	border: none;
+}
+
+a.action-image img {
+    border: none;
+    text-decoration: none;
+}
+
+a.action-image:hover {
+    text-decoration: none;
+}
+
+/*** Error and notice blocks ***/
+
+.notice, .error {
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #ddd;
+    padding: 7px;
+    margin: 16px 0;
+}
+
+.notice {
+    background-color: green;
+}
+
+.error {
+    background-color: #c00;
+}
+
+.error h2, .notice h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    color: #fff;
+}
+
+.error ul li {
+    list-style: circle;
+    margin-left: 25px;
+    font-size: 1.2em;
+}
+.view_image
+.field_with_errors {
+    padding: 2px;
+    background-color: #c00;
+    display: table;
+}
+
+
+/*** Table ***/
+
+table.data {
+    border-collapse: collapse;
+    margin: 24px 0;
+    width: 100%;
+}
+
+table.data th {
+    padding: 8px;
+    font-weight: bold;
+    background-color: #4B3733;
+    color: #F6F3CF;  /* Needed to override the hover */
+}
+
+table.data td {
+    padding: 8px;
+}
+
+table.data tr {
+    background-color: #9E8855;
+}
+
+table.data tr.even {
+    background-color: #8a7545;
+}
+
+table.data tbody tr.over td {
+    background-color: #FFFB83;
+}
+
+table.data tbody tr:hover {
+    color: #3D1020;
+    background-color: #FFFB83;
+}
+
+table.data tbody td a {
+    color: #3D1020;
+}
+
+
+/*** JQuery UI ***/
+
+#previous_image {
+    display: none;
+    overflow: scroll;
+    overflow-x: hidden;
+
+    
+}
+
+#current_image {
+    float: right;
+    
+}
+
+
+/*** Form and actions ***/
+
+.image_links {
+    padding: 10px;
+}
+
+.field, .actions {
+    padding: 12px 0;
+}
+
+.field .input, .actions .input {
+    padding-left: 120px;
+}
+
+label {
+    width: 100px;
+    float: left;
+    border-bottom: 1px dashed #C8B032;
+    border-left: 4px solid #C8B032;
+    padding-left: 6px;
+    margin-right: 8px;
+}
+
+
+/*** Fonts ***/
+
+@font-face {
+	font-family: 'LatinModernMonoProp10Regular';
+	src: url('lmmonoprop10-regular-webfont.eot');
+	src: local('☺'), url('../fonts/lmmonoprop10-regular-webfont.woff') format('woff'), url('../fonts/lmmonoprop10-regular-webfont.ttf') format('truetype'), url('../fonts/lmmonoprop10-regular-webfont.svg#webfont975a0g2P') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MonospaceTypewriterRegular';
+	src: url('MonospaceTypewriter-webfont.eot');
+	src: local('☺'), url('../fonts/MonospaceTypewriter-webfont.woff') format('woff'), url('../fonts/MonospaceTypewriter-webfont.ttf') format('truetype'), url('../fonts/MonospaceTypewriter-webfont.svg#webfont6Gry4Llq') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+

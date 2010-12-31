@@ -1,0 +1,14 @@
+- if @current.any?
+  %h2.event Happening Right Now
+  - @current.each do |event|
+    = render :partial => "event", :object => event
+
+- if @upcoming.any?
+  %h2.event Upcoming Shows
+  - @upcoming.each do |event|
+    = render :partial => "event", :object => event
+
+
+%h2.event Past Shows
+- @past.each do |event|
+  = render :partial => "event", :object => event

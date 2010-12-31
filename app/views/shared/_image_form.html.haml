@@ -1,0 +1,77 @@
+- content_for :js do
+  :javascript
+    $(document).ready(function(){
+      $('#previous_image').dialog({
+        autoOpen: false,
+        buttons: { "Cancel": function() { $(this).dialog("close"); } },
+        modal: true,
+        height: 500,
+        width: 700,
+        title: "Select a previous image"
+      });
+
+      $('.field input[type=file]').change(function(){
+        if($('.field input[type=file]').val() && $('.field input[type=file]').val() != "") {
+          resetClear();
+          resetPrevious();
+        }
+      });
+    });
+
+    function clearImage() {
+      $('#clear_image_field').val("true");
+      resetUpload();
+      resetPrevious();
+    }
+
+    function selectImage(id, src) {
+      $('#previous_image').dialog('close');
+      $('#current_image').attr('src', src);
+      $('#current_image').show();
+      $('#previous_image_id').val(id);
+      resetUpload();
+      resetClear();
+    }
+
+    function resetClear() {
+      $('#clear_image_field').val("");
+    }
+
+    function resetUpload() {
+      $('.field input[type=file]').val("");
+    }
+
+    function resetPrevious() {
+      $('#current_image').hide();
+      $('#previous_image_id').val("");
+    }
+
+.field
+  = f.label "Image"
+  .input
+    - if object.image.exists?
+      = image_tag(object.thumb, :id => :current_image)
+    - else
+      %img{:src => "#", :id => :current_image}
+
+    = f.file_field :image
+
+    %br
+    %span.bold &nbsp;&nbsp;&nbsp;OR
+    %br
+
+    = button_to_function "Select a previous image", "$('#previous_image').dialog('open');"
+    = f.hidden_field "previous_image_id", :id => :previous_image_id
+    #previous_image
+      - unique_previous_images(f.object).each do |prev|
+        = link_to_function image_tag(prev.thumb), "selectImage(#{prev.id}, '#{prev.thumb}')"
+
+    #clear_image
+      %span.bold &nbsp;&nbsp;&nbsp;OR
+      %br
+
+      = button_to_function "No image", "clearImage()"
+      = f.hidden_field "clear_image", :id => :clear_image_field
+
+.clear
+  

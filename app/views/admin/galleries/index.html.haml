@@ -1,0 +1,10 @@
+%h1 Galleries
+
+= collection_index @galleries, ["Gallery", "Details"] do |gallery|
+  %tr{:class => row_class}
+    %td
+      %span.bold= link_to gallery.name, admin_gallery_path(gallery)
+    %td
+      = "With #{gallery.images.size} image#{gallery.images.size == 1 ? "" : "s"}"
+      %br
+      = "Last updated: #{gallery.last_updated_at.to_formatted_s(:index)}" if gallery.images.any? 

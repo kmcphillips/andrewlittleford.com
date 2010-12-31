@@ -1,0 +1,9 @@
+.post
+  %h1 About Andrew
+  %h3 &nbsp;
+
+  = image_tag "bio.png", :class => "bio_image", :alt => SITE_NAME
+  = simple_format @block.body
+  
+.post
+  = link_to "Download press kit", @kit.file.url

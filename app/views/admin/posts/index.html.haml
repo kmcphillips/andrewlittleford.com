@@ -1,0 +1,13 @@
+%h1 News
+
+= collection_index @posts, ["Title", "Body", "Created at", "Actions"] do |post|
+  %tr{:class => row_class}
+    %td= post.title
+    %td= link_to truncate_for_index(post.body), [post]
+    %td= post.created_at.to_formatted_s(:index)
+    %td
+      = edit_entity_image [:edit, :admin, post]
+      = destroy_entity_image [:admin, post]
+
+.image_links
+  = new_entity_image new_admin_post_path, "Create New News Post"

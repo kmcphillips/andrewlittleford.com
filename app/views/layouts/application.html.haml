@@ -1,0 +1,58 @@
+!!!
+%html
+  %head
+    %title= page_title
+
+    = auto_discovery_link_tag(:rss, '/rss.xml')
+
+    = stylesheet_link_tag ["stylesheet", "prettyPhoto"] + (admin? ? ['jquery-ui-1.8.7.custom'] : [])
+
+    = javascript_include_tag 'jquery/jquery-1.4.2.min'
+    = javascript_include_tag ['application', 'rails', 'jquery.prettyPhoto'] + (admin? ? ['jquery-ui-1.8.7.custom.min', 'admin', 'jquery.timepicker'] : [])
+
+    = yield :js
+
+    %link{:rel => "shortcut icon", :type => "image/x-icon", :href => "/favicon.ico"}
+
+    = csrf_meta_tag
+    %meta{:name => "keywords", :content => META[:keywords] || ""}
+    %meta{:name => "description", :content => META[:description] || ""}
+
+    = render :partial => "shared/analytics"
+
+  %body
+    #wrapper
+      .box_full
+        %p.listen
+          - if Track.count > 0
+            %a{:href => "#", :onclick => "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=400, width=650, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"} Listen
+          - else
+            &nbsp;
+        .clear
+
+      #header
+        = link_to image_tag("/images/header.jpg", :alt => SITE_NAME), "/"
+      #nav
+        = render :partial => 'shared/nav'
+        = render :partial => 'shared/admin_nav' if controller.current_user
+      #content
+        .minheight
+        .main
+          = render :partial => "shared/flashes"
+          = yield
+        .minheight_clear
+      #footer
+        = image_tag "/images/footer.jpg", :alt => SITE_NAME
+        
+      .box_full.credits
+        .left_float
+          = link_to image_tag("/images/icons/rss.png", :alt => "RSS"), "/rss.xml"
+          = link_to "RSS", "/rss.xml"
+      
+        .right_float
+          &copy; #{Time.now.year}
+          = obfuscated_mail_to SITE_EMAIL, "Andrew Littleford"
+          and
+          = obfuscated_mail_to ADMIN_EMAIL, "Kevin McPhillips"
+
+        .clear

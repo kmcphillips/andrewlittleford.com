@@ -1,0 +1,14 @@
+%h1 Edit Show
+
+= render 'form'
+
+.image_links
+  = index_entity_image admin_events_path, "Back to Shows Index"
+  %br
+  = destroy_entity_image admin_event_path(@event), "Delete Show"
+  
+- if @preview
+  .preview
+    %h2 Preview
+
+  = render :partial => '/events/event', :object => @event

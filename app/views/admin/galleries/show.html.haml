@@ -1,0 +1,34 @@
+- content_for :js do
+  :javascript
+    $(document).ready(function() {
+      $("#image_sortable").sortable({
+        update: function () {
+          $.ajax({
+            url: "/admin/images/sort",
+            type: "post",
+            data: $("#image_sortable").sortable('serialize'),
+            error: function(){
+              alert("There was an error sorting images. Contact administrator.");
+            }
+          });
+        }
+      });
+      
+      $("#image_sortable").disableSelection();
+    });
+
+ 
+%h1= @gallery.name
+
+%ul#image_sortable
+  - @gallery.images.in_order.each do |image|
+    %li{:style => "background: #7D7B56 url('#{image.thumb}') no-repeat left top;", :id => "image_#{image.id}"}
+      .delete= destroy_entity_image admin_image_path(image)
+.clear
+
+.post
+  %h1 Upload New Image
+  = render :partial => 'admin/galleries/form'
+
+.image_links
+  = index_entity_image admin_galleries_path, "Back to Galleries Index"

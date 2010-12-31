@@ -1,0 +1,26 @@
+#player
+  .header= image_tag "player_header.png"
+  .container
+    .main
+      .title= @track.title
+      .plugin
+        %object{:type => "application/x-shockwave-flash", :data => "http://flash-mp3-player.net/medias/player_mp3_maxi.swf", :width => "400", :height => "20"}
+          %param{:name => "movie", :value => "http://flash-mp3-player.net/medias/player_mp3_maxi.swf"}
+          %param{:name => "bgcolor", :value => "#3D1020"}
+          %param{:name => "bgcolor1", :value => "#3D1020"}
+          %param{:name => "bgcolor2", :value => "#3D1020"}
+          %param{:name => "FlashVars", :value => "mp3=#{@mp3}&amp;width=400&amp;autoplay=1&amp;bgcolor=3D1020&amp;bgcolor1=3D1020&amp;bgcolor2=3D1020"}
+
+      .controls
+        - if @track.previous && @track.next
+          .prev= link_to "&lt;&nbsp;Prev".html_safe, @track.previous
+          .next= link_to "Next&nbsp;&gt;".html_safe, @track.next
+        - else
+          &nbsp;
+          
+      .description=@track.description
+
+    .list
+      %ul
+        - @tracks.each do |track|
+          %li= link_to track.title, track_path(track)

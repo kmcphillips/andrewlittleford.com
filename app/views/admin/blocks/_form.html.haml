@@ -1,0 +1,16 @@
+= form_for([:admin, @block]) do |f|
+  = error_messages(@block)
+
+  .field
+    = f.label :body
+    .input= f.text_area :body
+
+  - begin
+    = render @block.label
+  - rescue ActionView::MissingTemplate
+
+  = f.image if @block.accepts_image?
+
+  .actions
+    %label Actions
+    .input= f.submit "Save"

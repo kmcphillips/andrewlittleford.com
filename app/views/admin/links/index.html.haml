@@ -1,0 +1,46 @@
+- content_for :js do
+  :javascript
+    $(document).ready(function(){
+      $("#sortable_table tbody").sortable(
+        {
+          update: function () {
+            stripe_table(this);
+            
+            // $("#sortable_table tbody").sortable('serialize');  // This does not work. I don't know why. It works for <li> tags on another page.
+            data = "";
+            $("#sortable_table tbody tr").each(function(){
+              val = $(this).attr('data-link-id');
+
+              if(val != undefined)
+                data += "link[]=" + val + "&";
+            });
+            
+            $.ajax({
+              url: "/admin/links/sort",
+              type: "post",
+              data: data,
+              error: function(){
+                alert("There was an error sorting links. Contact administrator.");
+              }
+            });
+          }
+        }).disableSelection();
+    });
+  
+
+%h1 Links
+
+%br
+%p Drag table rows to reorganize them.
+
+= collection_index @links, ["Title", "URL", "Description", "Actions"], :id => "sortable_table" do |link|
+  %tr{:class => row_class, :'data-link-id' => link.id}
+    %td= link.title
+    %td= link_to link.url, link.url
+    %td= truncate_for_index link.description
+    %td
+      = edit_entity_image [:edit, :admin, link]
+      = destroy_entity_image [:admin, link]
+
+.image_links
+  = new_entity_image new_admin_link_path, "Create New Link"

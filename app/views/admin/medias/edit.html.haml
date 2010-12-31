@@ -1,0 +1,24 @@
+%h1
+  Update
+  = @kit.label.humanize
+
+= form_for [:admin, @kit], :html => { :multipart => true } do |f|
+  = error_messages(@kit)
+
+  .field
+    = f.label "File"
+    .input
+      = f.file_field :file
+
+  .field
+    %label Current File
+    .input
+      - if f.object.file?
+        = link_to "Download", f.object.file.url, :target => "_new"
+      - else
+        None set
+
+  .actions
+    %label Actions
+    .input
+      = f.submit 'Save'

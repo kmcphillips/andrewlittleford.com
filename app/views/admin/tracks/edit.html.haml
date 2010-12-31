@@ -1,0 +1,8 @@
+%h1 Edit Media Player Track
+
+= render 'form'
+
+.image_links
+  = index_entity_image admin_tracks_path, "Back to Track Index"
+  %br
+  = destroy_entity_image admin_track_path(@track), "Delete Track"

@@ -1,0 +1,26 @@
+= form_for [:admin, @track], :html => { :multipart => true } do |f|
+  = error_messages(@track)
+
+  .field
+    = f.label :title
+    = f.text_field :title, :size => 50
+  .field
+    = f.label :description
+    = f.text_area :description, :rows => 8, :cols => 50
+  .field
+    = f.label :recorded_at
+    = f.text_field :recorded_at, :class => "datepicker", :size => 14
+  - if f.object.sort_order
+    .field
+      = f.label :sort_order
+      = f.object.sort_order
+  .field
+    = f.label :active
+    = f.check_box :active
+  .field
+    = f.label :mp3, "Audio File"
+    = f.file_field :mp3
+
+  .actions
+    %label Actions
+    = f.submit 'Save'

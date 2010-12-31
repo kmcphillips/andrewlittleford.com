@@ -1,0 +1,12 @@
+.bar
+  %ul
+    %li= link_to "News", "/"
+    %li= link_to "Shows", "/events"
+    %li= link_to "Gallery", "/galleries"
+    %li= link_to "Links", "/links"
+    %li= link_to "Bio", "/bio"
+    %li= link_to "Contact", "/contact"
+
+    %li= link_to "Login", "/admin/login" if Rails.env.development? && !controller.current_user
+    
+  .clear

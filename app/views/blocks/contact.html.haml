@@ -1,0 +1,9 @@
+.post
+  %h1 Contact Information
+  %h3 &nbsp;
+
+  = simple_format @block.body
+  %br
+  %p
+    Email: 
+    = obfuscated_mail_to SITE_EMAIL
