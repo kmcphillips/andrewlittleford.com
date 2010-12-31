@@ -1,5 +1,7 @@
-.post
-  %h1= link_to post.title, post_path(post)
-  %h3= (post.created_at || Time.now).to_s(:news_without_time)
+%h2= link_to post.title, post_path(post)
 
-  .body= simple_format post.body
+= simple_format post.body
+
+.posted
+  %p= (post.created_at || Time.now).to_s(:news_without_time)
+  %p.comments= # this floats right
