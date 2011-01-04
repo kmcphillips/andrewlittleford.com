@@ -183,9 +183,8 @@ img {
 
 #splash {
 	width: 877px;
-	height: 170px;
+	height: 140px;
 	margin: 0 auto;
-	background: url(../images/template/img5.gif) repeat-x left bottom;
 	border-right: 20px solid #FFFFFF;
 	border-left: 20px solid #FFFFFF;
 }
