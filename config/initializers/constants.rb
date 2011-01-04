@@ -14,4 +14,3 @@ META = {
   :keywords => "Andrew Littleford, Andrew Littleford, Kevin McPhillips",
   :description => "Andrew Littleford"
 }.with_indifferent_access
-

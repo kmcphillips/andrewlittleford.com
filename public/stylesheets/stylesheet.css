@@ -1,224 +1,361 @@
 /*
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
+  andrewlittleford.com
+  By Kevin McPhillips
+  Adapted from a template on http://www.styleshout.com/ by Erwin Aligam
 */
+ 
+/********************************************
+   HTML ELEMENTS
+********************************************/ 
 
-* {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-}
+/* top elements */
+* { padding: 0; margin: 0; }
 
 body {
-	margin: 30px 0;
-	padding: 0;
-	background: #EFEFEF;
-	font-size: 12px;
-	color: #6B6B6B;
+	margin: 20px 0 20px 0; 	padding: 0;
+	font: normal .72em/1.5em 'Trebuchet MS', sans-serif;
+	color: #444;
+	background: #6D5434;
+	text-align: center;	
+	height: 100%;	
 }
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 0;
-	padding: 0;
-	font-weight: normal;
-	color: #000000;
+/* links */
+a { background: inherit; color: #993333; text-decoration: none; }
+a:hover { background: inherit; color: #006699; text-decoration: underline; }
+
+/* headers */
+h1, h2, h3 {
+	font: bold 1em 'Trebuchet MS', Tahoma, Sans-serif;
+	color: #333;
+}
+h1 { font-size: 1.4em; }
+h2 { font-size: 1.2em; text-transform: uppercase;}
+h3 { font-size: 1.2em; }
+
+p, h1, h2, h3 {
+	margin: 10px 15px;
+}
+ul, ol {
+	margin: 10px 30px;
+	padding: 0 15px;	
+	color: #993333;	
+}
+ul span, ol span {
+	color: #333;
 }
 
-h2 {
-	margin-bottom: 10px;
-	border-bottom: 1px solid #F4F4F4;
-	font-size: 26px;
-}
-
-h3 {
-	margin-bottom: 15px;
-	padding-bottom: 5px;
-	font-size: 16px;
-	border-bottom: 1px solid #F4F4F4;
-}
-
-p, ol, ul, blockquote {
-	line-height: 24px;
-}
-
-ul {
-	margin-left: 0;
-	padding-left: 0;
-	list-style: none;
-}
-
-a {
-	color: #EC5600;
-}
-
-a:hover {
-	text-decoration: none;
-}
-
+/* images */
 img {
+  border: 1px solid #DDD; 
+  padding: 5px;
+  background-color: #FFF;
+}
+img.float-right {
+  margin: 5px 0px 5px 15px;  
+}
+img.float-left {
+  margin: 5px 15px 5px 0px;
+}
+
+code {
+  margin: 5px 0;
+  padding: 10px;
+  text-align: left;
+  display: block;
+  overflow: auto;  
+  font: 500 1em/1.5em 'Lucida Console', 'courier new', monospace;
+  /* white-space: pre; */
+  background: #FAFAFA;
+  border: 1px solid #eee;    
+}
+acronym {
+  cursor: help;
+  border-bottom: 1px solid #777;
+}
+blockquote {
+	margin: 15px; 	padding: 0 0 0 20px;  	
+  	background: #FAFAFA url(../images/template/quote.gif) no-repeat 3px 5px;
+	border: 1px solid #eee; 
+	font: bold 1.2em/1.5em 'Trebuchet MS', Tahoma, sans-serif; 
+	color: #666666;	
+}
+
+/* form elements */
+form {
+	margin:10px 15px; padding: 0;
+	border: 1px solid #eee; 
+	background-color: #FAFAFA; 
+}
+label {
+	display:block;
+	font-weight:bold;
+	margin:5px 0;
+}
+input {
+	padding: 2px;
+	border:1px solid #eee;
+	font: normal 1em 'Trebuchet MS', verdana, sans-serif;
+	color:#777;
+}
+textarea {
+	width:400px;
+	padding:2px;
+	font: normal 1em 'Trebuchet MS', verdana, sans-serif;
+	border:1px solid #eee;
+	height:100px;
+	display:block;
+	color:#777;
+}
+input.button { 
+	margin: 0; 
+	font: bold 1em Arial, Sans-serif; 
+	border: 1px solid #CCC;
+	background: #FFF; 
+	padding: 2px 3px; 
+	color: #333;	
+}
+
+/* search form */
+.searchform {
+	background-color: transparent;
+	border: none;	
+	margin: 0; padding: 0;	
+}
+.searchform p { margin: 10px; padding: 0; }
+.searchform input.textbox { 
+	width: 130px;
+	color: #333; 
+	height: 20px;
+	padding: 2px;	
+	vertical-align: top;
+}
+.searchform input.button { 
+	font: bold 12px Arial, Sans-serif; 
+	color: #333;	
+	width: 60px;
+	height: 26px;
 	border: none;
+	padding: 3px 5px;	
+	vertical-align: top;
 }
 
-.clear {
-  clear: both;
-}
+/***********************
+	  LAYOUT
+************************/
 
-#textfield1 {
-	width: 185px;
-	margin-bottom: 10px;
-	border: 1px solid #E0E0E0;
-	border-right-color: #F6F6F6;
-	border-bottom-color: #F6F6F6;
-}
-
-#submit1 {
-	border: 1px solid #EBEBEB;
-	border-bottom-color: #DDDDDD;
-	background: #FBFBFB url(../images/template/img7.gif) repeat-x;
-	font-size: 12px;
-	color: #7A7A7A;
-}
-
-/* Posted */
-
-.posted {
-	height: 33px;
-	margin: 0 0 30px 0;
-	padding: 10px 15px 0 15px;
-	background: url(../images/template/img6.gif) repeat-x;
-	border-bottom: 1px solid #F2F2F2;
-}
-
-.posted p {
-	float: left;
-	margin: 0;
-}
-
-.posted .comments {
-	float: right;
-}
-
-.posted a {
-	color: #717171;
-}
-
-/* Header */
-
-#header {
-	width: 917px;
-	height: 115px;
+#wrap {
+	width: 770px;
 	margin: 0 auto;
-	background: url(../images/template/img2.gif) repeat-x;
+	background: #FFF url(../images/template/wrap-bg.jpg) repeat-y;
+}
+#header-content, #content {
+	width: 740px;	
 }
 
-/* Logo */
+/* header */
+#header {
+	position: relative;
+	height: 176px;
+	text-align: left;		
+	margin: 0; padding: 0;	
+	background: #FFF;
+}
+#header #photo-box {
+	position: absolute;
+	right: 15px ; top: 15px;
+	width: 455px;
+	height: 156px;
+	background: #FFF url(../images/template/header.jpg) no-repeat;	
+}
+#header #name-box {
+	position: absolute;
+	left: 15px ; top: 15px;
+	width: 280px;
+	height: 156px;	
+	background: #4E3525;
+}
+#name-box h1 {
+	position: absolute;	
+	font: bold 50px 'Trebuchet MS', Sans-serif;
+	letter-spacing: -2px; 
+	color: #FFF;
+	margin: 0; padding: 0;
+	
+	/* change the values of left and top to adjust the position of the logo */
+	top: 25px; left: 34px;
+}
 
-#logo {
+#name-box h1 a {
+    color: #FFF;
+}
+
+#name-box h1 a:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+#name-box h2 {
+	position: absolute;	
+	font: bold 12px 'Trebuchet Ms', Sans-serif;
+	text-transform: none;
+	color: #FFFFCC;	
+	margin: 0; padding: 0;
+	
+	/* change the values of left and top to adjust the position of the slogan */
+	top: 88px; left: 60px;
+}
+
+/* header menu */
+#menu {	
+	clear: both;
+	margin: 0; 
+	padding: 0 0 10px 0;		
+	width: 770px;		
+	background: #FFF url(../images/template/wrap-bg.jpg) repeat-y;
 	float: left;
-	height: 115px;
-	padding: 0 0 0 0;
-	background: url(../images/template/img1.gif) no-repeat;
 }
-
-#logo * {
-	text-decoration: none;
-}
-
-#logo h1 {
-	float: left;
-	padding: 50px 0 0 40px;
-	font-size: 36px;
-}
-
-#logo h1 a {
-	color: #000000;
-}
-
-#logo h1 span {
-	font-weight: bold;
-}
-
-#logo h2 {
-	float: left;
-	padding: 72px 0 0 8px;
-	font-size: 12px;
-	border: none;
-}
-
-#logo h2 a {
-	color: #B4B4B4;
-}
-
-/* Menu */
-
-#menu {
-	float: right;
-	height: 45px;
-	padding: 70px 25px 0 0;
-	background: url(../images/template/img3.gif) no-repeat right top;
-}
-
 #menu ul {
-	margin: 0;
+	font: bolder 14px 'Trebuchet MS', sans-serif;
+	width: 740px;
+	color: #FFF;
+	background-color: #4E3525;		 	
+	margin: 0 15px;
 	padding: 0;
+	display: inline;
+	border-bottom: 6px solid #FFF;
+	float: left;	
+}
+#menu li {
+	float: left;
 	list-style: none;
 }
-
-#menu li {
-	display: inline;
+#menu li a {
+	display: block;
+	padding: 5px 15px;	
+	color: #FFF;	
+	text-decoration: none;	
+}
+#menu li a:hover {
+	background: #CC9966;
+	color: #FFF;
+}
+#menu li a.current  {
+	background: #993333;
+	color: #FFF;
 }
 
-#menu a {
-	padding: 0 15px 0 20px;
-	border-left: 1px solid #DBDBDB;
-	text-decoration: none;
-	font-size: 13px;
-	color: #3B3B3B;
-}
-
-#menu .first a {
-	border: none;
-}
-
-/* Splash */
-
-#splash {
-	width: 877px;
-	height: 140px;
-	margin: 0 auto;
-	border-right: 20px solid #FFFFFF;
-	border-left: 20px solid #FFFFFF;
-}
-
-/* Content */
-
-#content {
-	width: 847px;
-	margin: 0 auto;
-	padding: 30px 35px 0 35px;
-	background: #FFFFFF url(../images/template/img8.gif) no-repeat left bottom;
-}
-
-#colOne {
+/* content */
+#content-wrap {
+	clear: both;
 	float: left;
-	width: 620px;
+	width: 100%;
+	background: #FFF url(../images/template/content.jpg) repeat-y;
+}
+#content {
+	clear: both;
+	text-align: left;	
+	padding: 0;
+	margin: 0 auto;			
 }
 
-#colTwo {
+/* sidebar */
+#sidebar {
 	float: right;
-	width: 185px;
-	padding: 5px 0 0 0;
+	width: 30%;
+	margin: 0 0 10px 0; padding: 0;	
+}	
+#sidebar h1 {
+	padding: 10px 0px 5px 10px;
+	margin: 0;	
+	color: #660000;	
+}
+.sidebox {
+	margin-bottom: 10px;	
 }
 
-/* Footer */
+/* sidebar menu */
+#sidebar ul.sidemenu {
+	list-style:none;
+	margin: 10px 0 15px 0;
+	padding: 0;		
+}
+#sidebar ul.sidemenu li {
+	padding: 0px 10px;
+}
+#sidebar ul.sidemenu a {
+	display:block;
+	font-weight:normal;
+	color: #333;
+	height: 1.5em;	
+	padding:.3em 0 .3em 15px;
+	line-height: 1.5em;
+	border-bottom: 1px dashed #D5D5D5;
+	text-decoration:none;
+}
+#sidebar ul.sidemenu a.top{	
+	border-top: 1px dashed #D5D5D5;
+}
+#sidebar ul.sidemenu a:hover {
+	padding: .3em 0 .3em 10px;
+	border-left: 5px solid  #993333;
+	color: #993333;		
+}
 
+/* main */
+#main {
+	float: left;
+	width: 67%;	
+	margin: 0 0 10px 0; padding: 0;	
+}
+#main h1 {
+	padding: 10px 0 5px 5px;
+	margin: 0 0 0 10px;
+	border-bottom: 1px dashed #D5D5D5; 	
+}
+
+.post {
+	margin: 0; padding: 0;	
+}
+.post .post-footer {
+	background-color: #fafafa;
+	padding: 5px; margin-top: 20px;
+	font-size: 95%;
+	border: 1px solid #eee;
+}
+
+
+/* footer */
 #footer {
-}
-
-#footer p {
+	clear: both;
+	margin: 0; padding: 12px 0 0 0;
+	font: normal .92em/1.5em 'Trebuchet MS', Tahoma, Arial, sans-serif;
+	height: 45px;
+	background: url(../images/template/footer-bg.jpg) no-repeat left bottom;
+	color: #666666;
 	text-align: center;
-	color: #777777;
+}
+#footer p {
+	margin: 0; padding: 0;
+}
+#footer a {
+	text-decoration: none;
+	color: #777;	
+}
+#footer a:hover {
+	text-decoration: underline;
+	color: #333;
 }
 
-#footer a {
-	color: #5D5D5D;
-}
+/* alignment classes */
+.float-left  { float: left; }
+.float-right { float: right; }
+.align-left  { text-align: left; }
+.align-right {	text-align: right; }
+
+/* additional classes */
+.clear { clear: both; }
+.gray  { color: #BFBFBF; }
+
+
+

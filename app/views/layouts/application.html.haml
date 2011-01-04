@@ -21,37 +21,39 @@
     = render :partial => "shared/analytics"
 
   %body
-    #header
-      #logo
-        %h1= SITE_NAME
+    #wrap
+      #header
+        #name-box
+          %h1= link_to PAGE_TITLE, "/"
+          %h2= PAGE_SUB_TITLE
+        #photo-box
+
       #menu
         %ul
-          %li.first= link_to "News", "/", :accesskey => "1"
+          %li= link_to "News", "/", :accesskey => "1", :class => "current"
           %li= link_to "Shows", "/events", :accesskey => "2"
           %li= link_to "Gallery", "/galleries", :accesskey => "3"
           %li= link_to "Links", "/links", :accesskey => "4"
           %li= link_to "Bio", "/bio", :accesskey => "5"
           %li= link_to "Contact", "/contact", :accesskey => "6"
           %li= link_to "Login", "/admin/login", :accesskey => "7" if Rails.env.development? && !controller.current_user
-    
-    #splash
-      = link_to image_tag("template/header.png", :alt => "", :width => "877", :height => "140")
-    
-    #content
-      #colOne
+
+      #content-wrap
+        #content
+          #sidebar= render :partial => "shared/sidebar"
+
+          #main
+            = render :partial => "shared/flashes"
+            = yield
+
+      #footer
         %p
-          = render :partial => "shared/flashes"
-          = yield
-      #colTwo= render :partial => "shared/sidebar"
-        
-      .clear
+          = link_to image_tag("/images/icons/rss.png", :alt => "RSS"), "/rss.xml"
+          = link_to "RSS", "/rss.xml"
 
-    #footer
-      %p
-        = link_to image_tag("/images/icons/rss.png", :alt => "RSS"), "/rss.xml"
-        = link_to "RSS", "/rss.xml"
-
-        &copy; #{Time.now.year}
-        = obfuscated_mail_to SITE_EMAIL, "Andrew Littleford"
-        and
-        = obfuscated_mail_to ADMIN_EMAIL, "Kevin McPhillips"
+          &copy; #{Time.now.year}
+          = obfuscated_mail_to SITE_EMAIL, "Andrew Littleford"
+          ,
+          = obfuscated_mail_to ADMIN_EMAIL, "Kevin McPhillips"
+          and
+          = obfuscated_mail_to ADMIN_EMAIL, "Grace Hrabi McPhillips"
