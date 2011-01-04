@@ -1,0 +1,313 @@
+/*
+ *andrewlittleford.com
+ *By Kevin McPhillips
+ *Adapted from a template on http://www.styleshout.com/ by Erwin Aligam
+
+/********************************************
+ *   HTML ELEMENTS
+ ********************************************
+
+$white: #FFF
+$grey: #DDD
+$black: #000
+
+$offwhite: #FFFFCC
+$background: #6D5434
+$dark_background: #4E3525
+$selected: #993333
+$hover: #006699
+$light_hover: #CC9966
+$text: #444
+$shaded_text: #333
+$border: #DDD
+$dark_header: #4E3525
+$footer_text: #666
+$footer_dark_text: #555
+
+
+/* top elements
+
+*
+  padding: 0
+  margin: 0
+
+body
+  margin: 20px 0 20px 0
+  padding: 0
+  font: normal 0.72em / 1.5em "Trebuchet MS", sans-serif
+  color: $text
+  background: $background
+  text-align: center
+  height: 100%
+
+/* links
+
+a
+  background: inherit
+  color: $selected
+  text-decoration: none
+  &:hover
+    background: inherit
+    color: $hover
+    text-decoration: underline
+
+/* headers
+
+h1, h2, h3
+  font: bold 1em 'Trebuchet MS', Tahoma, Sans-serif
+  color: $shaded_text
+
+h1
+  font-size: 1.4em
+
+h2, h3
+  font-size: 1.2em
+
+p, h1, h2, h3
+  margin: 10px 15px
+
+ul, ol
+  margin: 10px 30px
+  padding: 0 15px
+  color: $selected
+
+ul span, ol span
+  color: $shaded_text
+
+/* images
+
+img
+  border: 1px solid $border
+  padding: 5px
+  background-color: $white
+
+label
+  font-weight: bold
+  margin: 5px 0
+
+/* Shared
+
+.bold
+  font-weight: bold
+
+.clear
+  clear: both
+
+.left_float
+  float: left
+
+.right_float
+  float: right
+
+/***********************
+ *	  LAYOUT
+ ************************
+
+#wrap
+  width: 770px
+  margin: 0 auto
+  background: white url(../images/template/wrap-bg.jpg) repeat-y
+
+#header-content, #content
+  width: 740px
+
+/* header
+
+#header
+  position: relative
+  height: 176px
+  text-align: left
+  margin: 0
+  padding: 0
+  background: $white
+  #photo-box
+    position: absolute
+    right: 15px
+    top: 15px
+    width: 455px
+    height: 156px
+    background: white url(../images/template/header.jpg) no-repeat
+  #full-box
+    position: absolute
+    left: 15px
+    top: 15px
+    width: 740px
+    height: 156px
+    img
+      padding: 0
+      margin: 0
+      border: 0
+      a
+        padding: 0
+        margin: 0
+        border: 0
+  #name-box
+    position: absolute
+    left: 15px
+    top: 15px
+    width: 280px
+    height: 156px
+    background: $dark_background
+
+#name-box
+  h1
+    position: absolute
+    font: bold 50px 'Trebuchet MS', Sans-serif
+    letter-spacing: -2px
+    color: $white
+    margin: 0
+    padding: 0
+    /* change the values of left and top to adjust the position of the logo
+    top: 25px
+    left: 34px
+    a
+      color: $white
+      &:hover
+        color: $white
+        text-decoration: none
+  h2
+    position: absolute
+    font: bold 12px 'Trebuchet Ms', Sans-serif
+    text-transform: none
+    color: $offwhite
+    margin: 0
+    padding: 0
+    /* change the values of left and top to adjust the position of the slogan
+    top: 88px
+    left: 60px
+
+/* header menu
+
+#menu
+  clear: both
+  margin: 0
+  padding: 0 0 10px 0
+  width: 770px
+  background: white url(../images/template/wrap-bg.jpg) repeat-y
+  float: left
+  ul
+    font: bolder 14px 'Trebuchet MS', sans-serif
+    width: 740px
+    color: $white
+    background-color: $dark_background
+    margin: 0 15px
+    padding: 0
+    display: inline
+    border-bottom: 6px solid $white
+    float: left
+  li
+    float: left
+    list-style: none
+    a
+      display: block
+      padding: 5px 15px
+      color: $white
+      text-decoration: none
+      &:hover
+        background: $light_hover
+        color: $white
+      &.current
+        background: $selected
+        color: $white
+
+/* content
+
+#content-wrap
+  clear: both
+  float: left
+  width: 100%
+  background: white url(../images/template/content.jpg) repeat-y
+
+#content
+  clear: both
+  text-align: left
+  padding: 0
+  margin: 0 auto
+
+/* sidebar
+
+#sidebar
+  float: right
+  width: 30%
+  margin: 0 0 10px 0
+  padding: 0
+  h1
+    padding: 10px 0px 5px 10px
+    margin: 0
+    color: $dark_header
+
+.sidebox
+  margin-bottom: 10px
+
+/* sidebar menu
+
+#sidebar ul.sidemenu
+  list-style: none
+  margin: 10px 0 15px 0
+  padding: 0
+  li
+    padding: 0px 10px
+  a
+    display: block
+    font-weight: normal
+    color: $shaded_text
+    height: 1.5em
+    padding: .3em 0 .3em 15px
+    line-height: 1.5em
+    border-bottom: 1px dashed $border
+    text-decoration: none
+    &.top
+      border-top: 1px dashed $border
+    &:hover
+      padding: .3em 0 .3em 10px
+      border-left: 5px solid  $selected
+      color: $selected
+
+/* main
+
+#main
+  float: left
+  width: 67%
+  margin: 0 0 10px 0
+  padding: 0
+  h1
+    padding: 10px 0 5px 5px
+    margin: 0 0 0 10px
+    border-bottom: 1px dashed $border
+
+.post
+  margin: 0
+  padding: 0
+  .post-footer
+    background-color: $white
+    padding: 5px
+    margin-top: 20px
+    font-size: 95%
+    border: 1px solid $border
+    text-align: right
+    font-weight: bold
+
+/* footer
+
+#footer
+  clear: both
+  margin: 0
+  padding: 12px 0 0 0
+  font: normal 0.92em / 1.5em "Trebuchet MS", Tahoma, Arial, sans-serif
+  height: 45px
+  background: url(../images/template/footer-bg.jpg) no-repeat left bottom
+  color: $footer_text
+  text-align: center
+  p
+    margin: 0
+    padding: 0
+  a
+    text-decoration: none
+    color: $footer_dark_text
+    &:hover
+      text-decoration: underline
+      color: $shaded_text
+  img
+    border: 0
+    padding: 0
+    background-color: transparent
