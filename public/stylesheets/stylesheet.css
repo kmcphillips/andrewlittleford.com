@@ -208,13 +208,13 @@ label {
   margin-bottom: 10px; }
 
 /* sidebar menu */
-#sidebar ul.sidemenu {
+#sidebar ul {
   list-style: none;
   margin: 10px 0 15px 0;
   padding: 0; }
-  #sidebar ul.sidemenu li {
+  #sidebar ul li {
     padding: 0px 10px; }
-  #sidebar ul.sidemenu a {
+  #sidebar ul a {
     display: block;
     font-weight: normal;
     color: #333333;
@@ -223,9 +223,9 @@ label {
     line-height: 1.5em;
     border-bottom: 1px dashed #dddddd;
     text-decoration: none; }
-    #sidebar ul.sidemenu a.top {
+    #sidebar ul a.top {
       border-top: 1px dashed #dddddd; }
-    #sidebar ul.sidemenu a:hover {
+    #sidebar ul a:hover {
       padding: 0.3em 0 0.3em 10px;
       border-left: 5px solid #993333;
       color: #993333; }
