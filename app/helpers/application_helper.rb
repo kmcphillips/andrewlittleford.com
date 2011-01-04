@@ -2,14 +2,14 @@ module ApplicationHelper
   
   def page_title
     prefix = PAGE_TITLE
-    prefix = "#{prefix} - Admin" if params[:controller] =~ /^admin\//
+    prefix = "#{prefix} :: Admin" if params[:controller] =~ /^admin\//
 
     if @title
-      @title.blank? ? prefix : "#{prefix} - #{@title}"
+      @title.blank? ? prefix : "#{prefix} :: #{@title}"
     elsif params[:controller] =~ /blocks$/
-      "#{prefix} - #{params[:action].humanize}"
+      "#{prefix} :: #{params[:action].humanize}"
     elsif params[:controller] !~ /^admin\//
-      "#{prefix} - #{params[:controller].humanize}"
+      "#{prefix} :: #{params[:controller].humanize}"
     else
       prefix
     end

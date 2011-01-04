@@ -23,10 +23,9 @@
   %body
     #wrap
       #header
-        #name-box
-          %h1= link_to PAGE_TITLE, "/"
-          %h2= PAGE_SUB_TITLE
-        #photo-box
+        #full-box= link_to image_tag("template/header.png", :alt => "#{PAGE_TITLE} - #{PAGE_SUB_TITLE}"), "/"
+
+        
 
       #menu
         %ul

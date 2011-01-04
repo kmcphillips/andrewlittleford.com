@@ -29,13 +29,22 @@ h1, h2, h3 {
 	font: bold 1em 'Trebuchet MS', Tahoma, Sans-serif;
 	color: #333;
 }
-h1 { font-size: 1.4em; }
-h2 { font-size: 1.2em; text-transform: uppercase;}
-h3 { font-size: 1.2em; }
+h1 {
+    font-size: 1.4em;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
 
 p, h1, h2, h3 {
 	margin: 10px 15px;
 }
+
 ul, ol {
 	margin: 10px 30px;
 	padding: 0 15px;	
@@ -47,98 +56,33 @@ ul span, ol span {
 
 /* images */
 img {
-  border: 1px solid #DDD; 
+  border: 1px solid #DDD;
   padding: 5px;
   background-color: #FFF;
 }
-img.float-right {
-  margin: 5px 0px 5px 15px;  
-}
-img.float-left {
-  margin: 5px 15px 5px 0px;
-}
 
-code {
-  margin: 5px 0;
-  padding: 10px;
-  text-align: left;
-  display: block;
-  overflow: auto;  
-  font: 500 1em/1.5em 'Lucida Console', 'courier new', monospace;
-  /* white-space: pre; */
-  background: #FAFAFA;
-  border: 1px solid #eee;    
-}
-acronym {
-  cursor: help;
-  border-bottom: 1px solid #777;
-}
-blockquote {
-	margin: 15px; 	padding: 0 0 0 20px;  	
-  	background: #FAFAFA url(../images/template/quote.gif) no-repeat 3px 5px;
-	border: 1px solid #eee; 
-	font: bold 1.2em/1.5em 'Trebuchet MS', Tahoma, sans-serif; 
-	color: #666666;	
-}
-
-/* form elements */
-form {
-	margin:10px 15px; padding: 0;
-	border: 1px solid #eee; 
-	background-color: #FAFAFA; 
-}
 label {
-	display:block;
 	font-weight:bold;
 	margin:5px 0;
 }
-input {
-	padding: 2px;
-	border:1px solid #eee;
-	font: normal 1em 'Trebuchet MS', verdana, sans-serif;
-	color:#777;
-}
-textarea {
-	width:400px;
-	padding:2px;
-	font: normal 1em 'Trebuchet MS', verdana, sans-serif;
-	border:1px solid #eee;
-	height:100px;
-	display:block;
-	color:#777;
-}
-input.button { 
-	margin: 0; 
-	font: bold 1em Arial, Sans-serif; 
-	border: 1px solid #CCC;
-	background: #FFF; 
-	padding: 2px 3px; 
-	color: #333;	
+
+/* Shared */
+.bold {
+    font-weight: bold;
 }
 
-/* search form */
-.searchform {
-	background-color: transparent;
-	border: none;	
-	margin: 0; padding: 0;	
+.clear {
+    clear: both;
 }
-.searchform p { margin: 10px; padding: 0; }
-.searchform input.textbox { 
-	width: 130px;
-	color: #333; 
-	height: 20px;
-	padding: 2px;	
-	vertical-align: top;
+
+.left_float {
+    float: left;
 }
-.searchform input.button { 
-	font: bold 12px Arial, Sans-serif; 
-	color: #333;	
-	width: 60px;
-	height: 26px;
-	border: none;
-	padding: 3px 5px;	
-	vertical-align: top;
+
+.right_float {
+    float: right;
 }
+
 
 /***********************
 	  LAYOUT
@@ -168,6 +112,27 @@ input.button {
 	height: 156px;
 	background: #FFF url(../images/template/header.jpg) no-repeat;	
 }
+
+#header #full-box {
+    position: absolute;
+	left: 15px ;
+    top: 15px;
+	width: 740px;
+	height: 156px;
+}
+
+#header #full-box img {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+#header #full-box img a {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
 #header #name-box {
 	position: absolute;
 	left: 15px ; top: 15px;
@@ -306,12 +271,12 @@ input.button {
 #main {
 	float: left;
 	width: 67%;	
-	margin: 0 0 10px 0; padding: 0;	
+	margin: 0 0 10px 0; padding: 0;
 }
 #main h1 {
 	padding: 10px 0 5px 5px;
 	margin: 0 0 0 10px;
-	border-bottom: 1px dashed #D5D5D5; 	
+	border-bottom: 1px dashed #D5D5D5;
 }
 
 .post {
@@ -347,15 +312,10 @@ input.button {
 	color: #333;
 }
 
-/* alignment classes */
-.float-left  { float: left; }
-.float-right { float: right; }
-.align-left  { text-align: left; }
-.align-right {	text-align: right; }
-
-/* additional classes */
-.clear { clear: both; }
-.gray  { color: #BFBFBF; }
-
+#footer img {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
 
 
