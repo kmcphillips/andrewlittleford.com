@@ -6,3 +6,4 @@ tmp/*
 config/database.yml
 .idea
 public/assets
+public/stylesheets/stylesheet.css
