@@ -3,3 +3,15 @@ Add content to error pages
 Setup datepicker for events (switch to drop downs)
 Allow ends at to optionally be not set
 
+Integrate videos
+
+Layout media player
+
+Swap out the lightbox
+
+Fix draggable
+
+Create galleries
+
+Lock after login attempts. Possibly switch to authlogic?
+

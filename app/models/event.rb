@@ -5,9 +5,9 @@ class Event < ActiveRecord::Base
 
   include AttachedImage
 
-  scope :upcoming, lambda { where("events.starts_at > ?", Time.now).order("starts_at ASC") }
-  scope :current, lambda { t = Time.now; where("events.ends_at IS NOT NULL AND events.starts_at < ? AND events.ends_at > ?", t, t).order("starts_at ASC") }
-  scope :past, lambda { t = Time.now; where("(events.ends_at IS NOT NULL && events.ends_at < ?) OR (events.ends_at IS NULL && events.starts_at < ?)", t, t).order("starts_at DESC") }
+  scope :upcoming, lambda { t = Time.now; where("events.starts_at > ?", t.end_of_day).order("starts_at ASC") }
+  scope :current,  lambda { t = Time.now; where("((events.ends_at = '' OR events.ends_at IS NULL) AND events.starts_at BETWEEN ? AND ?) OR ((events.ends_at != '' OR events.ends_at IS NOT NULL) AND events.starts_at < ? AND events.ends_at > ?)", t.beginning_of_day, t.end_of_day, t.end_of_day, t.beginning_of_day).order("starts_at DESC") }
+  scope :past,     lambda { t = Time.now; where("((events.ends_at = '' OR events.ends_at IS NULL) AND events.starts_at < ?) OR ((events.ends_at != '' OR events.ends_at IS NOT NULL) AND events.ends_at < ?)", t.beginning_of_day, t.beginning_of_day) }
 
   def sort_by; starts_at; end
 
