@@ -15,6 +15,7 @@ AndrewlittlefordCom::Application.routes.draw do
 
   resources :events, :only => [:index, :show]
   resources :galleries, :only => [:index, :show]
+  match 'media' => 'galleries#index'
 
   # admin
   namespace :admin do

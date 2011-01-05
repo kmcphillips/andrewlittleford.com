@@ -1,0 +1,9 @@
+%ul
+  %li= link_to "News", "/", :accesskey => "1", :class => "current"
+  %li= link_to "Shows", "/events", :accesskey => "2"
+  %li= link_to "Media", "/media", :accesskey => "3"
+  %li= link_to "Links", "/links", :accesskey => "4"
+  %li= link_to "Bio", "/bio", :accesskey => "5"
+  %li= link_to "Contact", "/contact", :accesskey => "6"
+  %li= link_to "Login", "/admin/login", :accesskey => "7" if Rails.env.development? && !controller.current_user
+
