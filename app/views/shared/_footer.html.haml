@@ -1,11 +1,8 @@
 %p
-  = link_to image_tag("/images/icons/rss.png", :alt => "RSS"), "/rss.xml"
-  = link_to "RSS", "/rss.xml"
-
   &copy; #{Time.now.year}
-  = obfuscated_mail_to SITE_EMAIL, "Andrew Littleford"
-  ,
-  = obfuscated_mail_to ADMIN_EMAIL, "Kevin McPhillips"
-  and
-  = obfuscated_mail_to ADMIN_EMAIL, "Grace Hrabi McPhillips"
+  #{obfuscated_mail_to(SITE_EMAIL, "Andrew Littleford")}, #{obfuscated_mail_to(ADMIN_EMAIL, "Kevin McPhillips")}, and #{obfuscated_mail_to(ADMIN_EMAIL, "Grace Hrabi McPhillips")}
 
+  &nbsp;&nbsp;&nbsp;
+
+  = link_to "RSS", "/rss.xml"
+  = link_to image_tag("/images/icons/rss.png", :alt => "RSS"), "/rss.xml"
