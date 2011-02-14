@@ -1,6 +1,5 @@
 .post
-  %h1= link_to post.title, post_path(post)
-
-  = simple_format post.body
-
-  %p.post-footer= (post.created_at || Time.now).to_s(:news_without_time)
+  %h2.title= link_to post.title, post_path(post)
+  .entry
+    .meta= (post.created_at || Time.now).to_s(:news_without_time)
+    = simple_format post.body

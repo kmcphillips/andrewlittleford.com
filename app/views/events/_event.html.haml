@@ -1,16 +1,17 @@
 .post
-  %h1= link_to event.title, event_path(event)
-  %h3
-    - if event.upcoming?
-      = "Starts " if event.ends_at
-      = event.starts_at.to_formatted_s(:event_with_time)
-    - elsif event.past?
-      = "Happened on"
-      = event.starts_at.to_formatted_s(:event_with_time)
-    - else
-      = "Started "
-      = event.starts_at.to_formatted_s(:event_with_time)
-      
-  %h3= "Ends #{event.ends_at.to_formatted_s(:event_with_time)}" if event.ends_at && !event.past?
+  %h2.title= link_to event.title, event_path(event)
+  .entry
+    .meta
+      - if event.upcoming?
+        = "Starts " if event.ends_at
+        = event.starts_at.to_formatted_s(:event_with_time)
+      - elsif event.past?
+        = "Happened on"
+        = event.starts_at.to_formatted_s(:event_with_time)
+      - else
+        = "Started "
+        = event.starts_at.to_formatted_s(:event_with_time)
 
-  .body= simple_format event.description
+      = "Ends #{event.ends_at.to_formatted_s(:event_with_time)}" if event.ends_at && !event.past?
+
+    = simple_format event.description

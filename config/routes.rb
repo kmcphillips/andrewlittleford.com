@@ -6,7 +6,7 @@ AndrewlittlefordCom::Application.routes.draw do
   match 'rss.:format' => 'posts#rss'
 
   # blocks
-  ['contact', 'links', 'bio'].each do |block|
+  ['contact', 'links', 'bio', 'gallery'].each do |block|
     match block => "blocks##{block}"
   end
 
@@ -14,8 +14,6 @@ AndrewlittlefordCom::Application.routes.draw do
   match 'player/:id' => 'tracks#show'
 
   resources :events, :only => [:index, :show]
-  resources :galleries, :only => [:index, :show]
-  match 'media' => 'galleries#index'
 
   # admin
   namespace :admin do

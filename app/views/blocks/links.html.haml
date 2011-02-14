@@ -1,9 +1,10 @@
 .post
-  %h1 Links
-  %h3 &nbsp;
+  %h2.title Links
+  .entry
+    .meta
 
-  %ul.links
-    - @links.each do |link|
-      %li
-        %p.link= link_to link.display, link.url
-        = simple_format(link.description) unless link.description.blank?
+    %ul.links
+      - @links.each do |link|
+        %li
+          %p.link= link_to link.display, link.url
+          = simple_format(link.description) unless link.description.blank?

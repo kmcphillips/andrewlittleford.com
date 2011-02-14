@@ -1,9 +1,8 @@
 .post
-  %h1 Contact Information
-  %h3 &nbsp;
+  %h2.title Contact Information
+  .entry
+    .meta
 
-  = simple_format @block.body
-  %br
-  %p
-    Email: 
-    = obfuscated_mail_to SITE_EMAIL
+    = simple_format @block.body
+    %br
+    %p= obfuscated_mail_to SITE_EMAIL

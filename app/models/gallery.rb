@@ -15,5 +15,9 @@ class Gallery < ActiveRecord::Base
   def last_updated_at
     images.most_recently_updated.first.try(:updated_at)
   end
-  
+
+  def self.singleton
+    first
+  end
+
 end

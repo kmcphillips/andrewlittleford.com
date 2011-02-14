@@ -1,315 +1,314 @@
 /*
  *andrewlittleford.com
  *By Kevin McPhillips
- *Adapted from a template on http://www.styleshout.com/ by Erwin Aligam
+ *Adapted from a template on //www.freecsstemplates.org
 
 /********************************************
  *   HTML ELEMENTS
  ********************************************
 
+//$white: #FFF
+//$black: #000
+//$grey: #DDD
+//$offwhite: #FFFFCC
+//
+//$text: #444
+//$footer_text: #666
+//$footer_dark_text: #555
+//$shaded_text: #333
+//
+//$background: #7A7A7D
+//$dark_background: #4E3525
+//$selected: #55573D
+//$hover: #45B1D8
+//$light_hover: #625112
+//$border: #DDD
+//$dark_header: #97BE0D
+//$sidebar_link: #45B1D8
+
 $white: #FFF
-$black: #000
-$grey: #DDD
-$offwhite: #FFFFCC
+$offwhite: #1E1E1E
+$gray: #D1D1D1
 
-$text: #444
-$footer_text: #666
-$footer_dark_text: #555
-$shaded_text: #333
+$background: #353535
+$text_copy: #534616
+$accent: #D6E6CC
 
-$background: #7A7A7D
-$dark_background: #4E3525
-$selected: #55573D
-$hover: #45B1D8
-$light_hover: #625112
-$border: #DDD
-$dark_header: #97BE0D
-$sidebar_link: #45B1D8
+$text_footer: #898989
+$text_footer_dark: #AAAAAA
 
-
-/* top elements
-
-*
-  padding: 0
-  margin: 0
 
 body
-  margin: 20px 0 20px 0
+  margin: 0
   padding: 0
-  font: normal 0.72em / 1.5em "Trebuchet MS", sans-serif
-  color: $text
+  //background: $background url(../images/background.png) fixed center top
   background: $background
-  text-align: center
-  height: 100%
-
-/* links
-
-a
-  background: inherit
-  color: $selected
-  text-decoration: none
-  &:hover
-    background: inherit
-    color: $hover
-    text-decoration: underline
-
-/* headers
+  font-family: Arial, Helvetica, sans-serif
+  font-size: 12px
+  color: $text_copy
 
 h1, h2, h3
-  font: bold 1em 'Trebuchet MS', Tahoma, Sans-serif
-  color: $shaded_text
+  margin: 0
+  padding: 0
+  font-family: Georgia, "Times New Roman", Times, serif
+  font-weight: normal
+  color: $text_copy
 
 h1
-  font-size: 1.4em
+  font-size: 2em
 
-h2, h3
-  font-size: 1.2em
+h2
+  font-size: 1.8em
 
-p, h1, h2, h3
-  margin: 10px 15px
+h3
+  font-size: 1.6em
+
+p, ul, ol
+  margin-top: 0
+  line-height: 180%
 
 ul, ol
-  margin: 10px 30px
-  padding: 0 15px
-  color: $selected
 
-ul span, ol span
-  color: $shaded_text
+a
+  text-decoration: none
+  color: $text_copy
+  &:hover
 
-/* images
-
-img
-  border: 1px solid $border
-  padding: 5px
-  background-color: $white
-
-label
-  font-weight: bold
-  margin: 5px 0
-
-/* Shared
+/* shared
+.clear
+  clear: both
 
 .bold
   font-weight: bold
-
-.clear
-  clear: both
 
 .left_float
   float: left
 
 .right_float
   float: right
+  
 
-/***********************
- *	  LAYOUT
- ************************
-
-#wrap
-  width: 770px
+#wrapper
+  width: 960px
   margin: 0 auto
-  background: white url(../images/template/wrap-bg.jpg) repeat-y
+  padding: 0
 
-#header-content, #content
-  width: 740px
-
-/* header
+/* Header
 
 #header
-  position: relative
-  height: 176px
-  text-align: left
-  margin: 0
-  padding: 0
-  background: $white
-  #photo-box
-    position: absolute
-    right: 15px
-    top: 15px
-    width: 455px
-    height: 156px
-    background: white url(../images/template/header.jpg) no-repeat
-  #full-box
-    position: absolute
-    left: 15px
-    top: 15px
-    width: 740px
-    height: 156px
-    img
-      padding: 0
-      margin: 0
-      border: 0
-      a
-        padding: 0
-        margin: 0
-        border: 0
-  #name-box
-    position: absolute
-    left: 15px
-    top: 15px
-    width: 280px
-    height: 156px
-    background: $dark_background
-
-#name-box
-  h1
-    position: absolute
-    font: bold 50px 'Trebuchet MS', Sans-serif
-    letter-spacing: -2px
-    color: $white
-    margin: 0
-    padding: 0
-    /* change the values of left and top to adjust the position of the logo
-    top: 25px
-    left: 34px
-    a
-      color: $white
-      &:hover
-        color: $white
-        text-decoration: none
-  h2
-    position: absolute
-    font: bold 12px 'Trebuchet Ms', Sans-serif
-    text-transform: none
-    color: $offwhite
-    margin: 0
-    padding: 0
-    /* change the values of left and top to adjust the position of the slogan
-    top: 88px
-    left: 60px
-
-/* header menu
-
-#menu
-  clear: both
-  margin: 0
-  padding: 0 0 10px 0
-  width: 770px
-  background: $dark_header url(../images/template/wrap-bg.jpg) repeat-y
-  float: left
-  ul
-    font: bolder 14px 'Trebuchet MS', sans-serif
-    width: 740px
-    color: $white
-    background-color: $dark_header
-    margin: 0 15px
-    padding: 0
-    display: inline
-    border-bottom: 6px solid $white
-    float: left
-  li
-    float: left
-    list-style: none
-    a
-      display: block
-      padding: 5px 15px
-      color: $white
-      text-decoration: none
-      &:hover
-        background: $light_hover
-        color: $white
-      &.current
-        background: $selected
-        color: $white
-
-/* content
-
-#content-wrap
-  clear: both
-  float: left
-  width: 100%
-  background: white url(../images/template/content.jpg) repeat-y
-
-#content
-  clear: both
-  text-align: left
-  padding: 0
+  width: 960px
+  height: 110px
   margin: 0 auto
 
-/* sidebar
+/* Logo
 
-#sidebar
-  float: right
-  width: 30%
-  margin: 0 0 10px 0
-  padding: 0
-  h1
-    padding: 10px 0px 5px 10px
+#logo
+  float: left
+  height: 65px
+  margin: 0
+  padding-top: 20px
+  color: $white
+  h1, p
     margin: 0
-    color: $dark_header
+    padding: 0
+  h1
+    float: left
+    letter-spacing: -1px
+    font-size: 4.6em
+    color: $white
+  p
+    float: left
+    margin: 0
+    padding: 37px 0 0 20px
+    font: normal 14px Georgia, "Times New Roman", Times, serif
+    font-style: italic
+  a
+    border: none
+    background: none
+    text-decoration: none
+    color: $white
 
-.sidebox
-  margin-bottom: 10px
+#launch
+  text-align: right
+  width: 100%
+  padding-top: 52px
+  font-family: Georgia, "Times New Roman", Times, serif
 
-/* sidebar menu
+  a
+    color: $white
+    font-size: 1.4em
 
-#sidebar ul
-  list-style: none
-  margin: 10px 0 15px 0
+/* Menu
+
+#menu
+  width: 960px
+  height: 50px
+  margin: 0 auto
   padding: 0
+  background: $offwhite
+  ul
+    margin: 0
+    padding: 0px 0px 0px 25px
+    list-style: none
+    line-height: normal
   li
-    padding: 0px 10px
+    float: left
   a
     display: block
-    font-weight: normal
-    color: $sidebar_link
-    height: 1.5em
-    padding: .3em 0 .3em 15px
-    line-height: 1.5em
-    border-bottom: 1px dashed $border
+    margin-right: 3px
+    height: 35px
+    padding: 15px 30px 7px 30px
     text-decoration: none
-    &.top
-      border-top: 1px dashed $border
+    font-family: Arial, Helvetica, sans-serif
+    font-size: 13px
+    font-weight: bold
+    color: $white
+    border: none
     &:hover
-      padding: .3em 0 .3em 10px
-      border-left: 5px solid  $selected
-      color: $selected
+  .current_page_item a
+    padding-left: 0
+  a:hover
+    text-decoration: underline
 
-/* main
+/* Page
 
-#main
-  float: left
-  width: 67%
-  margin: 0 0 10px 0
+#page
+  width: 960px
+  margin: 0 auto
+  padding: 20px 0px 0px 0px
+
+#page-bgtop, #page-bgbtm
+
+/* Content
+
+#content
+  float: right
+  width: 670px
   padding: 0
-  h1
-    padding: 10px 0 5px 5px
-    margin: 0 0 0 10px
-    border-bottom: 1px dashed $border
 
 .post
-  margin: 0
-  padding: 0
-  .post-footer
-    background-color: $white
-    padding: 5px
-    margin-top: 20px
-    font-size: 95%
-    border: 1px solid $border
-    text-align: right
-    font-weight: bold
+  margin-bottom: 25px
+  padding: 0px
+  background: $white
 
-/* footer
+.post-bgtop, .post-bgbtm
 
-#footer
-  clear: both
-  margin: 0
-  padding: 12px 0 0 0
-  font: normal 0.92em / 1.5em "Trebuchet MS", Tahoma, Arial, sans-serif
-  height: 45px
-  background: url(../images/template/footer-bg.jpg) no-repeat left bottom
-  color: $footer_text
-  text-align: center
-  p
+.post
+  .title
+    height: 38px
+    //background: $offwhite url(../images/template/post_header.jpg) no-repeat left top
+    background: $offwhite
+    padding: 12px 0 0 20px
+    letter-spacing: -0.5px
+    color: $white
+    a
+      border: none
+      color: $white
+  .meta
+    padding-top: 20px
+    padding-bottom: 5px
+    text-align: left
+    font-family: Arial, Helvetica, sans-serif
+    font-size: 11px
+    font-style: italic
+    a
+  .entry
+    // background: url(../images/template/post_body.jpg) no-repeat left top
+    padding: 0px 20px 20px 20px
+    padding-bottom: 20px
+    text-align: justify
+
+h2.super
+  height: 44px
+  background: $offwhite
+  padding: 12px 0 0 20px
+  letter-spacing: -0.5px
+  color: $white
+  font-size: 2em
+
+.pagination
+  // TODO
+
+
+
+/* Sidebar
+
+#sidebar
+  float: left
+  width: 240px
+  padding: 0px
+  color: #787878
+  ul
+    padding: 0
+    list-style: none
+  li
     margin: 0
     padding: 0
+    ul
+      margin-bottom: 30px
+      padding: 0px 20px 20px 20px
+      background: $white
+      border-left: 1px solid $accent
+      border-right: 1px solid $accent
+      border-bottom: 1px solid $accent
+    li
+      line-height: 35px
+      border-bottom: 1px dashed $gray
+      padding-left: 3px
+      span
+        display: block
+        margin-top: -20px
+        padding: 0
+        font-size: 11px
+        font-style: italic
+  h2
+    height: 38px
+    padding: 12px 0 0 20px
+    background: $offwhite
+    letter-spacing: -0.5px
+    color: $white
+  p
+    margin: 0px 0px 20px 0px
+    padding: 10px 20px 20px 20px
+    background: $text_copy
+    text-align: justify
   a
-    text-decoration: none
-    color: $footer_dark_text
+    border: none
     &:hover
       text-decoration: underline
-      color: $shaded_text
-  img
-    border: 0
-    padding: 0
-    background-color: transparent
+
+/* Calendar
+
+#calendar
+
+#calendar_wrap
+  padding: 20px
+
+#calendar
+  table
+    width: 100%
+  tbody td
+    text-align: center
+  #next
+    text-align: right
+
+/* Footer
+
+#footer
+  width: 960px
+  height: 64px
+  margin: 0 auto
+  padding: 0px 0 15px 0
+  font-family: Arial, Helvetica, sans-serif
+  p
+    margin: 0
+    padding: 20px 0
+    line-height: normal
+    font-size: 12px
+    text-align: center
+    color: $text_footer
+  a
+    font-weight: bold
+    color: $text_footer_dark
+    img
+      border: none

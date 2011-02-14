@@ -12,6 +12,7 @@ class BlocksController < ApplicationController
   end
 
   def gallery
+    @gallery = Gallery.singleton
   end
 
   def links

@@ -15,4 +15,11 @@ describe Gallery do
       g.last_updated_at.should == "pie"
     end
   end
+
+  describe "class methods" do
+    it "should get the singleton" do
+      Gallery.should_receive(:first).and_return("pie")
+      Gallery.singleton.should == "pie"
+    end
+  end
 end
