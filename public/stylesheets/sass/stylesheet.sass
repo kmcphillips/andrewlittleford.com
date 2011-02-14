@@ -27,7 +27,7 @@
 //$sidebar_link: #45B1D8
 
 $white: #FFF
-$offwhite: #1E1E1E
+$background_dark: #1E1E1E
 $gray: #D1D1D1
 
 $background: #353535
@@ -139,13 +139,47 @@ a
     font-size: 1.4em
 
 /* Menu
-
 #menu
+  width: 960px
+  margin: 0 auto
+  padding: 0
+  background: $background_dark
+  height: 45px
+  
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+    line-height: normal
+
+    li
+      float: left
+  a
+    display: block
+    padding: 15px 30px
+    text-decoration: none
+    font-family: Arial, Helvetica, sans-serif
+    font-size: 13px
+    font-weight: bold
+    color: $white
+    border: none
+    background: $background_dark
+
+  a.current
+    background: #0000aa
+
+  a:hover
+    text-decoration: none
+    color: $background_dark
+    background: $white
+
+
+#menux
   width: 960px
   height: 50px
   margin: 0 auto
   padding: 0
-  background: $offwhite
+  background: $background_dark
   ul
     margin: 0
     padding: 0px 0px 0px 25px
@@ -196,8 +230,8 @@ a
 .post
   .title
     height: 38px
-    //background: $offwhite url(../images/template/post_header.jpg) no-repeat left top
-    background: $offwhite
+    //background: $background_dark url(../images/template/post_header.jpg) no-repeat left top
+    background: $background_dark
     padding: 12px 0 0 20px
     letter-spacing: -0.5px
     color: $white
@@ -220,7 +254,7 @@ a
 
 h2.super
   height: 44px
-  background: $offwhite
+  background: $background_dark
   padding: 12px 0 0 20px
   letter-spacing: -0.5px
   color: $white
@@ -264,7 +298,7 @@ h2.super
   h2
     height: 38px
     padding: 12px 0 0 20px
-    background: $offwhite
+    background: $background_dark
     letter-spacing: -0.5px
     color: $white
   p
