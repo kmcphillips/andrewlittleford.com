@@ -21,18 +21,19 @@
     = render :partial => "shared/analytics"
 
   %body
+    #background
     #wrapper
       #header
-        #logo
-          %h1
-            %a{:href => "/"} Andrew Littleford
-          %p Performer.&nbsp;Teacher.&nbsp;Musician.
-
-        - if Track.count > 0
-          #launch
-            = button_to_function "Listen", "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=400, width=650, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"
-
-
+        <!-- Yes it's a table, but it works better than anything I could do in CSS for side by side alignment to a bottom line -->
+        %table
+          %tr
+            %td
+              %h1= link_to "Andrew Littleford", "/"
+            %td.bottom
+              %h2 Performer.&nbsp;Teacher.&nbsp;Musician.
+        -# .launch= button_to_function "Listen", "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=400, width=650, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;" if Track.count > 0
+        .clear
+          
       #menu= render :partial => "shared/nav"
 
       #page
@@ -43,4 +44,5 @@
               = yield
             #sidebar= render :partial => 'shared/sidebar'
 
-    #footer= render :partial => "shared/footer"
+      .clear
+    -#footer= render :partial => "shared/footer"

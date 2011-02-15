@@ -42,11 +42,11 @@ $hover: #00B4CC
 
 $rounded_corner: 10px
 
+
 body
   margin: 0
   padding: 0
-  background: $background url(../images/template/background3.png) scroll center bottom no-repeat
-  //background: $background
+  background: $background
   font-family: Arial, Helvetica, sans-serif
   font-size: 12px
   color: $text_copy
@@ -94,42 +94,45 @@ a:hover
   float: right
   
 
+#background
+  background: $background url(../images/template/background3.png) scroll center bottom no-repeat
+  height: 200px
+  width: 100%
+  z-index: -1
+  position: fixed
+  bottom: 0
+
 #wrapper
   width: 960px
-  margin: 0 auto
+  margin: 0 auto 130px auto
   padding: 0
 
 /* Header
 
 #header
   width: 960px
-  height: 110px
   margin: 0 auto
 
-/* Logo
+  table
+    margin: 16px 0
+    
+    td.bottom
+      vertical-align: bottom
 
-#logo
-  float: left
-  height: 65px
-  margin: 0
-  padding-top: 20px
-  color: $white
+    h1
+      margin: 0
+      padding: 0
+      font-family: RockSaltRegular
+      font-size: 3.3em
+      letter-spacing: 5px
+      color: $white
 
-  h1
-    font-family: RockSaltRegular
-    float: left
-    font-size: 3.3em
-    letter-spacing: 5px
-    color: $white
-    margin: 0
-    padding: 0
-
-  p
-    float: left
-    margin: 0
-    padding: 32px 0 0 20px
-    font-family: CartoGothicStdBook
-    font-size: 1.3em
+    h2
+      margin: 0 0 0 10px
+      padding: 0
+      font-family: CartoGothicStdBook
+      font-size: 1.3em
+      color: $white
 
   a
     border: none
@@ -137,15 +140,8 @@ a:hover
     text-decoration: none
     color: $white
 
-#launch
-  text-align: right
-  width: 100%
-  padding-top: 52px
-  font-family: Georgia, "Times New Roman", Times, serif
-
-  a
-    color: $white
-    font-size: 1.4em
+  .launch
+    float: right
 
 /* Menu
 #menu
@@ -153,7 +149,7 @@ a:hover
   margin: 0 auto
   padding: 0
   background: $background_dark
-  height: 45px
+  height: 48px
 
   border-radius: $rounded_corner
   -moz-border-radius: $rounded_corner
@@ -181,7 +177,7 @@ a:hover
     padding: 15px 30px
     text-decoration: none
     font-family: Arial, Helvetica, sans-serif
-    font-size: 13px
+    font-size: 1.2em
     font-weight: bold
     color: $white
     border: none
@@ -241,7 +237,7 @@ div.error
   -moz-border-radius: $rounded_corner
   -webkit-border-radius: $rounded_corner
 
-  // hackity hack
+  // hackity hack - on firefox there is an outline of the white border that shows around the darker one layered on top of it
   border-top-right-radius: 30px
   border-top-left-radius: 30px
   -moz-border-radius-topright: 30px
@@ -251,10 +247,9 @@ div.error
 
 
   .title
-    height: 38px
     //background: $background_dark url(../images/template/post_header.jpg) no-repeat left top
     background: $background_dark
-    padding: 12px 0 0 20px
+    padding: 15px
     font-size: 1.5em
     color: $white
     font-family: CartoGothicStdBook
@@ -284,11 +279,14 @@ div.error
     text-align: justify
 
 h2.super
-  height: 44px
   background: $background_dark
-  padding: 12px 0 0 20px
+  padding: 15px
   color: $white
+  font-family: CartoGothicStdBook
   font-size: 2em
+  border-radius: $rounded_corner
+  -moz-border-radius: $rounded_corner
+  -webkit-border-radius: $rounded_corner
 
 .pagination
   // TODO
@@ -334,8 +332,7 @@ h2.super
         font-size: 11px
         font-style: italic
   h2
-    height: 38px
-    padding: 12px 0 0 20px
+    padding: 15px
     background: $background_dark
     font-size: 1.5em
     color: $white
