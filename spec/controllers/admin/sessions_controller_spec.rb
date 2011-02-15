@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin::SessionsController do
 
   def mock_user(stubs={})
-    @mock_user ||= mock_model(User, stubs)
+    @mock_user ||= mock_model(User, stubs.merge({:name => "Andrew"}))
   end
 
   describe "GET new" do

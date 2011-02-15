@@ -8,7 +8,7 @@ describe EventsController do
 
   describe "GET index" do
     it "assigns all events as @events" do
-      Event.stub(:upcoming => "upcoming", :current => "current", :past => mock(:past, :limit => "past"))
+      Event.stub(:upcoming => "upcoming", :current => "current", :past => mock(:past, :order => mock(:limit, :limit => "past")))
       get :index
       assigns(:upcoming).should eq("upcoming")
       assigns(:current).should eq("current")
