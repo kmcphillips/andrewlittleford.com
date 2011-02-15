@@ -1,14 +1,18 @@
-%h1 Shows
+.post
+  %h2.title Shows
+  .entry
+    .meta
 
-= collection_index @events, ["Title", "Status", "Description", "Starts at", "Actions"] do |event|
-  %tr{:class => row_class}
-    %td= event.title
-    %td= event.status
-    %td= link_to truncate_for_index(event.description), [event]
-    %td= event.starts_at.to_formatted_s(:index)
-    %td
-      = edit_entity_image [:edit, :admin, event]
-      = destroy_entity_image [:admin, event]
+    = collection_index @events, ["Title", "Status", "Description", "Starts at", "Actions"] do |event|
+      %tr{:class => row_class}
+        %td= event.title
+        %td= event.status
+        %td= link_to truncate_for_index(event.description), [event]
+        %td= event.starts_at.to_formatted_s(:index)
+        %td
+          = edit_entity_image [:edit, :admin, event]
+          = destroy_entity_image [:admin, event]
       
-.image_links
-  = new_entity_image new_admin_event_path, "Create New Event"
+    .image_links
+      = new_entity_image new_admin_event_path, "Create New Event"
+

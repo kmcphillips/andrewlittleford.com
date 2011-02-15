@@ -1,32 +1,9 @@
 /*
- *andrewlittleford.com
- *By Kevin McPhillips
- *Adapted from a template on //www.freecsstemplates.org
+ * andrewlittleford.com
+ * By Kevin McPhillips
+ *
 
-/********************************************
- *   HTML ELEMENTS
- ********************************************
-
-//$white: #FFF
-//$black: #000
-//$grey: #DDD
-//$offwhite: #FFFFCC
-//
-//$text: #444
-//$footer_text: #666
-//$footer_dark_text: #555
-//$shaded_text: #333
-//
-//$background: #7A7A7D
-//$dark_background: #4E3525
-//$selected: #55573D
-//$hover: #45B1D8
-//$light_hover: #625112
-//$border: #DDD
-//$dark_header: #97BE0D
-//$sidebar_link: #45B1D8
-
-$white: #FFF
+$white: #FFFFFF
 $background_dark: #1E1E1E
 $gray: #D1D1D1
 
@@ -39,9 +16,9 @@ $text_footer_dark: #F2F3EF
 
 $hover: #00B4CC
 
-
 $rounded_corner: 10px
 
+/* Structure
 
 body
   margin: 0
@@ -79,6 +56,7 @@ a
 
 a:hover
   color: $hover
+  text-decoration: underline
 
 /* shared
 .clear
@@ -95,7 +73,7 @@ a:hover
   
 
 #background
-  background: $background url(../images/template/background3.png) scroll center bottom no-repeat
+  background: $background url(../images/template/background.png) scroll center bottom no-repeat
   height: 200px
   width: 100%
   z-index: -1
@@ -128,7 +106,7 @@ a:hover
       color: $white
 
     h2
-      margin: 0 0 0 10px
+      margin: 0 0 8px 10px
       padding: 0
       font-family: CartoGothicStdBook
       font-size: 1.3em
@@ -390,3 +368,10 @@ h2.super
     img
       border: none
 
+/* Admin
+
+.action-image
+  border: 0
+
+  a
+    border: 0

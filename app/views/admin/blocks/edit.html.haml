@@ -1,8 +1,11 @@
-%h1 
-  Edit 
-  = @block.label.humanize
-  
-= render 'form'
+.post
+  %h2.title
+    Edit
+    = @block.label.humanize
+  .entry
+    .meta
+    = render 'form'
 
-.image_links
-  = index_entity_image admin_blocks_path, "Back to Other Sections Index"
+    .image_links
+      = index_entity_image admin_blocks_path, "Back to Other Sections Index"
+

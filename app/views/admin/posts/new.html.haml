@@ -1,6 +1,9 @@
-%h1 New News Post
+.post
+  %h2.title New News Post
+  .entry
+    .meta
+    = render 'form'
 
-= render 'form'
+    .image_links
+      = index_entity_image admin_posts_path, "Back to News Index"
 
-.image_links
-  = index_entity_image admin_posts_path, "Back to News Index"

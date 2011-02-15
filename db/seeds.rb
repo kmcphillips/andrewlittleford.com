@@ -29,19 +29,16 @@ begin
     puts "Destroyin all Galleries and Images"
     Gallery.destroy_all
     Image.destroy_all
-    puts "Creating Galleries"
+    puts "Creating Singleton Gallery"
 
-    Gallery.create! :name => "Publicity", :path => "publicity", :image => "gallery1.png", :sort_order => 0
-    Gallery.create! :name => "Projects", :path => "projects", :image => "gallery3.png", :sort_order => 1
-    Gallery.create! :name => "Performances", :path => "performances", :image => "gallery2.png", :sort_order => 2
-
+    Gallery.create! :name => "Gallery", :path => "", :sort_order => 0
 
     ## Users
     if Rails.env.development?
       puts "Deleting all Users"
       User.destroy_all
       puts "Creating test/test development User"
-      User.create! :username => "test", :password_hash => User.encrypt("test")
+      User.create! :username => "test", :password_hash => User.encrypt("test"), :name => "Andrew"
     end
 
   end 

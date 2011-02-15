@@ -27,23 +27,23 @@
         }).disableSelection();
     });
 
+.post
+  %h2.title Media Player Tracks
+  .entry
+    .meta Drag table rows to reorganize them.
 
-%h1 Media Player Tracks
+    = collection_index @tracks, ["Title", "Description", "Recorded at", "Filename", "Active?", "Updated at", "Actions"], :id => "sortable_table" do |track|
+      %tr{:class => row_class, :'data-track-id' => track.id}
+        %td= track.title
+        %td= truncate_for_index track.description
+        %td= track.recorded_at
+        %td= link_to track.mp3.name, track.mp3.url
+        %td= boolean_image track.active?
+        %td= track.updated_at.to_formatted_s(:index)
+        %td
+          = edit_entity_image [:edit, :admin, track]
+          = destroy_entity_image [:admin, track]
 
-%br
-%p Drag table rows to reorganize them.
+    .image_links
+      = new_entity_image new_admin_track_path, "Create New Track"
 
-= collection_index @tracks, ["Title", "Description", "Recorded at", "Filename", "Active?", "Updated at", "Actions"], :id => "sortable_table" do |track|
-  %tr{:class => row_class, :'data-track-id' => track.id}
-    %td= track.title
-    %td= truncate_for_index track.description
-    %td= track.recorded_at
-    %td= link_to track.mp3.name, track.mp3.url
-    %td= boolean_image track.active?
-    %td= track.updated_at.to_formatted_s(:index)
-    %td
-      = edit_entity_image [:edit, :admin, track]
-      = destroy_entity_image [:admin, track]
-
-.image_links
-  = new_entity_image new_admin_track_path, "Create New Track"

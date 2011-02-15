@@ -1,20 +1,24 @@
-%h1 Other Sections
+.post
+  %h2.title Other Sections
+  .entry
+    .meta
+    = collection_index @blocks, ["Section", "Body", "Updated at", "Actions"] do |block|
+      %tr{:class => row_class}
+        %td= link_to block.label.humanize, block.path
+        %td= truncate_for_index block.body
+        %td= block.updated_at.to_formatted_s(:index)
+        %td= edit_entity_image([:edit, :admin, block])
+.post
+  %h2.title Media
+  .entry
+    .meta 
+    = collection_index @medias, ["Type", "File", "Actions"] do |media|
+      %tr{:class => row_class}
+        %td= media.label.humanize
+        %td
+          - if media.file?
+            = link_to "Download", media.file.url, :target => "_new"
+          - else
+            None set
+        %td{:width => "40"}= edit_entity_image([:edit, :admin, media])
 
-= collection_index @blocks, ["Section", "Body", "Updated at", "Actions"] do |block|
-  %tr{:class => row_class}
-    %td= link_to block.label.humanize, block.path
-    %td= truncate_for_index block.body
-    %td= block.updated_at.to_formatted_s(:index)
-    %td= edit_entity_image([:edit, :admin, block])
-
-%h1 Media
-
-= collection_index @medias, ["Type", "File", "Actions"] do |media|
-  %tr{:class => row_class}
-    %td= media.label.humanize
-    %td
-      - if media.file?
-        = link_to "Download", media.file.url, :target => "_new"
-      - else
-        None set
-    %td{:width => "40"}= edit_entity_image([:edit, :admin, media])
