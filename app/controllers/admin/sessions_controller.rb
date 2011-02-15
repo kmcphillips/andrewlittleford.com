@@ -9,7 +9,7 @@ class Admin::SessionsController < ApplicationController
 
   def create
     if current_user(User.authenticate(params))
-      flash[:notice] = "Logged in successfully"
+      flash[:notice] = "Hello #{current_user.name}. We've missed you."
       redirect_to "/admin"
     else
       flash[:error] = "Incorrect username or password"
@@ -18,7 +18,7 @@ class Admin::SessionsController < ApplicationController
   end
 
   def logout
-    flash[:notice] = "You have been logged out" if current_user
+    flash[:notice] = "Goodbye #{current_user.name}. We will miss you." if current_user
     clear_current_user
     redirect_to "/"
   end

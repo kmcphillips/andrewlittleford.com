@@ -30,19 +30,23 @@ $white: #FFF
 $background_dark: #1E1E1E
 $gray: #D1D1D1
 
-$background: #353535
-$text_copy: #534616
+$background: #005F6B
+$text_copy: #343838
 $accent: #D6E6CC
 
-$text_footer: #898989
-$text_footer_dark: #AAAAAA
+$text_footer: #F2F3EF
+$text_footer_dark: #F2F3EF
 
+$hover: #00B4CC
+
+
+$rounded_corner: 10px
 
 body
   margin: 0
   padding: 0
-  //background: $background url(../images/background.png) fixed center top
-  background: $background
+  background: $background url(../images/template/background3.png) scroll center bottom no-repeat
+  //background: $background
   font-family: Arial, Helvetica, sans-serif
   font-size: 12px
   color: $text_copy
@@ -72,7 +76,9 @@ ul, ol
 a
   text-decoration: none
   color: $text_copy
-  &:hover
+
+a:hover
+  color: $hover
 
 /* shared
 .clear
@@ -108,20 +114,23 @@ a
   margin: 0
   padding-top: 20px
   color: $white
-  h1, p
+
+  h1
+    font-family: RockSaltRegular
+    float: left
+    font-size: 3.3em
+    letter-spacing: 5px
+    color: $white
     margin: 0
     padding: 0
-  h1
-    float: left
-    letter-spacing: -1px
-    font-size: 4.6em
-    color: $white
+
   p
     float: left
     margin: 0
-    padding: 37px 0 0 20px
-    font: normal 14px Georgia, "Times New Roman", Times, serif
-    font-style: italic
+    padding: 32px 0 0 20px
+    font-family: CartoGothicStdBook
+    font-size: 1.3em
+
   a
     border: none
     background: none
@@ -145,7 +154,11 @@ a
   padding: 0
   background: $background_dark
   height: 45px
-  
+
+  border-radius: $rounded_corner
+  -moz-border-radius: $rounded_corner
+  -webkit-border-radius: $rounded_corner
+
   ul
     margin: 0
     padding: 0
@@ -154,6 +167,15 @@ a
 
     li
       float: left
+      
+      .first
+        border-bottom-left-radius: $rounded_corner
+        border-top-left-radius: $rounded_corner
+        -moz-border-radius-bottomleft: $rounded_corner
+        -moz-border-radius-topleft: $rounded_corner
+        -webkit-border-top-left-radius: $rounded_corner
+        -webkit-border-bottom-left-radius: $rounded_corner
+
   a
     display: block
     padding: 15px 30px
@@ -173,36 +195,24 @@ a
     color: $background_dark
     background: $white
 
+/* Flashes
 
-#menux
-  width: 960px
-  height: 50px
-  margin: 0 auto
-  padding: 0
-  background: $background_dark
-  ul
-    margin: 0
-    padding: 0px 0px 0px 25px
-    list-style: none
-    line-height: normal
-  li
-    float: left
-  a
-    display: block
-    margin-right: 3px
-    height: 35px
-    padding: 15px 30px 7px 30px
-    text-decoration: none
-    font-family: Arial, Helvetica, sans-serif
-    font-size: 13px
-    font-weight: bold
+div.notice, div.error
+  padding: 15px 0
+  margin-bottom: 15px
+  border-radius: $rounded_corner
+  -moz-border-radius: $rounded_corner
+  -webkit-border-radius: $rounded_corner
+  h2
     color: $white
-    border: none
-    &:hover
-  .current_page_item a
-    padding-left: 0
-  a:hover
-    text-decoration: underline
+    font-family: CartoGothicStdBook
+    margin: 0 15px
+
+div.notice
+  background-color: #00DFFC
+
+div.error
+  background-color: #C62626
 
 /* Page
 
@@ -220,21 +230,42 @@ a
   width: 670px
   padding: 0
 
+.post-bgtop, .post-bgbtm
+
 .post
   margin-bottom: 25px
   padding: 0px
   background: $white
 
-.post-bgtop, .post-bgbtm
+  border-radius: $rounded_corner
+  -moz-border-radius: $rounded_corner
+  -webkit-border-radius: $rounded_corner
 
-.post
+  // hackity hack
+  border-top-right-radius: 30px
+  border-top-left-radius: 30px
+  -moz-border-radius-topright: 30px
+  -moz-border-radius-topleft: 30px
+  -webkit-border-top-left-radius: 30px
+  -webkit-border-top-right-radius: 30px
+
+
   .title
     height: 38px
     //background: $background_dark url(../images/template/post_header.jpg) no-repeat left top
     background: $background_dark
     padding: 12px 0 0 20px
-    letter-spacing: -0.5px
+    font-size: 1.5em
     color: $white
+    font-family: CartoGothicStdBook
+
+    border-top-right-radius: $rounded_corner
+    border-top-left-radius: $rounded_corner
+    -moz-border-radius-topright: $rounded_corner
+    -moz-border-radius-topleft: $rounded_corner
+    -webkit-border-top-left-radius: $rounded_corner
+    -webkit-border-top-right-radius: $rounded_corner
+
     a
       border: none
       color: $white
@@ -256,7 +287,6 @@ h2.super
   height: 44px
   background: $background_dark
   padding: 12px 0 0 20px
-  letter-spacing: -0.5px
   color: $white
   font-size: 2em
 
@@ -271,7 +301,7 @@ h2.super
   float: left
   width: 240px
   padding: 0px
-  color: #787878
+  color: $text_copy
   ul
     padding: 0
     list-style: none
@@ -285,6 +315,14 @@ h2.super
       border-left: 1px solid $accent
       border-right: 1px solid $accent
       border-bottom: 1px solid $accent
+
+      border-bottom-right-radius: $rounded_corner
+      border-bottom-left-radius: $rounded_corner
+      -moz-border-radius-bottomright: $rounded_corner
+      -moz-border-radius-bottomleft: $rounded_corner
+      -webkit-border-bottom-left-radius: $rounded_corner
+      -webkit-border-bottom-right-radius: $rounded_corner
+
     li
       line-height: 35px
       border-bottom: 1px dashed $gray
@@ -299,8 +337,16 @@ h2.super
     height: 38px
     padding: 12px 0 0 20px
     background: $background_dark
-    letter-spacing: -0.5px
+    font-size: 1.5em
     color: $white
+    font-family: CartoGothicStdBook
+    border-top-right-radius: $rounded_corner
+    border-top-left-radius: $rounded_corner
+    -moz-border-radius-topright: $rounded_corner
+    -moz-border-radius-topleft: $rounded_corner
+    -webkit-border-top-left-radius: $rounded_corner
+    -webkit-border-top-right-radius: $rounded_corner
+
   p
     margin: 0px 0px 20px 0px
     padding: 10px 20px 20px 20px
@@ -346,3 +392,4 @@ h2.super
     color: $text_footer_dark
     img
       border: none
+

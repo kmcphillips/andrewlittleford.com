@@ -4,17 +4,20 @@
       $('#username_field').focus();
     });
 
-%h1 Login
+.post
+  %h2.title Login
+  .entry
+    .meta
 
-= form_tag admin_sessions_path, :method => :post do
-  .field
-    %label Username
-    = text_field_tag :username, "", :id => "username_field"
+    = form_tag admin_sessions_path, :method => :post do
+      .field
+        %label Username
+        = text_field_tag :username, "", :id => "username_field"
 
-  .field
-    %label Password
-    = password_field_tag :password
+      .field
+        %label Password
+        = password_field_tag :password
 
-  .actions
-    %label Actions
-    = submit_tag "Login"
+      .actions
+        %label Actions
+        = submit_tag "Login"

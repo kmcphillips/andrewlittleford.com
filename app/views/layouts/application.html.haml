@@ -5,7 +5,7 @@
 
     = auto_discovery_link_tag(:rss, '/rss.xml')
 
-    = stylesheet_link_tag ["stylesheet", "prettyPhoto"] + (admin? ? ['jquery-ui-1.8.7.custom'] : [])
+    = stylesheet_link_tag ["fonts", "stylesheet", "prettyPhoto"] + (admin? ? ['jquery-ui-1.8.7.custom'] : [])
 
     = javascript_include_tag 'jquery/jquery-1.4.2.min'
     = javascript_include_tag ['application', 'rails', 'jquery.prettyPhoto'] + (admin? ? ['jquery-ui-1.8.7.custom.min', 'admin', 'jquery.timepicker'] : [])
@@ -30,7 +30,8 @@
 
         - if Track.count > 0
           #launch
-            %a{:href => track_path(Track.beginning), :onclick => "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=400, width=650, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"} Listen
+            = button_to_function "Listen", "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=400, width=650, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"
+
 
       #menu= render :partial => "shared/nav"
 

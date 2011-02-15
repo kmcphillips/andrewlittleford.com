@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'RockSaltRegular';
+    src: url('../fonts/RockSalt-webfont.eot?') format('eot'),
+         url('../fonts/RockSalt-webfont.woff') format('woff'),
+         url('../fonts/RockSalt-webfont.ttf') format('truetype'),
+         url('../fonts/RockSalt-webfont.svg#webfontCOxZFOKy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CartoGothicStdBook';
+    src: url('../fonts/CartoGothicStd-Book-webfont.eot?') format('eot'),
+         url('../fonts/CartoGothicStd-Book-webfont.woff') format('woff'),
+         url('../fonts/CartoGothicStd-Book-webfont.ttf') format('truetype'),
+         url('../fonts/CartoGothicStd-Book-webfont.svg#webfont3Jo4Ril0') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
