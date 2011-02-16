@@ -216,9 +216,7 @@ a:hover
   -webkit-border-top-left-radius: 30px
   -webkit-border-top-right-radius: 30px
 
-
   .title
-    //background: $background_dark url(../images/template/post_header.jpg) no-repeat left top
     background: $background_dark
     padding: 15px
     font-size: 1.5em
@@ -242,12 +240,21 @@ a:hover
     font-size: 1.2em
     font-weight: bold
 
-    a
   .entry
-    // background: url(../images/template/post_body.jpg) no-repeat left top
     padding: 0px 20px 20px 20px
     padding-bottom: 20px
     text-align: justify
+
+    a
+      img.thumb
+        border: 8px solid $accent
+        margin: 12px 5px
+
+    a:hover
+      img.thumb
+        border: 8px solid $hover
+
+
 
 h2.super
   background: $background_dark
@@ -402,6 +409,24 @@ div.error
 
   img
     border: 0
+
+#image_sortable
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+  li
+    float: left
+    text-align: right
+    height: 120px
+    width: 120px
+    border: 8px solid #7D7B56
+    padding: 0px
+    margin: 12px 5px
+
+    .delete
+      padding: 101px 3px 0 0
+
 
 /* Table */
 
