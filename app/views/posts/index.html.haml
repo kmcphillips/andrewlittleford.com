@@ -1,4 +1,10 @@
-- @posts.each do |post|
-  = render :partial => "post", :object => post
+- if @posts.any?
+  %h2.super News
 
-.pagination= will_paginate(@posts, :previous_label => "← Newer", :next_label => "Older →") if @posts.paginate?
+  - @posts.each do |post|
+    = render :partial => "post", :object => post
+
+  .pagination= will_paginate(@posts, :previous_label => "← Newer", :next_label => "Older →") if @posts.paginate?
+
+- else
+  %h2.super No news
