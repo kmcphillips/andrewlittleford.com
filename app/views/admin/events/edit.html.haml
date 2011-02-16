@@ -10,9 +10,5 @@
       = destroy_entity_image admin_event_path(@event), "Delete Show"
  
 -if @preview
-  .post
-    %h2.title Preview
-  .entry
-    .meta 
-    = render :partial => '/events/event', :object => @event
-
+  %h2.super Preview
+  = render :partial => '/events/event', :object => @event

@@ -18,6 +18,12 @@ $hover: #00B4CC
 
 $rounded_corner: 10px
 
+$table_hover: #FFFB83
+$table_dark: $background_dark
+$table_bg: #008C9E
+$table_bg_alt: #00B4CC
+
+
 /* Structure
 
 body
@@ -169,25 +175,6 @@ a:hover
     color: $background_dark
     background: $white
 
-/* Flashes
-
-div.notice, div.error
-  padding: 15px 0
-  margin-bottom: 15px
-  border-radius: $rounded_corner
-  -moz-border-radius: $rounded_corner
-  -webkit-border-radius: $rounded_corner
-  h2
-    color: $white
-    font-family: CartoGothicStdBook
-    margin: 0 15px
-
-div.notice
-  background-color: #00DFFC
-
-div.error
-  background-color: #C62626
-
 /* Page
 
 #page
@@ -259,6 +246,7 @@ div.error
 h2.super
   background: $background_dark
   padding: 15px
+  margin-bottom: 20px
   color: $white
   font-family: CartoGothicStdBook
   font-size: 2em
@@ -332,20 +320,6 @@ h2.super
     &:hover
       text-decoration: underline
 
-/* Calendar
-
-#calendar
-
-#calendar_wrap
-  padding: 20px
-
-#calendar
-  table
-    width: 100%
-  tbody td
-    text-align: center
-  #next
-    text-align: right
 
 /* Footer
 
@@ -368,10 +342,86 @@ h2.super
     img
       border: none
 
+/* Flashes
+
+div.notice, div.error
+  padding: 15px 0
+  margin-bottom: 15px
+  border-radius: $rounded_corner
+  -moz-border-radius: $rounded_corner
+  -webkit-border-radius: $rounded_corner
+  h2
+    color: $white
+    font-family: CartoGothicStdBook
+    margin: 0 15px
+
+div.notice
+  background-color: #00DFFC
+
+div.error
+  background-color: #C62626
+
 /* Admin
+
+.field, .actions
+  input
+    margin: 4px 0
+
+  label
+    width: 100px
+    float: left
+    border-left: 6px solid $background_dark
+    padding: 4px 0 4px 6px
+    margin: 0 8px 0 0
+
+  .permalink, .date
+    margin: 15px 0
+
+  .image
+    padding-left: 120px
+
+.image_links
+  padding-top: 20px
 
 .action-image
   border: 0
+  padding: 2px
 
-  a
+  img
     border: 0
+
+/* Table */
+
+table.data
+  border-collapse: collapse
+  margin: 24px 0
+  width: 100%
+
+  th
+    padding: 8px
+    font-weight: bold
+    background-color: $table_dark
+    color: $white  /* Needed to override the hover */
+
+  td
+    padding: 8px
+
+  tr
+    background-color: $table_bg
+
+  tr.even
+    background-color: $table_bg_alt
+
+  tr.over
+    td
+      background-color: $table_hover
+
+  tbody
+    tr:hover
+      color: #3D1020
+      background-color: $table_hover
+
+    td
+      a
+        color: $text_copy
+

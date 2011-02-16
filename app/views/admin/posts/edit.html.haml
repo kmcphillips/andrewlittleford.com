@@ -11,10 +11,5 @@
       = destroy_entity_image admin_post_path(@post), "Delete News Post"
 
 - if @preview
-  .post
-    %h2.title Preview
-    .entry
-      .meta
-
-      = render :partial => '/posts/post', :object => @post
-    
+  %h2.super Preview
+  = render :partial => '/posts/post', :object => @post

@@ -48,7 +48,7 @@
 
 .field
   = f.label "Image"
-  .input
+  .input.image
     - if object.image.exists?
       = image_tag(object.thumb, :id => :current_image)
     - else
