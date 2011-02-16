@@ -10,11 +10,7 @@ class Admin::ImagesController < ApplicationController
       flash[:error] = image.errors.full_messages.to_sentence
     end
 
-    if image.gallery
-      redirect_to admin_gallery_path(image.gallery)
-    else
-      redirect_to admin_galleries_path
-    end
+    redirect_to admin_galleries_path
   end
 
   def update
@@ -26,23 +22,14 @@ class Admin::ImagesController < ApplicationController
       flash[:error] = image.errors.full_messages.to_sentence
     end
 
-    if image.gallery
-      redirect_to admin_gallery_path(image.gallery)
-    else
-      redirect_to admin_galleries_path
-    end
+    redirect_to admin_galleries_path
   end
 
   def destroy
     image = Image.find(params[:id])
-    gallery = image.try(:gallery)
     image.destroy
 
-    if gallery
-      redirect_to admin_gallery_path(gallery)
-    else
-      redirect_to admin_galleries_path
-    end
+    redirect_to admin_galleries_path
   end
   
   def sort

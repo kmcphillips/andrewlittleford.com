@@ -23,17 +23,17 @@ describe Admin::ImagesController do
 
     describe "with valid params" do
       it "redirects to the created post" do
-        Image.stub(:new) { mock_image(:save => true, :gallery => @gallery) }
+        Image.stub(:new) { mock_image(:save => true)}
         post :create, :image => {}
-        response.should redirect_to(admin_gallery_path(@gallery))
+        response.should redirect_to(admin_galleries_path)
       end
     end
 
     describe "with invalid params" do
       it "redirects and errors" do
-        Image.stub(:new) { mock_image(:save => false, :gallery => @gallery) }
+        Image.stub(:new) { mock_image(:save => false) }
         post :create, :image => {}
-        response.should redirect_to(admin_gallery_path(@gallery))
+        response.should redirect_to(admin_galleries_path)
       end
     end
   end
@@ -46,9 +46,9 @@ describe Admin::ImagesController do
     end
 
     it "redirects to the image list" do
-      Image.stub(:find) { mock_image(:gallery => "pie") }
+      Image.stub(:find) { mock_image }
       delete :destroy, :id => "1"
-      response.should redirect_to(admin_gallery_path("pie"))
+      response.should redirect_to(admin_galleries_path)
     end
   end
 
