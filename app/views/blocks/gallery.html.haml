@@ -1,11 +1,12 @@
 - content_for :js do
   :javascript
     $(document).ready(function(){
-      $("a.thumb").fancybox(
+      $("a.thumb").fancybox({
         'transitionIn' : 'elastic',
         'transitionOut' : 'elastic',
-        'hideOnContentClick' : true
-      );
+        'hideOnContentClick' : true,
+        'titlePosition' : 'inside'
+      });
     });
 
 .post
@@ -14,4 +15,4 @@
     .meta
 
     - @gallery.images.in_order.all_active.each do |image|
-      = link_to image_tag(image.thumb, :class => "thumb", :alt => image.label), image.full, :rel => "gallery"
+      = link_to image_tag(image.thumb, :class => "thumb", :alt => image.label), image.full, :rel => "gallery", :class => "thumb", :title => image.title

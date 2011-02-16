@@ -29,6 +29,10 @@ class Image < ActiveRecord::Base
     end
   end
 
+  def title
+    label unless label.strip.blank?
+  end
+
   protected
   
   def set_sort_order

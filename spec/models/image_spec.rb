@@ -34,6 +34,16 @@ describe Image do
       Gallery.destroy_all
     end
   end
+
+  describe "title" do
+    it "should return the label if it exists" do
+      Image.new(:label => "pie").should == "pie"
+    end
+
+    it "should return nil if the label is blank" do
+      Image.new(:label => " ").should be_nil
+    end
+  end
   
 end
 
