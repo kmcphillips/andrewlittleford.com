@@ -39,7 +39,7 @@ AndrewlittlefordCom::Application.routes.draw do
     resources :tracks, :except => [:show] do
       collection { post 'sort'}
     end
-    resources :galleries, :only => [:index, :show]
+    resources :galleries, :only => [:index]
     resources :images, :only => [:create, :destroy, :update] do
       collection { post 'sort'}
     end

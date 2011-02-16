@@ -9,22 +9,8 @@ describe Admin::GalleriesController do
 
   describe "GET index" do
     it "should load and assign all galleries" do
-      Gallery.should_receive(:sorted).and_return([@gallery])
+      Gallery.should_receive(:singleton).and_return(@gallery)
       get :index
-      assigns(:galleries).should == [@gallery]
-    end
-  end
-
-  describe "GET show" do
-    before(:each) do
-      @all_active_proxy = mock :all_active
-      @all = mock :all
-      Image.stub(:all_active => @all_active_proxy)
-    end
-
-    it "should set all the vars" do
-      Gallery.should_receive(:find).with("pie").and_return(@gallery)
-      get :show, :id => "pie"
       assigns(:title).should be_an_instance_of(String)
       assigns(:gallery).should == @gallery
     end

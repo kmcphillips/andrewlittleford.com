@@ -24,20 +24,24 @@ $table_bg: #008C9E
 $table_bg_alt: #00B4CC
 
 
+$sans_serif: Arial, Helvetica, sans-serif
+$serif: Georgia, "Times New Roman", Times, serif
+
+
 /* Structure
 
 body
   margin: 0
   padding: 0
   background: $background
-  font-family: Arial, Helvetica, sans-serif
+  font-family: $sans_serif
   font-size: 12px
   color: $text_copy
 
 h1, h2, h3
   margin: 0
   padding: 0
-  font-family: Georgia, "Times New Roman", Times, serif
+  font-family: $serif
   font-weight: normal
   color: $text_copy
 
@@ -160,7 +164,7 @@ a:hover
     display: block
     padding: 15px 30px
     text-decoration: none
-    font-family: Arial, Helvetica, sans-serif
+    font-family: $sans-serif
     font-size: 1.2em
     font-weight: bold
     color: $white
@@ -230,12 +234,12 @@ a:hover
       border: none
       color: $white
   .meta
-    padding-top: 20px
-    padding-bottom: 5px
+    padding: 14px 0
     text-align: left
-    font-family: Arial, Helvetica, sans-serif
-    font-size: 11px
-    font-style: italic
+    font-family: CartoGothicStdBook
+    font-size: 1.2em
+    font-weight: bold
+
     a
   .entry
     // background: url(../images/template/post_body.jpg) no-repeat left top
@@ -328,7 +332,7 @@ h2.super
   height: 64px
   margin: 0 auto
   padding: 0px 0 15px 0
-  font-family: Arial, Helvetica, sans-serif
+  font-family: $sans-serif
   p
     margin: 0
     padding: 20px 0

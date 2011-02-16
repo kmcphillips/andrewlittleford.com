@@ -1,10 +1,39 @@
-%h1 Galleries
+- content_for :js do
+  :javascript
+    $(document).ready(function() {
+      $("#image_sortable").sortable({
+        update: function () {
+          $.ajax({
+            url: "/admin/images/sort",
+            type: "post",
+            data: $("#image_sortable").sortable('serialize'),
+            error: function(){
+              alert("There was an error sorting images. Contact administrator.");
+            }
+          });
+        }
+      });
 
-= collection_index @galleries, ["Gallery", "Details"] do |gallery|
-  %tr{:class => row_class}
-    %td
-      %span.bold= link_to gallery.name, admin_gallery_path(gallery)
-    %td
-      = "With #{gallery.images.size} image#{gallery.images.size == 1 ? "" : "s"}"
-      %br
-      = "Last updated: #{gallery.last_updated_at.to_formatted_s(:index)}" if gallery.images.any? 
+      $("#image_sortable").disableSelection();
+    });
+
+
+.post
+  %h2.title Image Gallery
+  .entry
+    .meta
+
+    %ul#image_sortable
+      - @gallery.images.in_order.each do |image|
+        %li{:style => "background: #7D7B56 url('#{image.thumb}') no-repeat left top;", :id => "image_#{image.id}"}
+          .delete= destroy_entity_image admin_image_path(image)
+    .clear
+
+.post
+  %h2.title Upload New Image
+  .entry
+    .meta
+    = render :partial => 'admin/galleries/form'
+
+    .image_links
+      = index_entity_image admin_galleries_path, "Back to Galleries Index"
