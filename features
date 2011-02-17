@@ -1,7 +1,5 @@
 Add content to error pages
 
-Allow ends at to optionally be not set
-
 Layout media player
 
 Lock after login attempts. Possibly switch to authlogic?
@@ -9,4 +7,10 @@ Lock after login attempts. Possibly switch to authlogic?
 current projects => block area and sidebar
 
 favicon
+
+change shows to events
+
+paginate past shows
+
+remove ends_at
 
