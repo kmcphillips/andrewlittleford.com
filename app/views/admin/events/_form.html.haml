@@ -1,3 +1,10 @@
+- content_for :js do
+  :javascript
+    $(document).ready(function(){
+      convert_datetime_select("#starts_at_container");
+      convert_datetime_select("#ends_at_container");
+    });
+
 = form_for [:admin, @event] do |f|
   = error_messages(@event)
   
@@ -9,10 +16,10 @@
     = f.text_area :description, :rows => 12, :cols => 50
   .field
     = f.label :starts_at
-    .date= f.datetime_select :starts_at
+    #starts_at_container.date= f.datetime_select :starts_at
   .field
     = f.label :ends_at
-    .date= f.datetime_select :ends_at
+    #ends_at_container.date= f.datetime_select :ends_at
 
   = f.image
 
