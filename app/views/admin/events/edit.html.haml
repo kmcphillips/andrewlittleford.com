@@ -1,13 +1,13 @@
 .post
-  %h2.title Edit Show
+  %h2.title Edit Event
   .entry
     .meta
     = render 'form'
 
     .image_links
-      = index_entity_image admin_events_path, "Back to Shows Index"
+      = index_entity_image admin_events_path, "Back to Events Index"
       %br
-      = destroy_entity_image admin_event_path(@event), "Delete Show"
+      = destroy_entity_image admin_event_path(@event), "Delete Event"
  
 -if @preview
   %h2.super Preview
