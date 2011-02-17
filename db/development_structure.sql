@@ -20,7 +20,6 @@ CREATE TABLE `events` (
   `title` varchar(255) DEFAULT NULL,
   `description` text,
   `starts_at` datetime DEFAULT NULL,
-  `ends_at` datetime DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `image_file_name` varchar(255) DEFAULT NULL,
@@ -61,7 +60,7 @@ CREATE TABLE `images` (
   KEY `index_images_on_active` (`active`),
   KEY `index_images_on_sort_order` (`sort_order`),
   KEY `index_images_on_gallery_id` (`gallery_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `links` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -164,3 +163,5 @@ INSERT INTO schema_migrations (version) VALUES ('20101208201101');
 INSERT INTO schema_migrations (version) VALUES ('20101211032200');
 
 INSERT INTO schema_migrations (version) VALUES ('20101212041459');
+
+INSERT INTO schema_migrations (version) VALUES ('20110217034659');

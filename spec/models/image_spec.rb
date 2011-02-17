@@ -37,11 +37,11 @@ describe Image do
 
   describe "title" do
     it "should return the label if it exists" do
-      Image.new(:label => "pie").should == "pie"
+      Image.new(:label => "pie").title.should == "pie"
     end
 
     it "should return nil if the label is blank" do
-      Image.new(:label => " ").should be_nil
+      Image.new(:label => " ").title.should be_nil
     end
   end
   

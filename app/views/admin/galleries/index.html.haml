@@ -21,11 +21,11 @@
 .post
   %h2.title Image Gallery
   .entry
-    .meta
+    .meta Drag images to reorganize them.
 
     %ul#image_sortable
       - @gallery.images.in_order.each do |image|
-        %li{:style => "background: #7D7B56 url('#{image.thumb}') no-repeat left top;", :id => "image_#{image.id}"}
+        %li{:style => "background: #FFFFFF url('#{image.thumb}') no-repeat left top;", :id => "image_#{image.id}"}
           .delete= destroy_entity_image admin_image_path(image)
     .clear
 
