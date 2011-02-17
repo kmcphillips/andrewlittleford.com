@@ -70,8 +70,10 @@ CREATE TABLE `links` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `sort_order` int(11) DEFAULT NULL,
+  `project` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `index_links_on_sort_order` (`sort_order`)
+  KEY `index_links_on_sort_order` (`sort_order`),
+  KEY `index_links_on_project` (`project`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `medias` (
@@ -165,3 +167,5 @@ INSERT INTO schema_migrations (version) VALUES ('20101211032200');
 INSERT INTO schema_migrations (version) VALUES ('20101212041459');
 
 INSERT INTO schema_migrations (version) VALUES ('20110217034659');
+
+INSERT INTO schema_migrations (version) VALUES ('20110217165525');

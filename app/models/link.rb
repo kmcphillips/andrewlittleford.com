@@ -6,6 +6,7 @@ class Link < ActiveRecord::Base
   validates :sort_order, :numericality => {:greater_than => 0, :message => "is not a valid number"}
 
   scope :in_order, order("sort_order ASC")
+  scope :projects, where("project = ?", true)
 
   before_validation(:on => :create) do
     self.sort_order = Track.highest_sort_order + 1
@@ -33,3 +34,4 @@ class Link < ActiveRecord::Base
     end
   end
 end
+

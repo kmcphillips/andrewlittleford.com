@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110217034659) do
+ActiveRecord::Schema.define(:version => 20110217165525) do
 
   create_table "blocks", :force => true do |t|
     t.text     "body"
@@ -79,8 +79,10 @@ ActiveRecord::Schema.define(:version => 20110217034659) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sort_order"
+    t.boolean  "project",     :default => false
   end
 
+  add_index "links", ["project"], :name => "index_links_on_project"
   add_index "links", ["sort_order"], :name => "index_links_on_sort_order"
 
   create_table "medias", :force => true do |t|

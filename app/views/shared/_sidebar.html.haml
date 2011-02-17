@@ -8,8 +8,10 @@
       %li Another show
       %li TODO
 
-  %li
-    %h2 Current Projects
-    %ul
-      %li= link_to "Awesome Sauce", "#"
-      %li= link_to "The Andrew Littleford Allstars", "#"
+  - if Link.projects.any?
+    %li
+      %h2 Current Projects
+      %ul
+        - Link.projects.each do |link|
+          %li= link_to link.display, link.url
+
