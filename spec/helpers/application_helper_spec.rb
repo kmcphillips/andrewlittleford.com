@@ -68,4 +68,14 @@ describe ApplicationHelper do
       pending "new/edit/delete/index icon helpers"
     end
   end
+
+  describe "image for" do
+    it "should return nil if the object has no image" do
+      image_for(Post.new).should be_nil
+    end
+
+    it "should generate the image tag" do
+      pending
+    end
+  end
 end

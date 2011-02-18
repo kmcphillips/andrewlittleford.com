@@ -11,5 +11,8 @@
       - else
         = "Started "
         = event.starts_at.to_formatted_s(:event_with_time)
-
+    
+    = image_for event
     = simple_format event.description
+    .clear
+

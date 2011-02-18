@@ -22,6 +22,9 @@ $table_dark: $background_dark
 $table_bg: #C1F11F
 $table_bg_alt: #C1C3BC
 
+$flash_notice: #00DFFC
+$flash_error: #C62626
+
 
 $sans_serif: Arial, Helvetica, sans-serif
 $serif: Georgia, "Times New Roman", Times, serif
@@ -248,16 +251,24 @@ a:hover
     padding-bottom: 20px
     text-align: justify
 
-    a
+    a.thumb
       img.thumb
         border: 8px solid $accent
         margin: 12px 5px
 
-    a:hover
+    a.thumb:hover
       img.thumb
         border: 8px solid $hover_thumb
 
+    a.inline_image
+      img.inline_image
+        border: 8px solid $accent
+        margin: 12px 5px
 
+    a.inline_image:hover
+      img.inline_image
+        border: 8px solid $hover_thumb
+ 
 
 h2.super
   background: $background_dark
@@ -372,10 +383,10 @@ div.notice, div.error
     margin: 0 15px
 
 div.notice
-  background-color: #00DFFC
+  background-color: $flash_notice
 
 div.error
-  background-color: #C62626
+  background-color: $flash_error
   ul
     margin: 5px 0
     list-style: none

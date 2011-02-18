@@ -101,6 +101,16 @@ module ApplicationHelper
     render :partial => "/shared/error_messages", :object => object
   end
 
+  def image_for(obj)
+    if obj.respond_to?(:image) && obj.image.exists?
+      float = (obj.id || 0) % 2 == 0 ? "left_float" : "right_float"
+
+      link_to(image_tag(obj.image.inline, :class => "inline_image #{float}", :alt => image.label), obj.image.full, :rel => "gallery", :class => "inline_image", :title => obj.image.title) +
+      link_to("Enlarge" + image_tag("/images/icons/magnify.png", :alt => "Enlarge", :class => :magnify), obj.image.full, :rel => "image", :title => obj.image.title)
+  end
+    end
+  end
+
   def admin?
     params[:controller] =~ /^admin\//
   end
