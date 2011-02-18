@@ -6,4 +6,4 @@
     = image_tag "bio.png", :class => "bio_image", :alt => SITE_NAME
     = simple_format @block.body
 
-    = link_to "Download press kit", @kit.file.url
+    = link_to "Download press kit", @kit.file.url if @kit.file.exists?
