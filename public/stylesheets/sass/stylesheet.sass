@@ -17,8 +17,6 @@ $text_footer_dark: #F2F3EF
 $hover: #93B61A
 $hover_thumb: #C1C3BC
 
-$rounded_corner: 10px
-
 $table_hover: #CCCCCC
 $table_dark: $background_dark
 $table_bg: #C1F11F
@@ -27,6 +25,10 @@ $table_bg_alt: #C1C3BC
 
 $sans_serif: Arial, Helvetica, sans-serif
 $serif: Georgia, "Times New Roman", Times, serif
+
+$rounded_corner: 10px
+$footer_height: 180px
+
 
 
 /* Structure */
@@ -89,7 +91,7 @@ a:hover
 
 #background
   background: $background url(../images/template/background.png) scroll center bottom no-repeat
-  height: 200px
+  height: $footer_height
   width: 100%
   z-index: -1
   position: fixed
@@ -97,7 +99,7 @@ a:hover
 
 #wrapper
   width: 960px
-  margin: 0 auto 130px auto
+  margin: 0 auto $footer_height auto
   padding: 0
 
 /* Header */
