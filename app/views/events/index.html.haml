@@ -4,10 +4,10 @@
     = render :partial => "event", :object => event
 
 - if @upcoming.any?
-  %h2.super Upcoming Shows
+  %h2.super Upcoming Events
   - @upcoming.each do |event|
     = render :partial => "event", :object => event
 
-%h2.super Past Shows
+%h2.super Past Events
 - @past.each do |event|
   = render :partial => "event", :object => event
