@@ -3,25 +3,25 @@
  * By Kevin McPhillips
  */
 
-$white: #FFFFFF
-$background_dark: #1E1E1E
+$white: #FCFCFA
+$background_dark: #313429
 $gray: #D1D1D1
 
-$background: #005F6B
+$background: #666662
 $text_copy: #343838
 $accent: #D6E6CC
 
 $text_footer: #F2F3EF
 $text_footer_dark: #F2F3EF
 
-$hover: #00B4CC
+$hover: #93B61A
 
 $rounded_corner: 10px
 
 $table_hover: #CCCCCC
 $table_dark: $background_dark
-$table_bg: #008C9E
-$table_bg_alt: #00B4CC
+$table_bg: #C1F11F
+$table_bg_alt: #C1C3BC
 
 
 $sans_serif: Arial, Helvetica, sans-serif
@@ -81,6 +81,9 @@ a:hover
 
 .right_float
   float: right
+
+.no_border
+  border: none
   
 
 #background
@@ -121,7 +124,7 @@ a:hover
       padding: 0
       font-family: CartoGothicStdBook
       font-size: 1.3em
-      color: $white
+      color: #C1F11F
 
   a
     border: none
@@ -297,16 +300,16 @@ h2.super
       -webkit-border-bottom-left-radius: $rounded_corner
       -webkit-border-bottom-right-radius: $rounded_corner
 
-    li
-      line-height: 35px
-      border-bottom: 1px dashed $gray
-      padding-left: 3px
-      span
-        display: block
-        margin-top: -20px
-        padding: 0
-        font-size: 11px
-        font-style: italic
+      li
+        line-height: 35px
+        border-bottom: 1px dashed $gray
+        padding-left: 3px
+
+      li.credits
+        padding-left: 3px
+        span
+          line-height: -50%
+      
   h2
     padding: 15px
     background: $background_dark

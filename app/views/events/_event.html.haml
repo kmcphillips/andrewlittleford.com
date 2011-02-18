@@ -3,7 +3,7 @@
   .entry
     .meta
       - if event.upcoming?
-        = "Starts " if event.ends_at
+        = "Starts "
         = event.starts_at.to_formatted_s(:event_with_time)
       - elsif event.past?
         = "Happened on"
@@ -11,7 +11,5 @@
       - else
         = "Started "
         = event.starts_at.to_formatted_s(:event_with_time)
-
-      = "Ends #{event.ends_at.to_formatted_s(:event_with_time)}" if event.ends_at && !event.past?
 
     = simple_format event.description
