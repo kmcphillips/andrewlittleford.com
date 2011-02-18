@@ -105,9 +105,7 @@ module ApplicationHelper
     if obj.respond_to?(:image) && obj.image.exists?
       float = (obj.id || 0) % 2 == 0 ? "left_float" : "right_float"
 
-      link_to(image_tag(obj.image.inline, :class => "inline_image #{float}", :alt => image.label), obj.image.full, :rel => "gallery", :class => "inline_image", :title => obj.image.title) +
-      link_to("Enlarge" + image_tag("/images/icons/magnify.png", :alt => "Enlarge", :class => :magnify), obj.image.full, :rel => "image", :title => obj.image.title)
-  end
+      content_tag(:div, link_to(image_tag(obj.inline, :class => "inline_image", :alt => ""), obj.full, :rel => "gallery", :class => "inline_image", :title => ""), :class => "image image_#{float}")
     end
   end
 

@@ -260,15 +260,23 @@ a:hover
       img.thumb
         border: 8px solid $hover_thumb
 
-    a.inline_image
-      img.inline_image
-        border: 8px solid $accent
-        margin: 12px 5px
+    .image
+      a.inline_image
+        img.inline_image
+          border: 8px solid $accent
+          margin: 12px 5px
 
-    a.inline_image:hover
-      img.inline_image
-        border: 8px solid $hover_thumb
- 
+      a.inline_image:hover
+        img.inline_image
+          border: 8px solid $hover_thumb
+
+    .image_left_float
+      float: left
+      margin: 0 20px 0 0  
+
+    .image_right_float
+      float: right
+      margin: 0 0 0 20px
 
 h2.super
   background: $background_dark
