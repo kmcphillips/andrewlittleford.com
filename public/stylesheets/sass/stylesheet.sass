@@ -278,6 +278,25 @@ a:hover
       float: right
       margin: 0 0 0 20px
 
+    ul.links
+      list-style: none
+      padding-left: 4px
+
+      li
+        padding-bottom: 20px
+
+      p
+        margin-bottom: 4px
+        margin-left: 20px
+
+      a
+        font-weight: bold
+        font-size: 1.1em
+
+      .description
+        //padding-top: 5px
+        
+
 h2.super
   background: $background_dark
   padding: 15px
@@ -288,6 +307,35 @@ h2.super
   border-radius: $rounded_corner
   -moz-border-radius: $rounded_corner
   -webkit-border-radius: $rounded_corner
+
+div.pagination
+  background: $background_dark
+  padding: 8px
+  color: $white
+  font-size: 1em
+  font-family: CartoGothicStdBook
+  text-align: center
+  border-radius: $rounded_corner
+  -moz-border-radius: $rounded_corner
+  -webkit-border-radius: $rounded_corner
+
+  em
+    font-weight: bold
+    font-style: normal
+
+  a
+    color: $white
+    text-decoration: underline
+
+  a:hover
+    color: $hover
+
+  span, em, a
+    margin: 0 8px
+
+table div.pagination
+  font-size: 1em
+  padding: 0 8px
 
 .pagination
   // TODO

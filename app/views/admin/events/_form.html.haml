@@ -4,7 +4,7 @@
       convert_datetime_select("#starts_at_container");
     });
 
-= form_for [:admin, @event] do |f|
+= form_for [:admin, @event], :html => { :multipart => true } do |f|
   = error_messages(@event)
   
   .field

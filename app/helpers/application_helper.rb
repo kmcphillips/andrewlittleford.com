@@ -132,6 +132,9 @@ module ApplicationHelper
     cycle("odd", "even")
   end
 
+  def pagination_params(opts={})
+    {:page => params[:page] || 1, :per_page => (admin? ? PAGINATION_PER_PAGE_ADMIN : PAGINATION_PER_PAGE)}.merge(opts)
+  end
 
   ## Overridden paths
   def post_path(post)

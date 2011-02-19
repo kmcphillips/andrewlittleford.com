@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   include Authentication
 
-  include PaginationHelper
+  include ApplicationHelper
 
   ## Handle custom dynamic errors
   unless Rails.application.config.consider_all_requests_local

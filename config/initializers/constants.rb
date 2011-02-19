@@ -4,6 +4,7 @@ PAGE_SUB_TITLE = "Musician. Teacher. Performer."
 PAGE_URL = "http://andrewlittleford.com"
 
 PAGINATION_PER_PAGE = 5
+PAGINATION_PER_PAGE_ADMIN = 20
 
 PAST_PERFORMANCES = 4
 

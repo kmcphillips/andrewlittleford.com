@@ -69,6 +69,16 @@ describe ApplicationHelper do
     end
   end
 
+  describe "pagination defaults" do
+    it "should return the default params for all controllers" do
+      pending
+    end
+
+    it "should return the default params for admin controller" do
+      pending
+    end
+  end
+
   describe "image for" do
     it "should return nil if the object has no image" do
       image_for(Post.new).should be_nil
