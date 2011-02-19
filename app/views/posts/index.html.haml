@@ -4,7 +4,8 @@
   - @posts.each do |post|
     = render :partial => "post", :object => post
 
-  .pagination= will_paginate(@posts, :previous_label => "← Newer", :next_label => "Older →") if @posts.paginate?
+  -  if @posts.paginate?
+    .pagination= will_paginate(@posts, :previous_label => "← Newer", :next_label => "Older →")
 
 - else
   %h2.super No news
