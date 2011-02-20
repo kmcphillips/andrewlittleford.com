@@ -3,6 +3,9 @@
   .entry
     .meta
 
+    .image_links
+      = new_entity_image new_admin_event_path, "Create New Event"
+
     = collection_index @events, ["Title", "Status", "Description", "Starts at", "Actions"] do |event|
       %tr{:class => row_class}
         %td= event.title
@@ -12,7 +15,3 @@
         %td
           = edit_entity_image [:edit, :admin, event]
           = destroy_entity_image [:admin, event]
-      
-    .image_links
-      = new_entity_image new_admin_event_path, "Create New Event"
-

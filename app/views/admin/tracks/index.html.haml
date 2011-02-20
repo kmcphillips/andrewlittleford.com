@@ -32,6 +32,9 @@
   .entry
     .meta Drag table rows to reorganize them.
 
+    .image_links
+      = new_entity_image new_admin_track_path, "Create New Track"
+
     = collection_index @tracks, ["Title", "Description", "Recorded at", "Filename", "Active?", "Updated at", "Actions"], :id => "sortable_table" do |track|
       %tr{:class => row_class, :'data-track-id' => track.id}
         %td= track.title
@@ -43,7 +46,3 @@
         %td
           = edit_entity_image [:edit, :admin, track]
           = destroy_entity_image [:admin, track]
-
-    .image_links
-      = new_entity_image new_admin_track_path, "Create New Track"
-

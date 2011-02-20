@@ -3,6 +3,9 @@
   .entry
     .meta
 
+    .image_links
+      = new_entity_image new_admin_post_path, "Create New News Post"
+
     = collection_index @posts, ["Title", "Body", "Created at", "Actions"] do |post|
       %tr{:class => row_class}
         %td= post.title
@@ -11,6 +14,3 @@
         %td
           = edit_entity_image [:edit, :admin, post]
           = destroy_entity_image [:admin, post]
-
-    .image_links
-      = new_entity_image new_admin_post_path, "Create New News Post"

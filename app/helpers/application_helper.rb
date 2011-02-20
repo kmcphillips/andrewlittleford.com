@@ -116,7 +116,7 @@ module ApplicationHelper
   def unique_previous_images(obj)
     fingerprints = []
 
-    obj.class.order("created_at DESC").where("id != ?", obj.id).map do |current|
+    obj.class.order("created_at DESC").reject{|x| x == obj}.map do |current|
       if current.image.exists? && current.image.fingerprint
         if fingerprints.include?(current.image.fingerprint)
           nil

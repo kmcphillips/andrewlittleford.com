@@ -1,12 +1,12 @@
 !!!
 %html
   %head
-    %title= "#{PAGE_TITLE} - Listen!"
+    %title= "#{PAGE_TITLE} :: Listen"
 
-    = stylesheet_link_tag "stylesheet", "player"
+    = stylesheet_link_tag "fonts", "stylesheet", "player"
 
     = javascript_include_tag 'jquery/jquery-1.4.2.min'
-    = javascript_include_tag :all
+    = javascript_include_tag ['application', 'rails']
 
     = csrf_meta_tag
 

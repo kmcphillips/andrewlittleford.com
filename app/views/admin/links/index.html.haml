@@ -32,6 +32,9 @@
   .entry
     .meta Drag table to rows to reorganize them.
 
+    .image_links
+      = new_entity_image new_admin_link_path, "Create New Link"
+
     = collection_index @links, ["Title", "URL", "Description", "Actions"], :id => "sortable_table" do |link|
       %tr{:class => row_class, :'data-link-id' => link.id}
         %td= link.title
@@ -40,7 +43,3 @@
         %td
           = edit_entity_image [:edit, :admin, link]
           = destroy_entity_image [:admin, link]
-
-    .image_links
-      = new_entity_image new_admin_link_path, "Create New Link"
-
