@@ -15,4 +15,8 @@ class Media < ActiveRecord::Base
     label
   end
   
+  def self.press_kit
+    find_by_label!("press_kit")
+  end
+
 end

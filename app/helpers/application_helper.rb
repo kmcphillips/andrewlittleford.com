@@ -113,6 +113,14 @@ module ApplicationHelper
     params[:controller] =~ /^admin\//
   end
 
+  def press_kit_link(title="Download press kit")
+    kit = Media.press_kit
+    if kit.file.exists?
+      link_to(image_tag("/images/icons/attach.png", :alt => title), kit.file.url, :class => "action-image") +
+      link_to(title, kit.file.url)
+    end
+  end
+
   def unique_previous_images(obj)
     fingerprints = []
 

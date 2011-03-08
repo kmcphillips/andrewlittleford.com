@@ -22,9 +22,10 @@ $table_dark: $background_dark
 $table_bg: #C1F11F
 $table_bg_alt: #C1C3BC
 
-$flash_notice: #00DFFC
-$flash_error: #C62626
-
+$flash_noticet: green
+$flash_error: red
+$flash_notice_font: #FFFFFF
+$flash_error_font: #FFFFFF
 
 $sans_serif: Arial, Helvetica, sans-serif
 $serif: Georgia, "Times New Roman", Times, serif
@@ -96,7 +97,9 @@ a:hover
 
 .left
   text-align: left !important
-  
+
+table
+  text-align: left
 
 #background
   background: $background url(../images/template/background.png) scroll center bottom no-repeat
@@ -446,14 +449,18 @@ div.notice, div.error
 
 div.notice
   background-color: $flash_notice
+  h2
+    color: $flash_notice_font
 
 div.error
   background-color: $flash_error
+  h2
+    color: $flash_error_font
   ul
     margin: 5px 0
     list-style: none
     li
-      color: $white
+      color: $flash_error_font
       font-size: 1.2em
 
 

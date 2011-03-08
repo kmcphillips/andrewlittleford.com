@@ -21,7 +21,6 @@ describe BlocksController do
       Media.stub(:find_by_label! => @media)
       get "bio"
       assigns(:block).should be(mock_block)
-      assigns(:kit).should be(@media)
     end
   end
 

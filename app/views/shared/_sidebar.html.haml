@@ -1,6 +1,13 @@
 %ul
   %li= render :partial => 'shared/admin_nav' if controller.current_user
 
+  - if Event.current.any?
+    %li
+      %h2 Happening Right Now
+      %ul
+        - Event.current.each do |event|
+          %li= link_to event.title, event_path(event)
+
   - if Event.upcoming.any?
     %li
       %h2 Upcoming Events
