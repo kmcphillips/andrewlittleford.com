@@ -1,22 +1,17 @@
 @font-face {
-    font-family: 'RockSaltRegular';
-    src: url('../fonts/RockSalt-webfont.eot');
-    src: url('../fonts/RockSalt-webfont.eot?iefix') format('eot'),
-         url('../fonts/RockSalt-webfont.woff') format('woff'),
-         url('../fonts/RockSalt-webfont.ttf') format('truetype'),
-         url('../fonts/RockSalt-webfont.svg#webfontCOxZFOKy') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'RockSaltRegular';
+	src: url('../fonts/RockSalt-webfont.eot');
+	src: local('☺'), url('../fonts/RockSalt-webfont.woff') format('woff'), url('../fonts/RockSalt-webfont.ttf') format('truetype'), url('../fonts/RockSalt-webfont.svg#webfont6Gry4Llq') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 
 @font-face {
-    font-family: 'CartoGothicStdBook';
-    src: url('../fonts/CartoGothicStd-Book-webfont.eot');
-    src: url('../fonts/CartoGothicStd-Book-webfont.eot?iefix') format('eot'),
-         url('../fonts/CartoGothicStd-Book-webfont.woff') format('woff'),
-         url('../fonts/CartoGothicStd-Book-webfont.ttf') format('truetype'),
-         url('../fonts/CartoGothicStd-Book-webfont.svg#webfont3Jo4Ril0') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'CartoGothicStdBook';
+	src: url('../fonts/CartoGothicStd-Book-webfont.eot');
+	src: local('☺'), url('../fonts/CartoGothicStd-Book-webfont.woff') format('woff'), url('../fonts/CartoGothicStd-Book-webfont.ttf') format('truetype'), url('../fonts/CartoGothicStd-Book-webfont.svg#webfont6Gry4Llq') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
+
