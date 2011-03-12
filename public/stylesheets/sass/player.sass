@@ -1,80 +1,84 @@
 /***** Andrewlittleford.com - Audio Player ****
 
+$white: #FCFCFA
+$sans_serif: Arial, Helvetica, sans-serif
+$text_copy: #343838
+$background_dark: #313429
+
+
 #player
-  height: 400px
-  width: 650px
-  margin: 0
   padding: 0
-  background: #3D1020
-  font-family: LatinModernMonoProp10Regular, serif
-  font-size: 1.2em
+  margin: 0
+  height: 550px
+  background-color: $background_dark
+  font-family: $sans_serif
+  font-size: 12px
+  color: $text_copy
 
-  .header
+  .clear
+    clear: both
+
+  img.header
     padding: 0
     margin: 0
-    height: 75px
-    width: 650px
-    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif
-    border-bottom: 4px solid #F6F3CF
-
-  .container
-    padding: 0
-    margin: 0
-    height: 321px
-    width: 650px
-
-  .list
-    margin: 0
-    height: 291px
-    width: 216px
-    float: right
-    background-color: #9E8855
-    padding: 15px
-    overflow: scroll
-    overflow-x: hidden
-    border-left: 4px solid #F6F3CF
-
-    li
-      margin: 2px 0 20px 0
-
-    a
-      color: #4B3733
-      font-weight: bold
-
-  .main
-    padding: 0
-    margin: 0
-    height: 100%
-    width: 400px
-    float: left
+    border: 0
 
   .title
-    margin: 6px 0
-    text-align: center
+    background: $background_dark
+    padding: 10px 10px 3px 10px
     font-size: 1.5em
-    font-weight: bold
+    color: $white
+    font-family: CartoGothicStdBook
+    text-align: center
+
+  .plugin
+    background: $background_dark
 
   .controls
+    background: $background_dark
+    padding: 3px 10px 10px 10px
 
-  .prev
-    padding: 6px
-    margin: 0
-    width: 140px
-    float: left
+    a
+      font-size: 1.5em
+      color: $white
+      font-family: CartoGothicStdBook
 
-  .next
-    padding: 6px
-    margin: 0
-    width: 140px
-    float: right
-    text-align: right
+    .next
+      float: right
+      text-align: right
+
+    .prev
+      float: left
 
   .description
-    clear: both
-    height: auto
-    padding: 15px
-    font-size: 0.85em
+    padding: 20px
+    background-color: $white
 
-  ul
-    list-style: none
+  .list
+    padding: 0
+    margin: 0
+    height: 200px
+    border-top: 5px solid $background_dark
+    background-color: #DDDDDD
+    height: 100%
+    overflow: scroll
+    overflow-x: hidden
+
+
+    ul
+      padding: 0
+      margin: 0
+      list-style: none
+
+      li
+        padding: 10px
+        background-color: #C1F11F
+
+        a
+          font-size: 1.2em
+
+      li.even
+        background-color: #C1C3BC
+      li.odd
+        background-color: #CCCCCC
 
