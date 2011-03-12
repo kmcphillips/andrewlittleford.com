@@ -15,6 +15,8 @@ AndrewlittlefordCom::Application.routes.draw do
 
   resources :events, :only => [:index, :show]
 
+  match 'login' => 'admin/sessions#new'
+
   # admin
   namespace :admin do
     match 'login' => 'sessions#new'

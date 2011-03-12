@@ -12,6 +12,6 @@ SITE_EMAIL = 'andrew@andrewlittleford.com'
 ADMIN_EMAIL = 'admin@kevinmcphillips.ca'
 
 META = {
-  :keywords => "Andrew Littleford, Andrew Littleford, Kevin McPhillips",
-  :description => "Andrew Littleford"
+  :keywords => "Andrew Littleford, Andrew Littleford, Kevin McPhillips, winnipeg, manitoba, canada, trumpet, musician, trumpet player, teacher, music teacher, band teacher, brass player, trumpet player, jazz, performer, music, jazz music, jazz trio",
+  :description => "Andrew Littleford. Performer. Teacher. Musician."
 }.with_indifferent_access
