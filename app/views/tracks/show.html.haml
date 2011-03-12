@@ -18,9 +18,11 @@
     - else
       &nbsp;
 
-  .description=@track.description
+  .main
+    - unless @track.description.blank?
+      .description=@track.description
 
-  .list
-    %ul
-      - @tracks.each do |track|
-        %li{:class => cycle("odd", "even")}= link_to track.title, track_path(track)
+    .list
+      %ul
+        - @tracks.each_with_index do |track, index|
+          %li{:class => [cycle("odd", "even"), (index == 0 ? "first" : nil)].compact.join(" ")}= link_to track.title, track_path(track)

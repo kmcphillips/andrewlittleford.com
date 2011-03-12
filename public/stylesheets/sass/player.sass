@@ -1,6 +1,7 @@
 /***** Andrewlittleford.com - Audio Player ****
 
 $white: #FCFCFA
+$gray: #D1D1D1
 $sans_serif: Arial, Helvetica, sans-serif
 $text_copy: #343838
 $background_dark: #313429
@@ -9,7 +10,7 @@ $background_dark: #313429
 #player
   padding: 0
   margin: 0
-  height: 550px
+  height: 450px
   background-color: $background_dark
   font-family: $sans_serif
   font-size: 12px
@@ -49,25 +50,31 @@ $background_dark: #313429
     .prev
       float: left
 
-  .description
-    padding: 20px
-    background-color: $white
-    text-align: justify
-
-  .list
-    padding: 0
-    margin: 0
-    height: 200px
-    border-top: 5px solid $background_dark
-    background-color: $white
-    height: 100%
+  .main
     overflow: scroll
     overflow-x: hidden
+    height: 100%
+    background-color: $white
 
+    .description
+      padding: 20px
+      text-align: justify
 
-    ul
-      list-style: circle
+    .list
+      padding: 0
+      margin: 0
+      height: 200px
 
-      li
-        font-size: 1.2em
+      ul
+        padding: 0
+        margin: 0
+        list-style: none
 
+        li
+          font-size: 1.2em
+          line-height: 35px
+          border-bottom: 1px dashed $gray
+          padding: 0 15px
+
+        li.first
+          border-top: 1px dashed $gray

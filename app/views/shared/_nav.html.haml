@@ -7,7 +7,7 @@
   %li= link_to "Contact", "/contact", :accesskey => "6"
   - if Track.count > 0
     %li
-      %a{:href => track_path(Track.beginning), :onclick => "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=550, width=350, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"} Listen
+      %a{:href => track_path(Track.beginning), :onclick => "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=450, width=350, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"} Listen
   %li= link_to "Login", "/admin/login", :accesskey => "7" if Rails.env.development? && !controller.current_user
 
 .clear
