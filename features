@@ -1,7 +1,5 @@
 Add content to error pages
 
-Layout media player
-
 Lock after login attempts. Possibly switch to authlogic?
 
 paginate past shows
@@ -11,8 +9,4 @@ permalink in tracks with flash/JS auto-open the media player
 improve nav layout and style
 
 Get bio image
-
-Remove recorded_at
-
-clear active checkbox on track form
 

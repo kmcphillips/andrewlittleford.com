@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110217165525) do
+ActiveRecord::Schema.define(:version => 20110312191026) do
 
   create_table "blocks", :force => true do |t|
     t.text     "body"
@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(:version => 20110217165525) do
 
   create_table "tracks", :force => true do |t|
     t.string   "title"
-    t.date     "recorded_at"
     t.text     "description"
     t.integer  "sort_order"
     t.boolean  "active",           :default => true

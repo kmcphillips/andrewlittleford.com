@@ -13,7 +13,7 @@ CREATE TABLE `blocks` (
   `image_fingerprint` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_blocks_on_label` (`label`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `events` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -29,7 +29,7 @@ CREATE TABLE `events` (
   `image_fingerprint` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_events_on_starts_at` (`starts_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `galleries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -60,7 +60,7 @@ CREATE TABLE `images` (
   KEY `index_images_on_active` (`active`),
   KEY `index_images_on_sort_order` (`sort_order`),
   KEY `index_images_on_gallery_id` (`gallery_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `links` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -74,7 +74,7 @@ CREATE TABLE `links` (
   PRIMARY KEY (`id`),
   KEY `index_links_on_sort_order` (`sort_order`),
   KEY `index_links_on_project` (`project`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `medias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -86,7 +86,7 @@ CREATE TABLE `medias` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -101,7 +101,7 @@ CREATE TABLE `posts` (
   `image_updated_at` datetime DEFAULT NULL,
   `image_fingerprint` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) NOT NULL,
@@ -111,7 +111,6 @@ CREATE TABLE `schema_migrations` (
 CREATE TABLE `tracks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
-  `recorded_at` date DEFAULT NULL,
   `description` text,
   `sort_order` int(11) DEFAULT NULL,
   `active` tinyint(1) DEFAULT '1',
@@ -124,7 +123,7 @@ CREATE TABLE `tracks` (
   PRIMARY KEY (`id`),
   KEY `index_tracks_on_active` (`active`),
   KEY `index_tracks_on_sort_order` (`sort_order`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -169,3 +168,5 @@ INSERT INTO schema_migrations (version) VALUES ('20101212041459');
 INSERT INTO schema_migrations (version) VALUES ('20110217034659');
 
 INSERT INTO schema_migrations (version) VALUES ('20110217165525');
+
+INSERT INTO schema_migrations (version) VALUES ('20110312191026');

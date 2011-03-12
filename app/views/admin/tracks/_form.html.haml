@@ -8,15 +8,10 @@
     = f.label :description
     = f.text_area :description, :rows => 8, :cols => 50
   .field
-    = f.label :recorded_at
-    = f.text_field :recorded_at, :class => "datepicker", :size => 14
-  - if f.object.sort_order
-    .field
-      = f.label :sort_order
-      = f.object.sort_order
-  .field
     = f.label :active
-    = f.check_box :active
+    .input.permalink
+      = f.check_box :active
+    .clear
   .field
     = f.label :mp3, "Audio File"
     = f.file_field :mp3
