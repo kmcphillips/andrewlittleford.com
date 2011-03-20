@@ -4,8 +4,11 @@ $white: #FCFCFA
 $gray: #D1D1D1
 $sans_serif: Arial, Helvetica, sans-serif
 $text_copy: #343838
+$background: #666662
 $background_dark: #313429
 
+html
+  background-color: $white
 
 #player
   padding: 0
@@ -19,10 +22,16 @@ $background_dark: #313429
   .clear
     clear: both
 
-  img.header
+  .header
     padding: 0
     margin: 0
-    border: 0
+    background-color: $background
+
+    img
+      padding: 0
+      margin: 0
+      border: 0
+      vertical-align: bottom  // Hackity hack: in Firefox/Chrome extra space is added to the bottom of images without this
 
   .title
     background: $background_dark
@@ -33,6 +42,15 @@ $background_dark: #313429
 
   .plugin
     background: $background_dark
+
+    .no_js
+      padding-left: 30px
+      font-size: 1.5em
+      color: $white
+      font-family: CartoGothicStdBook
+      a
+        color: $white
+
 
   .controls
     background: $background_dark

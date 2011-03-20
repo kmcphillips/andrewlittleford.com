@@ -5,8 +5,10 @@
 
     = stylesheet_link_tag "fonts", "stylesheet", "player"
 
-    = javascript_include_tag 'jquery/jquery-1.4.2.min'
+    = javascript_include_tag 'jquery/jquery-1.4.2.min', 'jquery.swfobject'
     = javascript_include_tag ['application', 'rails']
+
+    = yield :js
 
     = csrf_meta_tag
 
