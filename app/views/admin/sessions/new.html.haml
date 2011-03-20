@@ -12,7 +12,7 @@
     = form_tag admin_sessions_path, :method => :post do
       .field
         %label Username
-        = text_field_tag :username, "", :id => "username_field"
+        = text_field_tag :username, params[:username], :id => "username_field"
 
       .field
         %label Password
