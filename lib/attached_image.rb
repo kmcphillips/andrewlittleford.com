@@ -1,6 +1,6 @@
 module AttachedImage
   
-  SIZES = { :full => "700x560>", :thumb => "120x120#", :inline => "280x280>" }
+  SIZES = { :full => "700x560>", :thumb => "120x120#", :inline => "280x280>", :column => "600x500>" }
 
   def self.included(base)
     base.extend ClassMethods

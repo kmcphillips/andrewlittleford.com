@@ -1,8 +1,6 @@
 Lock after login attempts. Possibly switch to authlogic?
 
-paginate past shows
-
 permalink in tracks with flash/JS auto-open the media player
 
-Get bio image
+Fallback/warn for no flash
 

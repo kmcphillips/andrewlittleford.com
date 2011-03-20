@@ -1,4 +1,4 @@
-= form_for([:admin, @block]) do |f|
+= form_for([:admin, @block], :html => { :multipart => true }) do |f|
   = error_messages(@block)
 
   .field

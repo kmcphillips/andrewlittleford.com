@@ -52,7 +52,7 @@
     - if object.image.exists?
       = image_tag(object.thumb, :id => :current_image)
     - else
-      %img{:src => "#", :id => :current_image}
+      %img{:id => :current_image}
 
     = f.file_field :image
 
