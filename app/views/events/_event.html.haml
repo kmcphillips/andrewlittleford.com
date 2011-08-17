@@ -13,5 +13,5 @@
         = event.starts_at.to_formatted_s(:event_with_time)
     
     = image_for event
-    = auto_link(simple_format(event.description), :link => :urls)
+    = auto_link(simple_format(event.description), :link => :urls).html_safe
     .clear

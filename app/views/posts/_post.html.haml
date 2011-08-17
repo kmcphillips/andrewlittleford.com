@@ -3,6 +3,6 @@
   .entry
     .meta= (post.created_at || Time.now).to_s(:news_without_time)
     = image_for post
-    = auto_link(simple_format(post.body), :link => :urls)
+    = auto_link(simple_format(post.body), :link => :urls).html_safe
     .clear
 

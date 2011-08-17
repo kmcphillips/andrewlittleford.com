@@ -72,7 +72,7 @@ module ApplicationHelper
         column_titles.each do |title|
           headers << content_tag(:th, title)
         end
-        headers
+        headers.html_safe
       end
       
       src << content_tag(:tbody) do
@@ -89,7 +89,7 @@ module ApplicationHelper
         end
       end
 
-      src
+      src.html_safe
     end
   end
 

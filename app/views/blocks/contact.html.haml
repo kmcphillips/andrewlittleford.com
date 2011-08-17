@@ -3,7 +3,7 @@
   .entry
     .meta
 
-    = auto_link(simple_format(@block.body), :link => :urls)
+    = auto_link(simple_format(@block.body), :link => :urls).html_safe
     %br
     %p= obfuscated_mail_to SITE_EMAIL
     %p= press_kit_link  
