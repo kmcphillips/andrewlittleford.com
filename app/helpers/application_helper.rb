@@ -84,7 +84,7 @@ module ApplicationHelper
       if collection.paginate?
         src << content_tag(:tr) do
           content_tag(:th, :colspan => column_titles.size) do
-            will_paginate(collection, :previous_label => "← Newer", :next_label => "Older →")
+            will_paginate(collection, :previous_label => "<- Newer", :next_label => "Older ->")
           end
         end
       end
