@@ -1,16 +1,16 @@
 set :application, "Andrew Littleford"
 set :repository,  "git://github.com/kimos/andrewlittleford.com.git"
-set :deploy_to, "/home/kevin/andrewlittleford.com"
+set :deploy_to, "/var/www/kevin/data/www/andrewlittleford.com"
 set :user, "kevin"
 set :use_sudo, false
 set :scm, "git"
-set :keep_releases, 10
+set :keep_releases, 5
 
 default_run_options[:pty] = true
 
-role :web, "andrewlittleford.com"
-role :app, "andrewlittleford.com"
-role :db,  "andrewlittleford.com", :primary => true
+role :web, "68.169.58.121"
+role :app, "68.169.58.121"
+role :db,  "68.169.58.121", :primary => true
 
 
 namespace :deploy do
@@ -20,6 +20,8 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
+
+after "deploy:update", "deploy:cleanup" 
 
 after "deploy", "symlink_shared_files"
 
