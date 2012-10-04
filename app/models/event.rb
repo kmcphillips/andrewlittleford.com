@@ -26,7 +26,7 @@ class Event < ActiveRecord::Base
   end
 
   def current?
-    (Time.now.beginning_of_day..Time.now.end_of_day).include? starts_at
+    (Time.now.beginning_of_day..Time.now.end_of_day).cover? starts_at
   end
 
   def past?
