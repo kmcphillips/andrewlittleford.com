@@ -1,3 +1,5 @@
+require "bundler/capistrano"
+
 set :application, "Andrew Littleford"
 set :repository,  "git://github.com/kimos/andrewlittleford.com.git"
 set :deploy_to, "/var/www/kevin/data/www/andrewlittleford.com"
@@ -21,7 +23,7 @@ namespace :deploy do
   end
 end
 
-after "deploy:update", "deploy:cleanup" 
+after "deploy:update", "deploy:cleanup"
 
 after "deploy", "symlink_shared_files"
 
