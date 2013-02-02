@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 
 set :application, "Andrew Littleford"
-set :repository,  "git://github.com/kimos/andrewlittleford.com.git"
+set :repository,  "git://github.com/kmcphillips/andrewlittleford.com.git"
 set :deploy_to, "/var/www/kevin/data/www/andrewlittleford.com"
 set :user, "kevin"
 set :use_sudo, false

@@ -12,12 +12,12 @@ Personal home page for Andrew Littleford. It is written with Rails 3, haml, and 
 
 ## Quick Setup
 
-With an OS X or Linux machine with ruby and bundler installed, you should be able to go from 0 to running in under three minutes. 
+With an OS X or Linux machine with ruby and bundler installed, you should be able to go from 0 to running in under three minutes.
 
 
 ### For the impatient
 
-    $ git clone git://github.com/kimos/andrewlittleford.com.git
+    $ git clone git://github.com/kmcphillips/andrewlittleford.com.git
     $ cd andrewlittleford.com
     $ bundle install
     $ cp config/database.yml.example config/database.yml
