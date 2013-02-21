@@ -1,5 +1,5 @@
 module AttachedImage
-  
+
   SIZES = { :full => "700x560>", :thumb => "120x120#", :inline => "280x280>", :column => "600x500>" }
 
   def self.included(base)
@@ -37,7 +37,7 @@ module AttachedImage
   protected
 
   def setting_valid_image
-    errors.add_to_base("cannot send multiple types of image actions") if (image.dirty?) ? (!clear_image.blank? || !previous_image_id.blank?) : (!clear_image.blank? && !previous_image_id.blank?)  # tests if at least two are true
+    errors.add(:base, "cannot send multiple types of image actions") if (image.dirty?) ? (!clear_image.blank? || !previous_image_id.blank?) : (!clear_image.blank? && !previous_image_id.blank?)  # tests if at least two are true
     errors.add(:image, "is not a valid previous image") if !previous_image_id.blank? && !self.class.find_by_id(previous_image_id)
   end
 
