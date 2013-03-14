@@ -4,6 +4,7 @@ gem 'rails', '3.2.12'
 
 gem 'jquery-rails'
 gem 'capistrano'
+gem 'rvm-capistrano'
 gem 'mysql2'
 gem 'haml'
 gem 'haml-rails'
