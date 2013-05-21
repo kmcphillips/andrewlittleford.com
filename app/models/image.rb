@@ -36,7 +36,7 @@ class Image < ActiveRecord::Base
   protected
   
   def set_sort_order
-    self.sort_order = (gallery.images.order("sort_order DESC").limit(1).first.try(:sort_order) || -1) + 1
+    self.sort_order = (gallery.images.order("sort_order DESC").limit(1).first.try(:sort_order) || -1) + 1 if gallery
   end
 end
 

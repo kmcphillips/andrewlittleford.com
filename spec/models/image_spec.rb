@@ -28,6 +28,17 @@ describe Image do
       i.reload
       i.sort_order.should == 1
     end
+
+    it "should allow a valid? check to be called on an image that has not yet been saved" do
+      Image.new(@valid_attribute).valid?
+    end
+    
+    it "should allow for the order to be set with new/save rather than create" do
+      i = Image.new(@valid_attributes)
+      i.save!
+      i.reload
+      i.sort_order.should == 0
+    end
     
     after(:each) do
       Image.destroy_all
