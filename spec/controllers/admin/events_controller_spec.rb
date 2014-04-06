@@ -62,22 +62,6 @@ describe Admin::EventsController do
         response.should render_template("new")
       end
     end
-    
-    describe "preview" do
-      it "should check the commit and preview" do
-        Event.stub(:new).with({'these' => 'params'}) { mock_event }
-        mock_event.should_receive(:valid?)
-        post :create, :event => {'these' => 'params'}, :commit => "Preview"
-        assigns(:event).should be(mock_event)
-        assigns(:preview).should be_true
-      end
-
-      it "should render" do
-        Event.stub(:new).with({'these' => 'params'}) { mock_event(:valid? => true) }
-        post :create, :event => {'these' => 'params'}, :commit => "Preview"
-        response.should render_template("edit")
-      end
-    end
   end
 
   describe "PUT update" do
@@ -112,23 +96,6 @@ describe Admin::EventsController do
       it "re-renders the 'edit' template" do
         Event.stub(:find) { mock_event(:update_attributes => false) }
         put :update, :id => "1"
-        response.should render_template("edit")
-      end
-    end
-    
-    describe "preview" do
-      it "should check the commit and preview" do
-        Event.stub(:find) { mock_event }
-        mock_event.should_receive(:attributes=)
-        mock_event.should_receive(:valid?)
-        put :update, :id => "1", :commit => "Preview"
-        assigns(:event).should be(mock_event)
-        assigns(:preview).should be_true
-      end
-      
-      it "should render" do
-        Event.stub(:find) { mock_event(:attributes= => true, :valid? => nil) }
-        put :update, :id => "1", :commit => "Preview"
         response.should render_template("edit")
       end
     end
