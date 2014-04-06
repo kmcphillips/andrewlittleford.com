@@ -20,6 +20,7 @@ AndrewlittlefordCom::Application.routes.draw do
   namespace :admin do
     get 'login' => 'sessions#new'
     get 'logout' => 'sessions#logout'
+    delete 'logout' => 'sessions#logout'
 
     root :to => "posts#index"
     
