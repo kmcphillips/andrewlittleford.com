@@ -6,6 +6,7 @@ before_script:
   - "mysql -e 'create database andrewlittleford_test;'"
   - "cp ./config/database.yml.travis ./config/database.yml"
 script:
+  - bundle exec rake db:migrate
   - bundle exec rake db:test:prepare
   - bundle exec rspec
 notifications:
