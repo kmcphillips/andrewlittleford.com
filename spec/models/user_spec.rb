@@ -21,7 +21,7 @@ end
 
   describe "authenticate" do
     before(:each) do
-      User.stub!(:encrypt).with("pie").and_return("pie_encrypted")
+      User.stub(:encrypt).with("pie").and_return("pie_encrypted")
     end
 
     it "should find a user by name and password_hash" do

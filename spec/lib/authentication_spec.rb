@@ -4,7 +4,7 @@ describe Authentication do
   before(:each) do
     # This doesn't pass the smell test but it works
     @controller = Object.new.extend Authentication
-    @controller.stub!(:session => {})
+    @controller.stub(:session => {})
   end
 
   describe "current_user" do

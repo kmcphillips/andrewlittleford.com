@@ -10,7 +10,7 @@ describe Event do
   describe "with real events" do
     before(:each) do
       t = Time.now
-      Time.stub!(:now => t)
+      Time.stub(:now => t)
 
       @upcoming = Event.create! @valid_attributes.merge(:starts_at => t + 3.days)
       @current = Event.create! @valid_attributes.merge(:starts_at => t - 1.hour)
