@@ -45,5 +45,7 @@ AndrewlittlefordCom::Application.routes.draw do
     resources :images, :only => [:create, :destroy, :update] do
       collection { post 'sort'}
     end
+
+    post 'preview/plain' => 'preview#plain'
   end
 end
