@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    $("textarea.previewable").keyup($.debounce(500, load_preview));
 });
 
 function stripe_table(table)
@@ -74,4 +74,17 @@ function convert_datetime_select(id)
         }
     });
 
+}
+
+function load_preview() {
+    $.ajax({
+        type: 'POST',
+        url: '/admin/preview/plain',
+        data: {
+            body: this.value
+        },
+        success: function(result) {
+            $("#previewable-preview").html(result);
+        }
+    });
 }
