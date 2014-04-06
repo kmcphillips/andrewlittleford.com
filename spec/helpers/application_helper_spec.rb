@@ -43,7 +43,7 @@ describe ApplicationHelper do
   
   describe "error messages" do
     it "should render the partial" do
-      obj = mock :object
+      obj = double :object
       helper.should_receive(:render).with(:partial => "/shared/error_messages", :object => obj)
       helper.error_messages(obj)
     end

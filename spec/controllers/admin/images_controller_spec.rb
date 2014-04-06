@@ -60,7 +60,7 @@ describe Admin::ImagesController do
     end
     
     it "should sort the IDs passed back" do
-      post :sort, :image => [3,1,2]
+      post :sort, :image => [@i3.id ,@i1.id ,@i2.id]
       Image.in_order.map(&:id).should == [@i3.id, @i1.id, @i2.id]
     end
     

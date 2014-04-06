@@ -70,7 +70,7 @@ describe Admin::SessionsController do
     end
     
     it "should fail to set the password" do
-      mock_user.stub(:errors => mock(:errors, :full_messages => ["errors"]))
+      mock_user.stub(:errors => double(:errors, :full_messages => ["errors"]))
       mock_user.should_receive(:change_password!).with("pie", "cake").and_return(false)
       post :change_password, :password => "pie", :password_confirm => "cake"
       response.should redirect_to(password_admin_sessions_path)

@@ -20,7 +20,7 @@ describe Track do
   
   it "should know the mp3_url" do
     t = Track.new
-    t.stub(:mp3 => mock(:mp3, :url => "/assets/pie.mp3", :exists? => true))
+    t.stub(:mp3 => double(:mp3, :url => "/assets/pie.mp3", :exists? => true))
     t.mp3_url("http://pie:123/player/1").should == "http://pie:123/assets/pie.mp3"
   end
   

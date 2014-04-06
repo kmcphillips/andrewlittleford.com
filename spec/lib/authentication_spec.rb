@@ -30,7 +30,7 @@ describe Authentication do
       end
 
       it "should raise if you call it with something else" do
-        lambda{ @controller.current_user(mock) }.should raise_error
+        lambda{ @controller.current_user(double) }.should raise_error
       end
     end
 
