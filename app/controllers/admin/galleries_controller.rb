@@ -1,5 +1,4 @@
-class Admin::GalleriesController < ApplicationController
-  before_filter :require_login
+class Admin::GalleriesController < Admin::ApplicationController
 
   def index
     @gallery = Gallery.singleton

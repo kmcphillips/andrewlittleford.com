@@ -1,5 +1,4 @@
-class Admin::EventsController < ApplicationController
-  before_filter :require_login
+class Admin::EventsController < Admin::ApplicationController
 
   def index
     @events = Event.paginate(pagination_params(:order => "created_at DESC"))

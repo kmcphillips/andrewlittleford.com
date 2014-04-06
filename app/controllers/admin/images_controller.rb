@@ -1,5 +1,4 @@
-class Admin::ImagesController < ApplicationController
-  before_filter :require_login
+class Admin::ImagesController < Admin::ApplicationController
 
   def create
     image = Image.new(params[:image])

@@ -1,4 +1,4 @@
-class Admin::TracksController < ApplicationController
+class Admin::TracksController < Admin::ApplicationController
   
   def index
     @tracks = Track.order("sort_order ASC")

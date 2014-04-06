@@ -1,5 +1,4 @@
-class Admin::SessionsController < ApplicationController
-  before_filter :require_login
+class Admin::SessionsController < Admin::ApplicationController
 
   def new
     if current_user

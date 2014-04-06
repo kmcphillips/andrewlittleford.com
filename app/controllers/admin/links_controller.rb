@@ -1,4 +1,4 @@
-class Admin::LinksController < ApplicationController
+class Admin::LinksController < Admin::ApplicationController
 
   def index
     @links = Link.in_order

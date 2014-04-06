@@ -1,5 +1,4 @@
-class Admin::PostsController < ApplicationController
-  before_filter :require_login
+class Admin::PostsController < Admin::ApplicationController
 
   def index
     @posts = Post.paginate(pagination_params(:order => "created_at DESC"))
