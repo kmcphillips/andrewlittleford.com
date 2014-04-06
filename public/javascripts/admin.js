@@ -1,5 +1,8 @@
 $(document).ready(function(){
     $("textarea.previewable").keyup($.debounce(500, load_preview));
+    if($("textarea.previewable").length > 0){
+        load_preview.call($("textarea.previewable"));
+    }
 });
 
 function stripe_table(table)
@@ -81,7 +84,7 @@ function load_preview() {
         type: 'POST',
         url: '/admin/preview/plain',
         data: {
-            body: this.value
+            body: $(this).val()
         },
         success: function(result) {
             $("#previewable-preview").html(result);
