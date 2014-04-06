@@ -16,11 +16,7 @@ class Admin::PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
 
-    if params[:commit] == "Preview"
-      @post.valid?
-      @preview = true
-      render :action => "edit"
-    elsif @post.save
+    if @post.save
       redirect_to(admin_posts_url, :notice => 'Post was successfully created.')
     else
       render :action => "new"
@@ -30,12 +26,7 @@ class Admin::PostsController < ApplicationController
   def update
     @post = Post.find_by_permalink!(params[:id])
 
-    if params[:commit] == "Preview"
-      @post.attributes = params[:post]
-      @post.valid?
-      @preview = true
-      render :action => "edit"
-    elsif @post.update_attributes(params[:post])
+    if @post.update_attributes(params[:post])
       redirect_to(admin_posts_url, :notice => 'Post was successfully updated.')
     else
       render :action => "edit"
@@ -46,6 +37,6 @@ class Admin::PostsController < ApplicationController
     @post = Post.find_by_permalink!(params[:id])
     @post.destroy
 
-     redirect_to(admin_posts_url) 
+    redirect_to(admin_posts_url) 
   end
 end

@@ -12,7 +12,12 @@
     = f.text_field :title, :size => 50
   .field
     = f.label :description
-    = f.text_area :description, :rows => 12, :cols => 50
+    = f.text_area :description, :rows => 12, :cols => 50, :class => "previewable"
+  .field
+    %label Preview
+    .input
+      #previewable-preview
+      .clear
   .field
     = f.label :starts_at
     #starts_at_container.date= f.datetime_select :starts_at
@@ -22,4 +27,3 @@
   .actions
     %label Actions
     = f.submit 'Save'
-    = f.submit 'Preview'
