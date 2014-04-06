@@ -1,5 +1,7 @@
 # Andrew Littleford
 
+[![Build Status](https://travis-ci.org/kmcphillips/andrewlittleford.com.svg)](https://travis-ci.org/kmcphillips/andrewlittleford.com)
+
 [Kevin McPhillips](mailto:github@kevinmcphillips.ca)
 
 [http://andrewlittleford.com](http://andrewlittleford.com)
