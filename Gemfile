@@ -13,9 +13,7 @@ gem 'will_paginate'
 gem 'paperclip'
 gem 'rmagick', ">= 2.13.1"
 gem 'acts_as_permalink'
-#gem 'rinku', '~> 1.2.2', :require => 'rails_rinku' # Replace auto_link
 gem 'rinku', require: 'rails_rinku'
-
 
 group :development, :test do
   gem "thin"
@@ -24,4 +22,3 @@ group :development, :test do
   gem "pry"
   gem "pry-rails"
 end
-
