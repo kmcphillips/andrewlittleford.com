@@ -15,29 +15,16 @@
         - Event.upcoming.each_with_index do |event, index|
           %li{:class => (index == 0 ? "first" : nil)}= link_to event.title, event_path(event)
 
+  %li
+    %h2 Social
+    %ul.social-icons
+      = social_icon :facebook, "https://www.facebook.com/andrewlittlefordmusic", label: "Andrew Littleford on Facebook"
+      = obfuscated_mail_to SITE_EMAIL, image_tag("/images/icons/social/email.png", alt: ("Email"), class: "social-icon")
+      = social_icon :rss, "/rss.xml", label: "RSS feed"
+
   - if Link.projects.any?
     %li
       %h2 Current Projects
       %ul
         - Link.projects.in_order.each_with_index do |link, index|
           %li{:class => (index == 0 ? "first" : nil)}= link_to link.display, link.url
-
-  %li
-    %h2 Credits
-    %ul
-      %li.credits
-        = link_to image_tag("/images/icons/rss.png", :alt => "RSS", :class => "no_border"), "/rss.xml"
-        &nbsp;
-        = link_to "RSS", "/rss.xml"
-        %br
-
-        %span
-          &copy; #{Time.now.year}
-          #{obfuscated_mail_to(SITE_EMAIL, "Andrew Littleford")}
-          %br
-          #{obfuscated_mail_to(ADMIN_EMAIL, "Kevin McPhillips")}
-          %br
-          #{obfuscated_mail_to(ADMIN_EMAIL, "Grace Hrabi McPhillips")}
-          %br
-          = link_to "Site source", "http://github.com/kmcphillips/andrewlittleford.com"
-

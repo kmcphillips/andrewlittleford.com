@@ -54,6 +54,10 @@ module ApplicationHelper
     "Enlarge&nbsp;" + image_tag("/images/icons/magnify.png", :alt => "Enlarge", :class => :magnify)
   end
 
+  def social_icon(icon, path, opts={})
+    link_to image_tag("/images/icons/social/#{ icon }.png", alt: (opts[:label] || icon.to_s.humanize), class: "social-icon"), path
+  end
+
   def boolean_image(value)
     image_tag("/images/icons/#{!!value}.png", :alt => (!!value).to_s.humanize)
   end
