@@ -4,6 +4,14 @@
     .meta
 
     = auto_link(simple_format(@block.body), :link => :urls).html_safe
-    %br
     %p= obfuscated_mail_to SITE_EMAIL
     %p= press_kit_link  
+
+.post
+  %h2.title Credits
+  .entry
+    .meta
+      Site by 
+      = obfuscated_mail_to(ADMIN_EMAIL, "Kevin McPhillips")
+      and #{ obfuscated_mail_to(ADMIN_EMAIL, "Grace Hrabi McPhillips") }. Site site source
+      #{ link_to "on GitHub", "http://github.com/kmcphillips/andrewlittleford.com" }.
