@@ -7,8 +7,9 @@ class User < ActiveRecord::Base
     password = opts[:password]
     password_confirm = opts[:password_confirm] || opts[:password]
 
-    return nil if password.blank? || username.blank? || (password_confirm != password)
-    User.first(conditions: ["username = ? AND password_hash = ?", username.strip, encrypt(password.strip)])
+    return nil if password.blank? || password_confirm.blank? || username.blank? || (password_confirm.strip != password.strip)
+
+    User.where(username: username.strip, password_hash: encrypt(password.strip)).first
   end
 
   def self.encrypt(password)
