@@ -176,6 +176,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    timecop (0.7.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     will_paginate (3.0.7)
@@ -205,4 +206,5 @@ DEPENDENCIES
   sass
   sass-rails (~> 5.0.0.beta1)
   thin
+  timecop
   will_paginate

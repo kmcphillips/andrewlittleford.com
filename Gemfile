@@ -25,4 +25,5 @@ group :development, :test do
   gem 'pry-rails'
   gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'timecop'
 end
