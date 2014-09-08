@@ -15,7 +15,7 @@ class Gallery < ActiveRecord::Base
   end
 
   def self.singleton
-    first
+    self.first
   end
 
 end
