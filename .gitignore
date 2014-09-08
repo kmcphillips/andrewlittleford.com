@@ -8,4 +8,4 @@ config/database.yml
 public/assets
 public/stylesheets/stylesheet.css
 public/stylesheets/player.css
-
+.DS_Store
