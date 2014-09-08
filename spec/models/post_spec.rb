@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Post do
+  let(:post){ FactoryGirl.create(:post) }
 
   it "should know the sort column" do
-    t = Time.now
-    Post.new(:created_at => t).sort_by.should == t
+    expect(post.sort_by).to eq(post.created_at)
   end
 end
