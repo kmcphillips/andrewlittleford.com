@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Event do
+  let(:event){ FactoryGirl.create(:event) }
+
   before(:each) do
     @now = Time.now
     @valid_attributes = {:title => "Pie Festival", :description => "So much pie.", :starts_at => @now - 2.days}
@@ -10,77 +12,77 @@ describe Event do
   describe "with real events" do
     before(:each) do
       t = Time.now
-      Time.stub(:now => t)
+      allow(Time).to receive(:now).and_return(t)
 
-      @upcoming = Event.create! @valid_attributes.merge(:starts_at => t + 3.days)
-      @current = Event.create! @valid_attributes.merge(:starts_at => t - 1.hour)
-      @past = Event.create! @valid_attributes.merge(:starts_at => t - 1.day)
+      @upcoming = FactoryGirl.create(:event, starts_at: t + 3.days)
+      @current = FactoryGirl.create(:event, starts_at: t - 1.hour)
+      @past = FactoryGirl.create(:event, starts_at: t - 1.day)
     end
 
     describe "scopes" do
       it "should find the upcoming events" do
-        Event.upcoming.should == [@upcoming]
+        expect(Event.upcoming).to eq([@upcoming])
       end
 
       it "should find the current event" do
-        Event.current.should == [@current]
+        expect(Event.current).to eq([@current])
       end
 
       it "should find the past events" do
-        Event.past == [@past]
+        expect(Event.past).to eq([@past])
       end
     end
 
     describe "status" do
       it "should know it is upcoming" do
-        @upcoming.status.should == "Upcoming"
+        expect(@upcoming.status).to eq("Upcoming")
       end
 
       it "should know it is current" do
-        @current.status.should == "Current"
+        expect(@current.status).to eq("Current")
       end
 
       it "should know it is past" do
-        @past.status.should == "Past"
+        expect(@past.status).to eq("Past")
       end
     end
 
     describe "current?" do
       it "should know the current event" do
-        @current.current?.should be_true
+        expect(@current.current?).to be_truthy
       end
 
       it "should know the others are not current" do
-        @past.current?.should be_false
-        @upcoming.current?.should be_false
+        expect(@past.current?).to be_falsy
+        expect(@upcoming.current?).to be_falsy
       end
     end
 
     describe "upcoming?" do
       it "should know the upcoming event" do
-        @upcoming.upcoming?.should be_true
+        expect(@upcoming.upcoming?).to be_truthy
       end
 
       it "should know the others are not upcoming" do
-        @past.upcoming?.should be_false
-        @current.upcoming?.should be_false
+        expect(@past.upcoming?).to be_falsy
+        expect(@current.upcoming?).to be_falsy
       end
     end
 
     describe "past?" do
       it "should know the past event" do
-        @past.past?.should be_true
+        expect(@past.past?).to be_truthy
       end
 
       it "should know the others are not past" do
-        @upcoming.past?.should be_false
-        @current.past?.should be_false
+        expect(@upcoming.past?).to be_falsy
+        expect(@current.past?).to be_falsy
       end
     end
 
-    after(:each) do
-      Event.destroy_all
-    end
+    # after(:each) do
+    #   Event.destroy_all
+    # end
   end
 
 end
