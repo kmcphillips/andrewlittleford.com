@@ -1,20 +1,20 @@
 module AttachedImage
 
-  SIZES = { :full => "700x560>", :thumb => "120x120#", :inline => "280x280>", :column => "600x500>" }
+  SIZES = { full: "700x560>", thumb: "120x120#", inline: "280x280>", column: "600x500>" }
 
   def self.included(base)
     base.extend ClassMethods
     base.instance_eval do
 
       has_attached_file :image,
-        :styles => AttachedImage::SIZES,
-        :default_style => :full,
-        :whiny => true,
-        :path => ":rails_root/public/assets/images/:class/:id/:style_:basename.:extension",
-        :url => "/assets/images/:class/:id/:style_:basename.:extension"
+        styles: AttachedImage::SIZES,
+        default_style: :full,
+        whiny: true,
+        path: ":rails_root/public/assets/images/:class/:id/:style_:basename.:extension",
+        url: "/assets/images/:class/:id/:style_:basename.:extension"
 
-      validates_attachment_size :image, :in => 1..3.megabytes
-      validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/pjpeg", "image/png", "image/tiff", "image/x-png", "image/gif"]
+      validates_attachment_size :image, in: 1..3.megabytes
+      validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/pjpeg", "image/png", "image/tiff", "image/x-png", "image/gif"]
 
       validate :setting_valid_image
 

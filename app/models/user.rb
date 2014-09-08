@@ -1,9 +1,6 @@
 class User < ActiveRecord::Base
-  validates :password_hash, :presence => true
-  validates :username, :uniqueness => true, :presence => true
-
-  attr_protected :id
-  attr_readonly :username
+  validates :password_hash, presence: true
+  validates :username, uniqueness: true, presence: true
 
   def self.authenticate(opts)
     username = opts[:username]
@@ -11,7 +8,7 @@ class User < ActiveRecord::Base
     password_confirm = opts[:password_confirm] || opts[:password]
 
     return nil if password.blank? || username.blank? || (password_confirm != password)
-    User.first(:conditions => ["username = ? AND password_hash = ?", username.strip, encrypt(password.strip)])
+    User.first(conditions: ["username = ? AND password_hash = ?", username.strip, encrypt(password.strip)])
   end
 
   def self.encrypt(password)
@@ -22,7 +19,7 @@ class User < ActiveRecord::Base
     if password && password_confirm
       if password == password_confirm
         if password.length >= 4
-          self.update_attributes(:password_hash => User.encrypt(password))
+          self.update_attributes(password_hash: User.encrypt(password))
         else
           self.errors.add :base, "Password must be at least four characters."
         end
