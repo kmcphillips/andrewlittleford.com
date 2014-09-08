@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails'
+gem 'rails', '~> 4.2.0.beta1'
 gem 'mysql2'
 
 gem 'jquery-rails'
@@ -9,7 +9,7 @@ gem 'rvm-capistrano'
 gem 'haml'
 gem 'haml-rails'
 gem 'sass'
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'will_paginate'
 gem 'paperclip'
 gem 'rmagick'
