@@ -10,6 +10,8 @@ class Media < ActiveRecord::Base
 
   validates_attachment_size :file, in: 1..10.megabytes
 
+  do_not_validate_attachment_file_type :file
+
   def to_param
     label
   end
