@@ -3,116 +3,84 @@ require 'spec_helper'
 describe Admin::PostsController do
   before(:each) do
     login_as_mock_user
-  end  
-
-  def mock_post(stubs={})
-    @mock_post ||= mock_model(Post, stubs).as_null_object
   end
 
   describe "GET index" do
+    let!(:post){ FactoryGirl.create(:post) }
+
     it "assigns all posts as @posts" do
-      Post.stub(:paginate) { [mock_post] }
       get :index
-      assigns(:posts).should eq([mock_post])
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:posts)).to eq([post])
     end
   end
 
   describe "GET new" do
     it "assigns a new post as @post" do
-      Post.stub(:new) { mock_post }
       get :new
-      assigns(:post).should be(mock_post)
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:post)).to_not be_persisted
     end
   end
 
   describe "GET edit" do
+    let!(:post){ FactoryGirl.create(:post) }
+
     it "assigns the requested post as @post" do
-      Post.stub(:find_by_permalink!).with("37") { mock_post }
-      get :edit, :id => "37"
-      assigns(:post).should be(mock_post)
+      get :edit, id: post.permalink
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:post)).to eq(post)
     end
   end
 
   describe "POST create" do
-
     describe "with valid params" do
       it "assigns a newly created post as @post" do
-        Post.stub(:new).with({'these' => 'params'}) { mock_post(:save => true) }
-        post :create, :post => {'these' => 'params'}
-        assigns(:post).should be(mock_post)
-      end
-
-      it "redirects to the created post" do
-        Post.stub(:new) { mock_post(:save => true) }
-        post :create, :post => {}
-        response.should redirect_to(admin_posts_url)
+        post :create, post: { title: 'title', body: 'body'}
+        expect(assigns(:post)).to be_persisted
+        expect(response).to redirect_to(admin_posts_url)
+        expect(flash[:notice]).to be_present
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved post as @post" do
-        Post.stub(:new).with({'these' => 'params'}) { mock_post(:save => false) }
-        post :create, :post => {'these' => 'params'}
-        assigns(:post).should be(mock_post)
-      end
-
-      it "re-renders the 'new' template" do
-        Post.stub(:new) { mock_post(:save => false) }
-        post :create, :post => {}
-        response.should render_template("new")
+        post :create, post: {title: ''}
+        expect(response).to have_http_status(:ok)
+        expect(response).to render_template("new")
+        expect(assigns(:post)).to_not be_persisted
       end
     end
   end
 
   describe "PUT update" do
+    let!(:post){ FactoryGirl.create(:post) }
 
     describe "with valid params" do
       it "updates the requested post" do
-        Post.should_receive(:find_by_permalink!).with("37") { mock_post }
-        mock_post.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :post => {'these' => 'params'}
-      end
-
-      it "assigns the requested post as @post" do
-        Post.stub(:find_by_permalink!) { mock_post(:update_attributes => true) }
-        put :update, :id => "1"
-        assigns(:post).should be(mock_post)
-      end
-
-      it "redirects to the post" do
-        Post.stub(:find_by_permalink!) { mock_post(:update_attributes => true) }
-        put :update, :id => "1"
-        response.should redirect_to(admin_posts_url)
+        put :update, id: post.permalink, post: {title: 'new title', body: 'new body'}
+        expect(assigns(:post).title).to eq('new title')
+        expect(assigns(:post).body).to eq('new body')
+        expect(response).to redirect_to(admin_posts_url)
       end
     end
 
     describe "with invalid params" do
       it "assigns the post as @post" do
-        Post.stub(:find_by_permalink!) { mock_post(:update_attributes => false) }
-        put :update, :id => "1"
-        assigns(:post).should be(mock_post)
-      end
-
-      it "re-renders the 'edit' template" do
-        Post.stub(:find_by_permalink!) { mock_post(:update_attributes => false) }
-        put :update, :id => "1"
-        response.should render_template("edit")
+        put :update, id: post.permalink, post: {title: ''}
+        expect(response).to have_http_status(:ok)
+        expect(response).to render_template("edit")
+        expect(assigns(:post)).to eq(post)
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested post" do
-      Post.should_receive(:find_by_permalink!).with("37") { mock_post }
-      mock_post.should_receive(:destroy)
-      delete :destroy, :id => "37"
-    end
+    let!(:post){ FactoryGirl.create(:post) }
 
-    it "redirects to the posts list" do
-      Post.stub(:find_by_permalink!) { mock_post }
-      delete :destroy, :id => "1"
-      response.should redirect_to(admin_posts_url)
+    it "destroys the requested post" do
+      delete :destroy, id: post.permalink
+      expect(response).to redirect_to(admin_posts_url)
     end
   end
-
 end

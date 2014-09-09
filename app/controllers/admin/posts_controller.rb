@@ -1,7 +1,7 @@
 class Admin::PostsController < Admin::ApplicationController
 
   def index
-    @posts = Post.paginate(pagination_params(:order => "created_at DESC"))
+    @posts = Post.order("created_at DESC").paginate(pagination_params)
   end
 
   def new
@@ -13,22 +13,22 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = Post.new(post_params)
 
     if @post.save
-      redirect_to(admin_posts_url, :notice => 'Post was successfully created.')
+      redirect_to(admin_posts_url, notice: 'Post was successfully created.')
     else
-      render :action => "new"
+      render action: "new"
     end
   end
 
   def update
     @post = Post.find_by_permalink!(params[:id])
 
-    if @post.update_attributes(params[:post])
-      redirect_to(admin_posts_url, :notice => 'Post was successfully updated.')
+    if @post.update_attributes(post_params)
+      redirect_to(admin_posts_url, notice: 'Post was successfully updated.')
     else
-      render :action => "edit"
+      render action: "edit"
     end
   end
 
@@ -36,6 +36,12 @@ class Admin::PostsController < Admin::ApplicationController
     @post = Post.find_by_permalink!(params[:id])
     @post.destroy
 
-    redirect_to(admin_posts_url) 
+    redirect_to(admin_posts_url)
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :body, :image)
   end
 end
