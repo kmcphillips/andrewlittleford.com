@@ -1,7 +1,6 @@
 class Admin::EventsController < Admin::ApplicationController
-
   def index
-    @events = Event.paginate(pagination_params(:order => "created_at DESC"))
+    @events = Event.order("created_at DESC").paginate(pagination_params)
   end
 
   def new
@@ -13,22 +12,22 @@ class Admin::EventsController < Admin::ApplicationController
   end
 
   def create
-    @event = Event.new(params[:event])
+    @event = Event.new(event_params)
 
     if @event.save
-      redirect_to(admin_events_url, :notice => 'Event was successfully created.')
+      redirect_to(admin_events_url, notice: 'Event was successfully created.')
     else
-      render :action => "new"
+      render action: "new"
     end
   end
 
   def update
     @event = Event.find(params[:id])
 
-    if @event.update_attributes(params[:event])
-       redirect_to(admin_events_url, :notice => 'Event was successfully updated.')
+    if @event.update_attributes(event_params)
+       redirect_to(admin_events_url, notice: 'Event was successfully updated.')
     else
-      render :action => "edit"
+      render action: "edit"
     end
   end
 
@@ -36,6 +35,12 @@ class Admin::EventsController < Admin::ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
-    redirect_to(admin_events_url) 
+    redirect_to(admin_events_url)
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:title, :description, :starts_at, :image)
   end
 end

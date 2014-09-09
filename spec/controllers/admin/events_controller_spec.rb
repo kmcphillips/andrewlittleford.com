@@ -3,116 +3,87 @@ require 'spec_helper'
 describe Admin::EventsController do
   before(:each) do
     login_as_mock_user
-  end  
-
-  def mock_event(stubs={})
-    @mock_event ||= mock_model(Event, stubs).as_null_object
   end
 
+  let(:time){ Time.parse("2014-01-01 01:02:03") }
+
   describe "GET index" do
+    let!(:event){ FactoryGirl.create(:event) }
+
     it "assigns all events as @events" do
-      Event.stub(:paginate) { [mock_event] }
       get :index
-      assigns(:events).should eq([mock_event])
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:events)).to eq([event])
     end
   end
 
   describe "GET new" do
     it "assigns a new event as @event" do
-      Event.stub(:new) { mock_event }
       get :new
-      assigns(:event).should be(mock_event)
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:event).new_record?).to be_truthy
     end
   end
 
   describe "GET edit" do
+    let!(:event){ FactoryGirl.create(:event) }
+
     it "assigns the requested event as @event" do
-      Event.stub(:find).with("37") { mock_event }
-      get :edit, :id => "37"
-      assigns(:event).should be(mock_event)
+      get :edit, id: event.id
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:event)).to eq(event)
     end
   end
 
   describe "POST create" do
-
     describe "with valid params" do
       it "assigns a newly created event as @event" do
-        Event.stub(:new).with({'these' => 'params'}) { mock_event(:save => true) }
-        post :create, :event => {'these' => 'params'}
-        assigns(:event).should be(mock_event)
-      end
-
-      it "redirects to the created event" do
-        Event.stub(:new) { mock_event(:save => true) }
-        post :create, :event => {}
-        response.should redirect_to(admin_events_url)
+        post :create, event: {title: 'title', description: 'description', starts_at: time}
+        expect(assigns(:event).title).to eq('title')
+        expect(assigns(:event).description).to eq('description')
+        expect(assigns(:event).starts_at).to eq(time)
+        expect(response).to redirect_to(admin_events_url)
+        expect(flash[:notice]).to be_present
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved event as @event" do
-        Event.stub(:new).with({'these' => 'params'}) { mock_event(:save => false) }
-        post :create, :event => {'these' => 'params'}
-        assigns(:event).should be(mock_event)
-      end
-
-      it "re-renders the 'new' template" do
-        Event.stub(:new) { mock_event(:save => false) }
-        post :create, :event => {}
-        response.should render_template("new")
+        post :create, event: {description: 'description'}
+        expect(response).to have_http_status(:ok)
+        expect(assigns(:event).persisted?).to be_falsy
+        expect(response).to render_template('new')
       end
     end
   end
 
   describe "PUT update" do
+    let!(:event){ FactoryGirl.create(:event) }
 
     describe "with valid params" do
       it "updates the requested event" do
-        Event.should_receive(:find).with("37") { mock_event }
-        mock_event.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :event => {'these' => 'params'}
-      end
-
-      it "assigns the requested event as @event" do
-        Event.stub(:find) { mock_event(:update_attributes => true) }
-        put :update, :id => "1"
-        assigns(:event).should be(mock_event)
-      end
-
-      it "redirects to the event" do
-        Event.stub(:find) { mock_event(:update_attributes => true) }
-        put :update, :id => "1"
-        response.should redirect_to(admin_events_url)
+        put :update, id: event.id, event: {description: 'new description'}
+        expect(assigns(:event)).to eq(event)
+        expect(response).to redirect_to(admin_events_url)
+        expect(assigns(:event).reload.description).to eq('new description')
       end
     end
 
     describe "with invalid params" do
       it "assigns the event as @event" do
-        Event.stub(:find) { mock_event(:update_attributes => false) }
-        put :update, :id => "1"
-        assigns(:event).should be(mock_event)
-      end
-
-      it "re-renders the 'edit' template" do
-        Event.stub(:find) { mock_event(:update_attributes => false) }
-        put :update, :id => "1"
-        response.should render_template("edit")
+        put :update, id: event.id, event: {title: ''}
+        expect(assigns(:event)).to eq(event)
+        expect(response).to render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested event" do
-      Event.should_receive(:find).with("37") { mock_event }
-      mock_event.should_receive(:destroy)
-      delete :destroy, :id => "37"
-    end
+    let!(:event){ FactoryGirl.create(:event) }
 
-    it "redirects to the events list" do
-      Event.stub(:find) { mock_event }
-      delete :destroy, :id => "1"
-      response.should redirect_to(admin_events_url)
+    it "destroys the requested event" do
+      delete :destroy, id: event.id
+      expect(response).to redirect_to(admin_events_url)
     end
   end
-
 end
