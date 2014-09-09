@@ -3,15 +3,13 @@
   %head
     %title= "#{PAGE_TITLE} :: Listen"
 
-    = stylesheet_link_tag "fonts", "stylesheet", "player"
+    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'player'
 
-    = javascript_include_tag 'jquery/jquery-1.4.2.min', 'jquery.swfobject'
-    = javascript_include_tag ['application', 'rails']
-
+    = javascript_include_tag 'application'
     = yield :js
 
     = csrf_meta_tag
-
     = render :partial => "shared/analytics"
 
   %body

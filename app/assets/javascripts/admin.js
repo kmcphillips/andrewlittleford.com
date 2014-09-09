@@ -1,3 +1,6 @@
+//= require jquery-ui-1.8.7.custom.min
+//= require jquery-debounce
+
 $(document).ready(function(){
     $("textarea.previewable").keyup($.debounce(500, load_preview));
     if($("textarea.previewable").length > 0){
@@ -9,7 +12,7 @@ function stripe_table(table)
 {
   $(table).find("tr").each(function(index, element) {
     $(element).removeClass("odd even")
-    
+
     if(index % 2 == 0)
       $(element).addClass("odd");
     else
