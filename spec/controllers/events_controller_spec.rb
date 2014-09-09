@@ -1,26 +1,26 @@
 require 'spec_helper'
 
 describe EventsController do
-
-  def mock_event(stubs={})
-    @mock_event ||= mock_model(Event, stubs).as_null_object
-  end
+  let(:event){ FactoryGirl.create(:event) }
 
   describe "GET index" do
     it "assigns all events as @events" do
-      Event.stub(:upcoming => "upcoming", :current => "current", :past => double(:past, :order => "past"))
+      past = FactoryGirl.create(:event, starts_at: Time.now - 2.days)
+      current = FactoryGirl.create(:event, starts_at: Time.now - 2.minutes)
+      upcoming = FactoryGirl.create(:event, starts_at: Time.now + 2.days)
       get :index
-      assigns(:upcoming).should eq("upcoming")
-      assigns(:current).should eq("current")
-      assigns(:past).should eq("past")
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:upcoming)).to eq([upcoming])
+      expect(assigns(:current)).to eq([current])
+      expect(assigns(:past)).to eq([past])
     end
   end
 
   describe "GET show" do
     it "assigns the requested event as @event" do
-      Event.stub(:find).with("37") { mock_event }
-      get :show, :id => "37"
-      assigns(:event).should be(mock_event)
+      get :show, id: event.id
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:event)).to eq(event)
     end
   end
 end

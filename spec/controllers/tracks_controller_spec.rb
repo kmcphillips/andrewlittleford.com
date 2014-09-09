@@ -6,9 +6,9 @@ describe TracksController do
   describe "GET show" do
     it "assigns the requested track as @track" do
       get :show, id: track.id
+      expect(response).to have_http_status(:ok)
       expect(assigns(:track)).to eq(track)
       expect(assigns(:tracks)).to eq([track])
     end
   end
-
 end
