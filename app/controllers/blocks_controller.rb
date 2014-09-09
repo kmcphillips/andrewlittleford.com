@@ -1,8 +1,5 @@
 class BlocksController < ApplicationController
-  before_filter :load_block  
-
-  def about
-  end
+  before_filter :load_block
 
   def contact
   end
