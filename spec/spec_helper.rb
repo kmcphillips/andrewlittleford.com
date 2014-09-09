@@ -11,9 +11,3 @@ RSpec.configure do |config|
   config.raise_errors_for_deprecations!
   config.infer_spec_type_from_file_location!
 end
-
-def login_as_mock_user
-  u = mock_model(User)
-  controller.stub(:current_user => u)
-  u
-end
