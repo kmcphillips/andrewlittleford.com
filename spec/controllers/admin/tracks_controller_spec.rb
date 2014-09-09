@@ -5,116 +5,89 @@ describe Admin::TracksController do
     login_as_mock_user
   end
 
-  def mock_track(stubs={})
-    @mock_track ||= mock_model(Track, stubs).as_null_object
-  end
-
   describe "GET index" do
+    let!(:track){ FactoryGirl.create(:track) }
+
     it "assigns all tracks as @tracks" do
-      Track.stub(:order) { [mock_track] }
       get :index
-      assigns(:tracks).should eq([mock_track])
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:tracks)).to eq([track])
     end
   end
 
   describe "GET new" do
     it "assigns a new track as @track" do
-      Track.stub(:new) { mock_track }
       get :new
-      assigns(:track).should be(mock_track)
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:track)).to_not be_persisted
     end
   end
 
   describe "GET edit" do
+    let!(:track){ FactoryGirl.create(:track) }
+
     it "assigns the requested track as @track" do
-      Track.stub(:find).with("37") { mock_track }
-      get :edit, :id => "37"
-      assigns(:track).should be(mock_track)
+      get :edit, id: track.id
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:track)).to eq(track)
     end
   end
 
   describe "POST create" do
+    let!(:track){ FactoryGirl.create(:track) }
 
     describe "with valid params" do
       it "assigns a newly created track as @track" do
-        Track.stub(:new).with({'these' => 'params'}) { mock_track(:save => true) }
-        post :create, :track => {'these' => 'params'}
-        assigns(:track).should be(mock_track)
-      end
-
-      it "redirects to the created track" do
-        Track.stub(:new) { mock_track(:save => true) }
-        post :create, :track => {}
-        response.should redirect_to(admin_tracks_url)
+        post :create, track: {title: 'title', mp3: fixture_file_upload('audio.mp3', 'audio/mp3') }
+        expect(assigns(:track)).to be_persisted
+        expect(response).to redirect_to(admin_tracks_url)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved track as @track" do
-        Track.stub(:new).with({'these' => 'params'}) { mock_track(:save => false) }
-        post :create, :track => {'these' => 'params'}
-        assigns(:track).should be(mock_track)
-      end
-
-      it "re-renders the 'new' template" do
-        Track.stub(:new) { mock_track(:save => false) }
-        post :create, :track => {}
-        response.should render_template("new")
+        post :create, track: {title: ''}
+        expect(response).to have_http_status(:ok)
+        expect(assigns(:track)).to_not be_persisted
+        expect(response).to render_template("new")
       end
     end
-
   end
 
   describe "PUT update" do
+    let!(:track){ FactoryGirl.create(:track) }
 
     describe "with valid params" do
       it "updates the requested track" do
-        Track.should_receive(:find).with("37") { mock_track }
-        mock_track.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :track => {'these' => 'params'}
-      end
-
-      it "assigns the requested track as @track" do
-        Track.stub(:find) { mock_track(:update_attributes => true) }
-        put :update, :id => "1"
-        assigns(:track).should be(mock_track)
-      end
-
-      it "redirects to the track" do
-        Track.stub(:find) { mock_track(:update_attributes => true) }
-        put :update, :id => "1"
-        response.should redirect_to(admin_tracks_url)
+        put :update, id: track.id, track: {title: 'new title'}
+        expect(assigns(:track)).to eq(track)
+        expect(response).to redirect_to(admin_tracks_url)
       end
     end
 
     describe "with invalid params" do
       it "assigns the track as @track" do
-        Track.stub(:find) { mock_track(:update_attributes => false) }
-        put :update, :id => "1"
-        assigns(:track).should be(mock_track)
-      end
-
-      it "re-renders the 'edit' template" do
-        Track.stub(:find) { mock_track(:update_attributes => false) }
-        put :update, :id => "1"
-        response.should render_template("edit")
+        put :update, id: track.id, track: {title: ''}
+        expect(response).to have_http_status(:ok)
+        expect(assigns(:track)).to eq(track)
+        expect(response).to render_template("edit")
       end
     end
-
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested track" do
-      Track.should_receive(:find).with("37") { mock_track }
-      mock_track.should_receive(:destroy)
-      delete :destroy, :id => "37"
-    end
+    let!(:track){ FactoryGirl.create(:track) }
 
-    it "redirects to the tracks list" do
-      Track.stub(:find) { mock_track }
-      delete :destroy, :id => "1"
-      response.should redirect_to(admin_tracks_url)
+    it "destroys the requested track" do
+      delete :destroy, id: track.id
+      expect(response).to redirect_to(admin_tracks_url)
     end
   end
 
+
+  describe "POST sort" do
+    it "to be tested" do
+      skip
+    end
+  end
 end

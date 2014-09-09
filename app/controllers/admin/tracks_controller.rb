@@ -1,5 +1,5 @@
 class Admin::TracksController < Admin::ApplicationController
-  
+
   def index
     @tracks = Track.order("sort_order ASC")
   end
@@ -13,22 +13,22 @@ class Admin::TracksController < Admin::ApplicationController
   end
 
   def create
-    @track = Track.new(params[:track])
+    @track = Track.new(track_params)
 
     if @track.save
-      redirect_to(admin_tracks_path, :notice => 'Track was successfully created.')
+      redirect_to(admin_tracks_path, notice: 'Track was successfully created.')
     else
-      render :action => "new"
+      render action: "new"
     end
   end
 
   def update
     @track = Track.find(params[:id])
-    
-    if @track.update_attributes(params[:track])
-      redirect_to(admin_tracks_path, :notice => 'Track was successfully updated.')
+
+    if @track.update_attributes(track_params)
+      redirect_to(admin_tracks_path, notice: 'Track was successfully updated.')
     else
-      render :action => "edit"
+      render action: "edit"
     end
   end
 
@@ -38,7 +38,7 @@ class Admin::TracksController < Admin::ApplicationController
 
     redirect_to(admin_tracks_url)
   end
-  
+
   def sort
     if params[:track].try(:is_a?, Array)
       params[:track].each_with_index do |id, index|
@@ -46,7 +46,13 @@ class Admin::TracksController < Admin::ApplicationController
       end
     end
 
-    render :nothing => true
+    head :ok
+  end
+
+  private
+
+  def track_params
+    params.require(:track).permit(:title, :description, :active, :mp3)
   end
 end
 
