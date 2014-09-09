@@ -13,22 +13,22 @@ class Admin::LinksController < Admin::ApplicationController
   end
 
   def create
-    @link = Link.new(params[:link])
+    @link = Link.new(link_params)
 
     if @link.save
-      redirect_to(admin_links_url, :notice => 'Link was successfully created.')
+      redirect_to(admin_links_url, notice: 'Link was successfully created.')
     else
-      render :action => "new"
+      render action: "new"
     end
   end
 
   def update
     @link = Link.find(params[:id])
 
-    if @link.update_attributes(params[:link])
-      redirect_to(admin_links_url, :notice => 'Link was successfully updated.')
+    if @link.update_attributes(link_params)
+      redirect_to(admin_links_url, notice: 'Link was successfully updated.')
     else
-      render :action => "edit"
+      render action: "edit"
     end
   end
 
@@ -38,7 +38,7 @@ class Admin::LinksController < Admin::ApplicationController
 
     redirect_to(admin_links_url)
   end
-  
+
   def sort
     if params[:link].try(:is_a?, Array)
       params[:link].each_with_index do |id, index|
@@ -46,6 +46,12 @@ class Admin::LinksController < Admin::ApplicationController
       end
     end
 
-    render :nothing => true
+    head :ok
+  end
+
+  private
+
+  def link_params
+    params.require(:link).permit(:title, :url, :description, :project)
   end
 end

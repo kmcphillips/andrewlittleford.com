@@ -5,116 +5,90 @@ describe Admin::LinksController do
     login_as_mock_user
   end
 
-  def mock_link(stubs={})
-    @mock_link ||= mock_model(Link, stubs).as_null_object
-  end
-
   describe "GET index" do
+    let!(:link){ FactoryGirl.create(:link) }
+
     it "assigns all links as @links" do
-      Link.stub(:in_order) { [mock_link] }
       get :index
-      assigns(:links).should eq([mock_link])
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:links)).to eq([link])
     end
   end
 
   describe "GET new" do
     it "assigns a new link as @link" do
-      Link.stub(:new) { mock_link }
       get :new
-      assigns(:link).should be(mock_link)
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:link)).to_not be_persisted
     end
   end
 
   describe "GET edit" do
+    let!(:link){ FactoryGirl.create(:link) }
+
     it "assigns the requested link as @link" do
-      Link.stub(:find).with("37") { mock_link }
-      get :edit, :id => "37"
-      assigns(:link).should be(mock_link)
+      get :edit, id: link.id
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:link)).to eq(link)
     end
   end
 
   describe "POST create" do
-
     describe "with valid params" do
       it "assigns a newly created link as @link" do
-        Link.stub(:new).with({'these' => 'params'}) { mock_link(:save => true) }
-        post :create, :link => {'these' => 'params'}
-        assigns(:link).should be(mock_link)
-      end
-
-      it "redirects to the created link" do
-        Link.stub(:new) { mock_link(:save => true) }
-        post :create, :link => {}
-        response.should redirect_to(admin_links_url)
+        post :create, link: {title: 'the title', url: 'http://example.com'}
+        expect(response).to redirect_to(admin_links_url)
+        expect(assigns(:link)).to be_persisted
+        expect(assigns(:link).url).to eq("http://example.com")
+        expect(flash[:notice]).to be_present
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved link as @link" do
-        Link.stub(:new).with({'these' => 'params'}) { mock_link(:save => false) }
-        post :create, :link => {'these' => 'params'}
-        assigns(:link).should be(mock_link)
-      end
-
-      it "re-renders the 'new' template" do
-        Link.stub(:new) { mock_link(:save => false) }
-        post :create, :link => {}
-        response.should render_template("new")
+        post :create, link: {url: ''}
+        expect(assigns(:link)).to_not be_persisted
+        expect(response).to have_http_status(:ok)
+        expect(response).to render_template("new")
       end
     end
-
   end
 
   describe "PUT update" do
+    let!(:link){ FactoryGirl.create(:link) }
 
     describe "with valid params" do
       it "updates the requested link" do
-        Link.should_receive(:find).with("37") { mock_link }
-        mock_link.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :link => {'these' => 'params'}
-      end
-
-      it "assigns the requested link as @link" do
-        Link.stub(:find) { mock_link(:update_attributes => true) }
-        put :update, :id => "1"
-        assigns(:link).should be(mock_link)
-      end
-
-      it "redirects to the link" do
-        Link.stub(:find) { mock_link(:update_attributes => true) }
-        put :update, :id => "1"
-        response.should redirect_to(admin_links_url)
+        put :update, id: link.id, link: {url: 'http://example.com/new'}
+        expect(assigns(:link)).to eq(link)
+        expect(response).to redirect_to(admin_links_url)
+        expect(assigns(:link).reload.url).to eq('http://example.com/new')
+        expect(flash[:notice]).to be_present
       end
     end
 
     describe "with invalid params" do
       it "assigns the link as @link" do
-        Link.stub(:find) { mock_link(:update_attributes => false) }
-        put :update, :id => "1"
-        assigns(:link).should be(mock_link)
-      end
-
-      it "re-renders the 'edit' template" do
-        Link.stub(:find) { mock_link(:update_attributes => false) }
-        put :update, :id => "1"
-        response.should render_template("edit")
+        put :update, id: link.id, link: {url: ''}
+        expect(assigns(:link)).to eq(link)
+        expect(response).to have_http_status(:ok)
+        expect(response).to render_template("edit")
       end
     end
-
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested link" do
-      Link.should_receive(:find).with("37") { mock_link }
-      mock_link.should_receive(:destroy)
-      delete :destroy, :id => "37"
-    end
+    let!(:link){ FactoryGirl.create(:link) }
 
-    it "redirects to the links list" do
-      Link.stub(:find) { mock_link }
-      delete :destroy, :id => "1"
-      response.should redirect_to(admin_links_url)
+    it "destroys the requested link" do
+      delete :destroy, id: link.id
+      expect(response).to redirect_to(admin_links_url)
     end
   end
 
+  describe "POST sort" do
+    it "should be tested" do
+      skip
+    end
+  end
 end

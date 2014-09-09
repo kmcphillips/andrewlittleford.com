@@ -15,7 +15,7 @@ class Admin::ImagesController < Admin::ApplicationController
   def update
     image = Image.find(params[:id])
 
-    if image.update_attributes(params[:image])
+    if image.update_attributes(image_params)
       flash[:notice] = "Image updated."
     else
       flash[:error] = image.errors.full_messages.to_sentence
@@ -30,7 +30,7 @@ class Admin::ImagesController < Admin::ApplicationController
 
     redirect_to admin_galleries_path
   end
-  
+
   def sort
     if params[:image].try(:is_a?, Array)
       params[:image].each_with_index do |id, index|
@@ -38,7 +38,13 @@ class Admin::ImagesController < Admin::ApplicationController
       end
     end
 
-    render :nothing => true
+    head :ok
+  end
+
+  private
+
+  def image_params
+
   end
 
 end

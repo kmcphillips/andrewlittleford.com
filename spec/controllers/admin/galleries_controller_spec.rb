@@ -11,6 +11,7 @@ describe Admin::GalleriesController do
   describe "GET index" do
     it "should load and assign all galleries" do
       get :index
+      expect(response).to have_http_status(:ok)
       expect(assigns(:gallery)).to eq(gallery)
     end
   end
