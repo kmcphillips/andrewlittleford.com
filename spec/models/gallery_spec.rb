@@ -10,16 +10,6 @@ describe Gallery do
     end
   end
 
-  describe "image_last_updated_at" do
-    before(:each) do
-      Timecop.freeze
-    end
-
-    it "should lookup the images through named scopes and associations" do
-      expect(gallery.last_updated_at.to_i).to eq(image.updated_at.to_i)
-    end
-  end
-
   describe "class methods" do
     before(:each) do
       gallery
