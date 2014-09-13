@@ -6,6 +6,7 @@ tmp/*
 config/database.yml
 .idea
 public/assets
+public/attachments
 public/stylesheets/stylesheet.css
 public/stylesheets/player.css
 .DS_Store

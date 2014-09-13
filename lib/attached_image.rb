@@ -10,8 +10,8 @@ module AttachedImage
         :styles => AttachedImage::SIZES,
         :default_style => :full,
         :whiny => true,
-        :path => ":rails_root/public/assets/images/:class/:id/:style_:basename.:extension",
-        :url => "/assets/images/:class/:id/:style_:basename.:extension"
+        :path => ":rails_root/public/attachments/images/:class/:id/:style_:basename.:extension",
+        :url => "/attachments/images/:class/:id/:style_:basename.:extension"
 
       validates_attachment_size :image, :in => 1..3.megabytes
       validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/pjpeg", "image/png", "image/tiff", "image/x-png", "image/gif"]
