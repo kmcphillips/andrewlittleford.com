@@ -3,7 +3,6 @@ source 'http://rubygems.org'
 gem 'rails', '~> 4.2.0.beta1'
 gem 'mysql2'
 
-gem 'jquery-rails'
 gem 'capistrano'
 gem 'rvm-capistrano'
 gem 'haml'
@@ -16,6 +15,12 @@ gem 'rmagick'
 gem 'acts_as_permalink'
 gem 'rinku', require: 'rails_rinku'
 gem 'rdiscount'
+
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'fancybox-rails'
+gem 'swfobject-rails'
 
 group :development, :test do
   gem 'thin'
