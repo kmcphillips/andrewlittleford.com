@@ -1,19 +1,5 @@
-%h2.super Past Events
 .post
   %h2.title Archive
   .entry
     .meta
-
-    - if @past.blank?
-      None
-
-    - @past.group_by{|event| event.starts_at.year }.each_pair do |year, events|
-      %h3.past= year
-      %ul.past
-        - events.each do |event|
-          %li
-            %span.bold= link_to event.starts_at.to_formatted_s(:news_without_time), event_path(event)
-            = " : "
-            = link_to event.title, event_path(event)
-
-    .clear
+    = link_to "View all past events archive", archive_events_path

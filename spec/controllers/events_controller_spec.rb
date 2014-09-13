@@ -12,7 +12,6 @@ describe EventsController do
       expect(response).to have_http_status(:ok)
       expect(assigns(:upcoming)).to eq([upcoming])
       expect(assigns(:current)).to eq([current])
-      expect(assigns(:past)).to eq([past])
     end
   end
 
@@ -21,6 +20,16 @@ describe EventsController do
       get :show, id: event.id
       expect(response).to have_http_status(:ok)
       expect(assigns(:event)).to eq(event)
+    end
+  end
+
+  describe "GET archive" do
+    let!(:past_event){ FactoryGirl.create(:event, starts_at: Time.now - 2.days) }
+
+    it "should render the archive of past events" do
+      get :archive
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:past)).to eq([past_event])
     end
   end
 end

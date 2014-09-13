@@ -12,7 +12,11 @@ AndrewlittlefordCom::Application.routes.draw do
   # media player
   get 'player/:id' => 'tracks#show'
 
-  resources :events, :only => [:index, :show]
+  resources :events, :only => [:index, :show] do
+    collection do
+      get :archive
+    end
+  end
 
   get 'login' => 'admin/sessions#new'
 
