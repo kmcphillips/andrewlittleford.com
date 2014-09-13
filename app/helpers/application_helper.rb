@@ -168,5 +168,13 @@ module ApplicationHelper
     "/admin/galleries/#{gallery}"
   end
 
+  def button_to_function(*args)
+  end
+  deprecate :button_to_function
+
+  def link_to_function(*args)
+  end
+  deprecate :link_to_function
+
 end
 
