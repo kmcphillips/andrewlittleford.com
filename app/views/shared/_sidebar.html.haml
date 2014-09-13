@@ -1,6 +1,14 @@
 %ul
   %li= render :partial => 'shared/admin_nav' if controller.current_user
 
+  %li
+    %h2 Follow Andrew
+    %ul.social-icons
+      = social_icon :facebook, "https://www.facebook.com/andrewlittlefordmusic", label: "Andrew Littleford on Facebook"
+      = social_icon :youtube, "https://www.youtube.com/channel/UC-gJet7PwkI0ACeYi7mUiag", label: "Andrew Littleford on YouTube"
+      = obfuscated_mail_to SITE_EMAIL, image_tag("/images/icons/social/email.png", alt: ("Email"), class: "social-icon")
+      = social_icon :rss, "/rss.xml", label: "RSS feed"
+
   - if Event.current.any?
     %li
       %h2 Happening Right Now
@@ -14,13 +22,6 @@
       %ul
         - Event.upcoming.each_with_index do |event, index|
           %li{:class => (index == 0 ? "first" : nil)}= link_to event.title, event_path(event)
-
-  %li
-    %h2 Social
-    %ul.social-icons
-      = social_icon :facebook, "https://www.facebook.com/andrewlittlefordmusic", label: "Andrew Littleford on Facebook"
-      = obfuscated_mail_to SITE_EMAIL, image_tag("/images/icons/social/email.png", alt: ("Email"), class: "social-icon")
-      = social_icon :rss, "/rss.xml", label: "RSS feed"
 
   - if Link.projects.any?
     %li
