@@ -14,5 +14,5 @@
   .entry.left
     .meta
 
-    - @gallery.images.in_order.all_active.each do |image|
+    - @images.in_order.all_active.each do |image|
       = link_to image_tag(image.thumb, :class => "thumb", :alt => image.label), image.full, :rel => "gallery", :class => "thumb", :title => image.title

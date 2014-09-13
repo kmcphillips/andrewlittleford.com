@@ -8,7 +8,7 @@ class BlocksController < ApplicationController
   end
 
   def gallery
-    @gallery = Gallery.singleton
+    @images = Image.in_order
   end
 
   def links

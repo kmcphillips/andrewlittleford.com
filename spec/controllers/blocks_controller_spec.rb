@@ -34,13 +34,13 @@ describe BlocksController do
 
   describe "GET gallery" do
     let!(:block){ FactoryGirl.create(:block, label: 'gallery')}
-    let!(:gallery){ FactoryGirl.create(:gallery) }
+    let!(:image){ FactoryGirl.create(:image) }
 
     it "assigns the requested block as @block" do
       get :gallery
       expect(response).to have_http_status(:ok)
       expect(assigns(:block)).to eq(block)
-      expect(assigns(:gallery)).to eq(gallery)
+      expect(assigns(:images)).to eq([image])
     end
   end
 end
