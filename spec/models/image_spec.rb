@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe Image do
   let(:image){ FactoryGirl.create(:image) }
-  let(:gallery){ image.gallery }
 
   describe "set_sort_order" do
     it "should set the first sort order" do
@@ -11,7 +10,8 @@ describe Image do
 
     it "should set the next sort order" do
       image
-      expect(FactoryGirl.create(:image, gallery: gallery).reload.sort_order).to eq(1)
+      expect(FactoryGirl.create(:image).reload.sort_order).to eq(1)
+      expect(FactoryGirl.create(:image).reload.sort_order).to eq(2)
     end
   end
 

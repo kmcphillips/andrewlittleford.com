@@ -3,6 +3,5 @@ FactoryGirl.define do
     label "A pie"
     active true
     file File.open(File.join(Rails.root, 'spec', 'fixtures', 'pie.jpg'))
-    gallery
   end
 end
