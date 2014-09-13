@@ -1,15 +1,3 @@
-- content_for :js do
-  :javascript
-    function preview_link()
-    {
-      if(!$("#link_url").val().match(/^http(s)?:\/\/.+/))
-        alert("URL must begin with 'http://' or 'https://'");
-      else
-        window.open($("#link_url").val());
-
-      return false;
-    }
-
 = form_for [:admin, @link] do |f|
   = error_messages(@link)
 

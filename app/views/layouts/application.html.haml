@@ -11,8 +11,6 @@
     = javascript_include_tag 'application'
     = javascript_include_tag 'admin' if admin?
 
-    = yield :js
-
     %link{:rel => "shortcut icon", :type => "image/x-icon", :href => "/favicon.ico"}
 
     = csrf_meta_tag
@@ -25,7 +23,6 @@
     #background
     #wrapper
       #header
-        <!-- Yes it's a table, but it works better than anything I could do in CSS for side by side alignment to a bottom line -->
         %table
           %tr
             %td

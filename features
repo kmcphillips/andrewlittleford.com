@@ -1,10 +1,24 @@
-Lock after login attempts. Possibly switch to authlogic?
-
-permalink in tracks with flash/JS auto-open the media player
+Replace login with authlogic
 
 clone event
 
-fix the RSS feed
+Javascript requirements:
 
-Better error pages
-
+* Date/time picker on:
+  * app/views/admin/events/_form.html.haml
+* Sortable on:
+  * app/views/admin/images/index.html.haml
+  * app/views/admin/links/index.html.haml (stripe tables)
+  * app/views/admin/tracks/index.html.haml (stripe tables)
+* Link preview on link form
+* Focus on username for login
+* Fancybox on:
+  * app/views/blocks/gallery.html.haml
+* Image upload form:
+  * dialog with previous images
+  * button to clear image selected
+  * select an image by id
+* Flash/swfobject for tracks
+* Stripe tables function
+* Debounce
+* Previewable text areas
