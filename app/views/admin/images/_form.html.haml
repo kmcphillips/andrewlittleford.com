@@ -1,6 +1,4 @@
-= form_for [:admin, Image.new], :html => { :multipart => true } do |f|
-  = error_messages(@event)
-
+= form_for [:admin, Image.new], html: { multipart: true } do |f|
   .field
     = f.label :file
     = f.file_field :file
@@ -12,5 +10,4 @@
 
   .actions
     %label Actions
-    = f.hidden_field :gallery_id, :value => @gallery.id
     = f.submit 'Upload'

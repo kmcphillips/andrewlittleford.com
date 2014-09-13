@@ -6,41 +6,63 @@ describe Admin::ImagesController do
   end
 
   let!(:image){ FactoryGirl.create(:image) }
-  let!(:gallery){ image.gallery }
+  let(:file){ fixture_file_upload('pie.jpg', 'image/jpg') }
+
+  describe "GET index" do
+    it "should render the index " do
+      get :index
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:images)).to eq([image])
+    end
+  end
 
   describe "POST create" do
     describe "with valid params" do
       it "redirects to the created post" do
-        skip
-        Image.stub(:new) { mock_image(:save => true)}
-        post :create, :image => {}
-        response.should redirect_to(admin_galleries_path)
+        expect{
+          post :create, image: {label: 'test', file: file}
+          expect(response).to redirect_to(admin_images_path)
+          expect(flash[:notice]).to be_present
+        }.to change{ Image.count }.by(1)
       end
     end
 
     describe "with invalid params" do
       it "redirects and errors" do
-        skip
-        Image.stub(:new) { mock_image(:save => false) }
-        post :create, :image => {}
-        response.should redirect_to(admin_galleries_path)
+        expect{
+          post :create, image: {label: 'test', file: nil}
+          expect(response).to redirect_to(admin_images_path)
+          expect(flash[:error]).to be_present
+        }.to_not change{ Image.count }
+      end
+    end
+  end
+
+  describe "PUT update" do
+    describe "with valid params" do
+      it "should update the image and redirect" do
+        put :update, id: image.id, image: {label: 'new label'}
+        expect(response).to redirect_to(admin_images_path)
+        expect(flash[:notice]).to be_present
+        expect(image.reload.label).to eq('new label')
+      end
+    end
+
+    describe "with invalid params" do
+      it "should redirect and flash" do
+        put :update, id: image.id, image: {file: nil}
+        expect(response).to redirect_to(admin_images_path)
+        expect(flash[:error]).to be_present
       end
     end
   end
 
   describe "DELETE destroy" do
     it "destroys the requested image" do
-      skip
-      Image.should_receive(:find).with("37") { mock_image }
-      mock_image.should_receive(:destroy)
-      delete :destroy, :id => "37"
-    end
-
-    it "redirects to the image list" do
-      skip
-      Image.stub(:find) { mock_image }
-      delete :destroy, :id => "1"
-      response.should redirect_to(admin_galleries_path)
+      expect{
+        delete :destroy, id: image.id
+        expect(response).to redirect_to(admin_images_path)
+      }.to change{ Image.count }.by(-1)
     end
   end
 
@@ -49,11 +71,13 @@ describe Admin::ImagesController do
       3.times { FactoryGirl.create(:image) }
     end
 
+    let(:images){ Image.all.to_a }
+    let(:image_ids){ [images[1].id, images[0].id, images[3].id, images[2].id] }
+
     it "should sort the IDs passed back" do
-      skip
-      post :sort, image: [@i3.id ,@i1.id ,@i2.id]
+      post :sort, image: image_ids
       expect(response).to have_http_status(:ok)
-      expect(Image.in_order.map(&:id)).to eq([@i3.id, @i1.id, @i2.id])
+      expect(Image.in_order.map(&:id)).to eq(image_ids)
     end
   end
 end

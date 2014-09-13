@@ -24,7 +24,7 @@
     .meta Drag images to reorganize them.
 
     %ul#image_sortable
-      - @gallery.images.in_order.each do |image|
+      - @images.in_order.each do |image|
         %li{:style => "background: #FFFFFF url('#{image.thumb}') no-repeat left top;", :id => "image_#{image.id}"}
           .delete= destroy_entity_image admin_image_path(image)
     .clear
@@ -33,7 +33,4 @@
   %h2.title Upload New Image
   .entry
     .meta
-    = render :partial => 'admin/galleries/form'
-
-    .image_links
-      = index_entity_image admin_galleries_path, "Back to Galleries Index"
+    = render :partial => 'admin/images/form'

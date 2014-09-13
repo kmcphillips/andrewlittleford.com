@@ -1,7 +1,12 @@
 class Admin::ImagesController < Admin::ApplicationController
 
+  def index
+    @images = Image.in_order
+    @title = "Images"
+  end
+
   def create
-    image = Image.new(params[:image])
+    image = Image.new(image_params)
 
     if image.save
       flash[:notice] = 'Image was successfully added.'
@@ -9,7 +14,7 @@ class Admin::ImagesController < Admin::ApplicationController
       flash[:error] = image.errors.full_messages.to_sentence
     end
 
-    redirect_to admin_galleries_path
+    redirect_to admin_images_path
   end
 
   def update
@@ -21,14 +26,14 @@ class Admin::ImagesController < Admin::ApplicationController
       flash[:error] = image.errors.full_messages.to_sentence
     end
 
-    redirect_to admin_galleries_path
+    redirect_to admin_images_path
   end
 
   def destroy
     image = Image.find(params[:id])
     image.destroy
 
-    redirect_to admin_galleries_path
+    redirect_to admin_images_path
   end
 
   def sort
@@ -44,7 +49,7 @@ class Admin::ImagesController < Admin::ApplicationController
   private
 
   def image_params
-
+    params.require(:image).permit(:file, :label)
   end
 
 end

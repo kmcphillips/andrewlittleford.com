@@ -23,7 +23,7 @@ AndrewlittlefordCom::Application.routes.draw do
     delete 'logout' => 'sessions#logout'
 
     root :to => "posts#index"
-    
+
     resources :sessions do
       collection do
         get 'password'
@@ -41,10 +41,10 @@ AndrewlittlefordCom::Application.routes.draw do
     resources :tracks, :except => [:show] do
       collection { post 'sort'}
     end
-    resources :galleries, :only => [:index]
-    resources :images, :only => [:create, :destroy, :update] do
+    resources :images, :only => [:index, :create, :destroy, :update] do
       collection { post 'sort'}
     end
+    get 'galleries' => 'images#index'
 
     post 'preview/plain' => 'preview#plain'
   end
