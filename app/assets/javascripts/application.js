@@ -4,3 +4,7 @@
 //= require fancybox
 
 //= require images
+
+$(function(){
+  $("[data-focus]").focus();
+});

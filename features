@@ -11,9 +11,6 @@ Javascript requirements:
   * app/views/admin/links/index.html.haml (stripe tables)
   * app/views/admin/tracks/index.html.haml (stripe tables)
 * Link preview on link form
-* Focus on username for login
-* Fancybox on:
-  * app/views/blocks/gallery.html.haml
 * Image upload form:
   * dialog with previous images
   * button to clear image selected
