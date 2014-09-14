@@ -1,5 +1,22 @@
+:javascript
+  $(function(){
+    $('.plugin').flash({
+      swf: 'http://flash-mp3-player.net/medias/player_mp3_maxi.swf',
+      width: 350,
+      height: 20,
+      flashvars: {
+        movie: "http://flash-mp3-player.net/medias/player_mp3_maxi.swf",
+        bgcolor: "#313429",
+        bgcolor1: "#313429",
+        bgcolor2: "#313429",
+        mp3: "#{ @mp3 }",
+        FlashVars: "mp3=#{ @mp3 }&amp;width=350&amp;autoplay=1&amp;bgcolor=313429&amp;bgcolor1=313429&amp;bgcolor2=313429"
+      }
+    });
+  });
+
 #player
-  .header= image_tag "/images/template/player_header.png", :alt => SITE_NAME
+  .header= image_tag "/images/template/player_header.png", alt: SITE_NAME
 
   .title= @track.title
   .plugin

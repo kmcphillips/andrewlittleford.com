@@ -20,7 +20,6 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'fancybox-rails'
-gem 'swfobject-rails'
 
 group :development, :test do
   gem 'thin'

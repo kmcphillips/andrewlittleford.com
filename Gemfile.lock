@@ -181,8 +181,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (~> 2.8)
-    swfobject-rails (2.0)
-      rails (>= 3.0)
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -222,7 +220,6 @@ DEPENDENCIES
   rvm-capistrano
   sass
   sass-rails (~> 5.0.0.beta1)
-  swfobject-rails
   thin
   timecop
   will_paginate

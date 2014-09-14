@@ -1,4 +1,4 @@
 //= require jquery
 //= require jquery_ujs
-//= require swfobject
+//= require jquery.swfobject-1.1.1
 //= require fancybox
