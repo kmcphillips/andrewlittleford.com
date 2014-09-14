@@ -1,18 +1,13 @@
 $ ->
   $("[data-previewable]").each (index, node) ->
     $node = $(node)
-    $node.keyup($.debounce(load_preview, 500))
-    load_preview.call($node)
+    $node.keyup($.debounce(loadPreview, 500))
+    loadPreview.call($node)
 
-load_preview = ->
+loadPreview = ->
   $this = $(this)
   selector = $this.data('previewable')
   target = $(selector)
 
-  $.ajax
-    type: 'POST'
-    url: '/admin/preview/plain'
-    data:
-      body: $this.val()
-    success: (result) ->
-      target.html(result)
+  $.post '/admin/preview/plain', { body: $this.val() }
+  .done (result) -> target.html(result)
