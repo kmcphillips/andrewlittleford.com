@@ -6,8 +6,8 @@
     = f.text_field :title
   .field
     = f.label :url
-    = f.text_field :url, :value => (f.object.url.blank? ? "http://" : f.object.url)
-    = link_to_function(image_tag("/images/icons/link_preview.png", :alt => "Preview", :class => "no_border") + " Preview", "preview_link();", :title => "Preview")
+    = f.text_field :url, value: (f.object.url.blank? ? "http://" : f.object.url), id: 'link-url'
+    = link_to(image_tag("/images/icons/link_preview.png", alt: "Preview", class: "no_border") + " Preview", '#', title: "Preview", data: {'link-preview' => '#link-url'})
   .field
     = f.label :description
     = f.text_area :description
