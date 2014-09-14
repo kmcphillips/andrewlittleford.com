@@ -6,8 +6,8 @@
     .image_links
       = new_entity_image new_admin_track_path, "Create New Track"
 
-    = collection_index @tracks, ["Title", "Description", "Filename", "Active?", "Updated at", "Actions"], :id => "sortable_table" do |track|
-      %tr{:class => row_class, :'data-track-id' => track.id}
+    = collection_index @tracks, ["Title", "Description", "Filename", "Active?", "Updated at", "Actions"], id: "tracks_sortable" do |track|
+      %tr{class: row_class, :'data-track-id' => track.id}
         %td= track.title
         %td= truncate_for_index track.description
         %td= link_to track.mp3.name, track.mp3.url

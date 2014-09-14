@@ -2,8 +2,11 @@ $ ->
   $("#image_sortable").sortable
     update: Sortable.updateImages
 
-  $("#sortable_table tbody").sortable
+  $("#links_sortable tbody").sortable
     update: Sortable.updateLinks
+
+  $("#tracks_sortable tbody").sortable
+    update: Sortable.updateTracks
 
 Sortable =
   updateImages: ->
@@ -15,13 +18,27 @@ Sortable =
     stripeTable(this)
 
     # I am not sure why this does not work, so we do it manually
-    # data = $("#sortable_table tbody").sortable('serialize')
+    # data = $(this).sortable('serialize')
     data = ""
-    $("#sortable_table tbody tr").each ->
+    $(this).find("tr").each ->
       val = $(this).attr('data-link-id')
       data += "link[]=" + val + "&" if val
 
     update("/admin/links/sort", data)
+
+    $(this).disableSelection()
+
+  updateTracks: ->
+    stripeTable(this)
+
+    # I am not sure why this does not work, so we do it manually
+    # data = $(this).sortable('serialize')
+    data = ""
+    $(this).find("tr").each ->
+      val = $(this).attr('data-track-id')
+      data += "track[]=" + val + "&" if val
+
+    update("/admin/tracks/sort", data)
 
     $(this).disableSelection()
 

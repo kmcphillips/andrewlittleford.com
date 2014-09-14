@@ -6,8 +6,6 @@ Javascript requirements:
 
 * Date/time picker on:
   * app/views/admin/events/_form.html.haml
-* Sortable on:
-  * app/views/admin/tracks/index.html.haml (stripe tables)
 * Image upload form:
   * dialog with previous images
   * button to clear image selected
