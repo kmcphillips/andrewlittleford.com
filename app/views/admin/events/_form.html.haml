@@ -1,12 +1,12 @@
-= form_for [:admin, @event], :html => { :multipart => true } do |f|
+= form_for [:admin, @event], html: { multipart: true } do |f|
   = error_messages(@event)
 
   .field
     = f.label :title
-    = f.text_field :title, :size => 50
+    = f.text_field :title, size: 50
   .field
     = f.label :description
-    = f.text_area :description, :rows => 12, :cols => 50, :class => "previewable"
+    = f.text_area :description, rows: 12, cols: 50, data: {previewable: '#previewable-preview'}
   .field
     %label Preview
     .input
