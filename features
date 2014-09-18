@@ -4,8 +4,6 @@ clone event
 
 Javascript requirements:
 
-* Date/time picker on:
-  * app/views/admin/events/_form.html.haml
 * Image upload form:
   * dialog with previous images
   * button to clear image selected

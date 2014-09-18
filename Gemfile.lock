@@ -80,6 +80,7 @@ GEM
     highline (1.6.21)
     hike (1.2.3)
     i18n (0.7.0.beta1)
+    jquery-datetimepicker-rails (2.3.0.0)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -205,6 +206,7 @@ DEPENDENCIES
   fancybox-rails
   haml
   haml-rails
+  jquery-datetimepicker-rails
   jquery-rails
   jquery-ui-rails
   mysql2
