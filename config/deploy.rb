@@ -15,7 +15,6 @@ role :web, "198.211.110.159"
 role :app, "198.211.110.159"
 role :db,  "198.211.110.159", :primary => true
 
-
 namespace :deploy do
   task :start do ; end
   task :stop do ; end
@@ -26,7 +25,7 @@ end
 
 after "deploy:update", "deploy:cleanup"
 
-after "deploy", "symlink_shared_files"
+before "deploy:finalize_update", "symlink_shared_files"
 
 task :symlink_shared_files do
   run "ln -s #{shared_path}/attachments #{release_path}/public/attachments"
