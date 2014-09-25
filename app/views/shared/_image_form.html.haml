@@ -4,7 +4,9 @@
     - if object.image.exists?
       = image_tag(object.thumb, data: {image: true})
     - else
-      %img{data: {image: true}}
+      %img{data: {image: true}, style: 'display: none'}
+
+    %br
 
     = f.file_field :image, data: {"file-field" => true}
 
