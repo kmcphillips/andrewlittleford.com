@@ -1,3 +1,7 @@
 /*
  *= require jquery-ui
  */
+
+.xdsoft_month, .xdsoft_year {
+  z-index: 100 !important;
+}
