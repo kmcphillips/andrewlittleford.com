@@ -22,7 +22,7 @@ class Admin::BlocksController < Admin::ApplicationController
   private
 
   def block_params
-    params.require(:block).permit(:body, :image)
+    params.require(:block).permit(:body, :image, :previous_image_id, :clear_image)
   end
 
 end
