@@ -5,3 +5,7 @@
 .xdsoft_month, .xdsoft_year {
   z-index: 100 !important;
 }
+
+.datetimepicker {
+  width: 200px;
+}

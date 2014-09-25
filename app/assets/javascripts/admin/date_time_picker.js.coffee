@@ -1,3 +1,2 @@
 $ ->
-  $('.datetimepicker').datetimepicker
-    inline: true
+  $('.datetimepicker').datetimepicker()

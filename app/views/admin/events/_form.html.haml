@@ -14,7 +14,7 @@
       .clear
   .field
     = f.label :starts_at
-    .date= f.hidden_field :starts_at, class: "datetimepicker", value: f.object.starts_at.try(:to_s, :datetimepicker)
+    .date= f.text_field :starts_at, class: "datetimepicker", value: f.object.starts_at.try(:to_s, :datetimepicker)
 
   = f.image
 
