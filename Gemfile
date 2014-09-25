@@ -16,6 +16,9 @@ gem 'acts_as_permalink'
 gem 'rinku', require: 'rails_rinku'
 gem 'rdiscount'
 
+gem 'execjs'
+gem 'therubyracer'
+
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

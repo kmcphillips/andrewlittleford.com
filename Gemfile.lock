@@ -87,6 +87,7 @@ GEM
     jquery-ui-rails (5.0.0)
       railties (>= 3.2.16)
     json (1.8.1)
+    libv8 (3.16.14.5)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
@@ -142,6 +143,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
     rdiscount (2.1.7.1)
+    ref (1.0.5)
     rinku (1.7.3)
     rmagick (2.13.3)
     rspec (3.1.0)
@@ -182,6 +184,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (~> 2.8)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -201,6 +206,7 @@ DEPENDENCIES
   acts_as_permalink
   capistrano
   coffee-rails
+  execjs
   factory_girl
   factory_girl_rails
   fancybox-rails
@@ -222,6 +228,7 @@ DEPENDENCIES
   rvm-capistrano
   sass
   sass-rails (~> 5.0.0.beta1)
+  therubyracer
   thin
   timecop
   will_paginate
