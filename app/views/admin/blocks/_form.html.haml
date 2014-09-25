@@ -3,12 +3,13 @@
 
   .field
     = f.label :body
-    .input= f.text_area :body
+    .input= f.text_area :body, rows: 16, cols: 56
 
   - begin
     = render @block.label
   - rescue ActionView::MissingTemplate
 
+  %br
   = f.image if @block.accepts_image?
 
   .actions

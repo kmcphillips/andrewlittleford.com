@@ -10,7 +10,7 @@
     = link_to(image_tag("/images/icons/link_preview.png", alt: "Preview", class: "no_border") + " Preview", '#', title: "Preview", data: {'link-preview' => '#link-url'})
   .field
     = f.label :description
-    = f.text_area :description
+    = f.text_area :description, rows: 6, cols: 56
   .field
     = f.label :project
     .input.permalink.bold
