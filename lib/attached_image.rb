@@ -13,7 +13,7 @@ module AttachedImage
         path: ":rails_root/public/attachments/images/:class/:id/:style_:basename.:extension",
         url: "/attachments/images/:class/:id/:style_:basename.:extension"
 
-      validates_attachment_size :image, in: 1..3.megabytes
+      validates_attachment_size :image, in: 1..10.megabytes
       validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/pjpeg", "image/png", "image/tiff", "image/x-png", "image/gif"]
 
       validate :setting_valid_image
