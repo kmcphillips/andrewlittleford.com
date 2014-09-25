@@ -2,28 +2,28 @@
   = f.label "Image"
   .input.image
     - if object.image.exists?
-      = image_tag(object.thumb, :id => :current_image)
+      = image_tag(object.thumb, data: {image: true})
     - else
-      %img{:id => :current_image}
+      %img{data: {image: true}}
 
-    = f.file_field :image
+    = f.file_field :image, data: {"file-field" => true}
 
     %br
     %span.bold &nbsp;&nbsp;&nbsp;OR
     %br
 
-    = button_to_function "Select a previous image", "$('#previous_image').dialog('open');"
-    = f.hidden_field "previous_image_id", :id => :previous_image_id
-    #previous_image
+    = button_tag "Select a previous image", data: {"modal-button" => true}
+    = f.hidden_field "previous_image_id", data: {"previous-image-field" => true}
+    %div{'data-previous-image' => true}
       - unique_previous_images(f.object).each do |prev|
-        = link_to_function image_tag(prev.thumb), "selectImage(#{prev.id}, '#{prev.thumb}')"
+        = link_to image_tag(prev.thumb), '#', data: {"previous-image-id" => prev.id, "previous-image-thumb" => prev.thumb}
 
-    #clear_image
+    %div
       %span.bold &nbsp;&nbsp;&nbsp;OR
       %br
 
-      = button_to_function "No image", "clearImage()"
-      = f.hidden_field "clear_image", :id => :clear_image_field
+      = button_tag "No image", data: {"clear-image-button" => true}
+      = f.hidden_field "clear_image", data: {"clear-image-field" => true}
 
 .clear
 

@@ -6,3 +6,4 @@
 #= require admin/input_preview
 #= require admin/sortable
 #= require admin/date_time_picker
+#= require admin/image_upload
