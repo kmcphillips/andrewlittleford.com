@@ -15,6 +15,10 @@ class BlocksController < ApplicationController
     @links = Link.in_order
   end
 
+  def discography
+    @entries = DiscographyEntry.sorted
+  end
+
   protected
 
   def load_block

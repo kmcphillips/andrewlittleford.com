@@ -5,7 +5,7 @@ AndrewlittlefordCom::Application.routes.draw do
   get 'rss.:format' => 'posts#rss'
 
   # blocks
-  ['contact', 'links', 'bio', 'gallery'].each do |block|
+  ['contact', 'links', 'bio', 'gallery', 'discography'].each do |block|
     get block => "blocks##{block}"
   end
 

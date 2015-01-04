@@ -6,4 +6,6 @@ class DiscographyEntry < ActiveRecord::Base
 
   acts_as_permalink
 
+  scope :sorted, ->{ order(sort_order: "ASC", created_at: "DESC") }
+
 end

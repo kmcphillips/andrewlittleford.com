@@ -43,4 +43,14 @@ describe BlocksController do
       expect(assigns(:images)).to eq([image])
     end
   end
+
+  describe "GET discography" do
+    let!(:entry){ FactoryGirl.create(:discography_entry)}
+
+    it "assigns the requested block as @block" do
+      get :discography
+      expect(response).to have_http_status(:ok)
+      expect(assigns(:entries)).to eq([entry])
+    end
+  end
 end
