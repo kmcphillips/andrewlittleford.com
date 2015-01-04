@@ -1,0 +1,15 @@
+- if @entries.any?
+  %h2.super Discography
+
+  - @entries.each do |entry|
+    .post
+      %h2.title= entry.title
+      .entry
+        .meta
+        - if entry.image.exists?
+          = image_tag(entry.thumb, class: "image_left_float", alt: "")
+        = auto_link(simple_format(entry.description), link: :urls).html_safe
+        .clear
+
+- else
+  %h2.super Discography coming soon
