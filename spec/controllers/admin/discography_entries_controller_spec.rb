@@ -27,7 +27,7 @@ describe Admin::DiscographyEntriesController do
     let!(:discography_entry){ FactoryGirl.create(:discography_entry) }
 
     it "assigns the requested entry as @entry" do
-      get :edit, id: discography_entry.id
+      get :edit, id: discography_entry.permalink
       expect(response).to have_http_status(:ok)
       expect(assigns(:entry)).to eq(discography_entry)
     end
@@ -59,7 +59,7 @@ describe Admin::DiscographyEntriesController do
 
     describe "with valid params" do
       it "updates the requested entry" do
-        put :update, id: discography_entry.id, discography_entry: {description: 'new description'}
+        put :update, id: discography_entry.permalink, discography_entry: {description: 'new description'}
         expect(assigns(:entry)).to eq(discography_entry)
         expect(response).to redirect_to(admin_discography_entries_url)
         expect(assigns(:entry).reload.description).to eq('new description')
@@ -68,7 +68,7 @@ describe Admin::DiscographyEntriesController do
 
     describe "with invalid params" do
       it "assigns the entry as @entry" do
-        put :update, id: discography_entry.id, discography_entry: {title: ''}
+        put :update, id: discography_entry.permalink, discography_entry: {title: ''}
         expect(assigns(:entry)).to eq(discography_entry)
         expect(response).to render_template("edit")
       end
@@ -79,7 +79,7 @@ describe Admin::DiscographyEntriesController do
     let!(:discography_entry){ FactoryGirl.create(:discography_entry) }
 
     it "destroys the requested entry" do
-      delete :destroy, id: discography_entry.id
+      delete :destroy, id: discography_entry.permalink
       expect(response).to redirect_to(admin_discography_entries_url)
     end
   end

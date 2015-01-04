@@ -8,7 +8,7 @@ class Admin::DiscographyEntriesController < Admin::ApplicationController
   end
 
   def edit
-    @entry = DiscographyEntry.find(params[:id])
+    @entry = DiscographyEntry.find_by_permalink!(params[:id])
   end
 
   def create
@@ -22,7 +22,7 @@ class Admin::DiscographyEntriesController < Admin::ApplicationController
   end
 
   def update
-    @entry = DiscographyEntry.find(params[:id])
+    @entry = DiscographyEntry.find_by_permalink!(params[:id])
 
     if @entry.update_attributes(discography_entry_params)
        redirect_to(admin_discography_entries_url, notice: 'Discography entry was successfully updated.')
@@ -32,7 +32,7 @@ class Admin::DiscographyEntriesController < Admin::ApplicationController
   end
 
   def destroy
-    @entry = DiscographyEntry.find(params[:id])
+    @entry = DiscographyEntry.find_by_permalink!(params[:id])
     @entry.destroy
 
     redirect_to(admin_discography_entries_url)
