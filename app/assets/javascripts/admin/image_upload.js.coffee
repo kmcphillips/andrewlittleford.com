@@ -6,7 +6,7 @@ window.ImageUpload =
     $('[data-modal-button]').on('click', ImageUpload.openPreviousImageModal)
     $('[data-previous-image-id]').on('click', ImageUpload.selectPreviousImage)
     $('[data-clear-image-button]').on('click', ImageUpload.clearImage)
-    $('[data-file-field').on('change', ImageUpload.fileChange)
+    $('[data-file-field]').on('change', ImageUpload.fileChange)
 
     $('[data-previous-image]').dialog
       autoOpen: false
