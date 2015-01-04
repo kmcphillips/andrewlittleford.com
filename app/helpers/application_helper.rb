@@ -80,9 +80,15 @@ module ApplicationHelper
       end
 
       src << content_tag(:tbody) do
-        collection.map do |item|
-          yield(item)
-        end.join(" ")
+        if collection.any?
+          collection.map do |item|
+            yield(item)
+          end.join(" ")
+        else
+          content_tag(:tr) do
+            content_tag(:td, "None", colspan: column_titles.count)
+          end
+        end
       end
 
       if collection.paginate?
