@@ -38,6 +38,7 @@ AndrewlittlefordCom::Application.routes.draw do
     resources :blocks, :except => [:destroy, :create, :new, :show]
     resources :medias, :only => [:edit, :update]
     resources :events, :except => [:show]
+    resources :discography_entries, except: [:show]
     resources :links, :except => [:show] do
       collection { post 'sort'}
     end
