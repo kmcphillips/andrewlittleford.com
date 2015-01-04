@@ -1,0 +1,20 @@
+= form_for [:admin, @entry], html: { multipart: true } do |f|
+  = error_messages(@entry)
+
+  .field
+    = f.label :title
+    = f.text_field :title, size: 50
+  .field
+    = f.label :description
+    = f.text_area :description, rows: 12, cols: 56, data: {previewable: '#previewable-preview'}
+  .field
+    %label Preview
+    .input
+      #previewable-preview
+      .clear
+
+  = f.image
+
+  .actions
+    %label Actions
+    = f.submit 'Save'

@@ -1,0 +1,15 @@
+.post
+  %h2.title Discography Entries
+  .entry
+    .meta
+
+    .image_links
+      = new_entity_image new_admin_discography_entry_path, "Create New Entry"
+
+    = collection_index @entries, ["Title", "Description", "Actions"] do |entry|
+      %tr{class: row_class}
+        %td= entry.title
+        %td= link_to truncate_for_index(entry.description), discography_path
+        %td
+          = edit_entity_image [:edit, :admin, entry]
+          = destroy_entity_image [:admin, entry]
