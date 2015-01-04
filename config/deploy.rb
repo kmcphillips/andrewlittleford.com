@@ -13,13 +13,13 @@ default_run_options[:pty] = true
 
 role :web, "198.211.110.159"
 role :app, "198.211.110.159"
-role :db,  "198.211.110.159", :primary => true
+role :db,  "198.211.110.159", primary: true
 
 namespace :deploy do
   task :start do ; end
   task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  task :restart, roles: :app, except: { no_release: true } do
+    run "#{ try_sudo } touch #{ File.join(current_path,'tmp','restart.txt') }"
   end
 end
 
@@ -28,10 +28,14 @@ after "deploy:update", "deploy:cleanup"
 before "deploy:finalize_update", "symlink_shared_files"
 
 task :symlink_shared_files do
-  run "ln -s #{shared_path}/attachments #{release_path}/public/attachments"
+  run "ln -s #{ shared_path }/attachments #{ release_path }/public/attachments"
+
+  %w{secrets.yml}.each do |config|
+    run "rm #{ release_path }/config/#{ config }"
+  end
 
   %w{database.yml secrets.yml}.each do |config|
-    run "ln -s #{shared_path}/#{config} #{release_path}/config/#{config}"
+    run "ln -s #{ shared_path }/#{ config } #{ release_path }/config/#{config}"
   end
 end
 
