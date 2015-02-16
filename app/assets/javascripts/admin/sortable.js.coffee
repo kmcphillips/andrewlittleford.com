@@ -8,6 +8,9 @@ $ ->
   $("#tracks_sortable tbody").sortable
     update: Sortable.updateTracks
 
+  $("#entries_sortable tbody").sortable
+    update: Sortable.updateEntries
+
 Sortable =
   updateImages: ->
     data = $(this).sortable('serialize')
@@ -39,6 +42,20 @@ Sortable =
       data += "track[]=" + val + "&" if val
 
     update("/admin/tracks/sort", data)
+
+    $(this).disableSelection()
+
+  updateEntries: ->
+    stripeTable(this)
+
+    # I am not sure why this does not work, so we do it manually
+    # data = $(this).sortable('serialize')
+    data = ""
+    $(this).find("tr").each ->
+      val = $(this).attr('data-entry-id')
+      data += "entry[]=" + val + "&" if val
+
+    update("/admin/discography_entries/sort", data)
 
     $(this).disableSelection()
 

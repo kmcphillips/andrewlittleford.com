@@ -1,6 +1,6 @@
 class Admin::DiscographyEntriesController < Admin::ApplicationController
   def index
-    @entries = DiscographyEntry.order(created_at: "DESC").paginate(pagination_params)
+    @entries = DiscographyEntry.sorted.paginate(pagination_params)
   end
 
   def new
@@ -36,6 +36,16 @@ class Admin::DiscographyEntriesController < Admin::ApplicationController
     @entry.destroy
 
     redirect_to(admin_discography_entries_url)
+  end
+
+  def sort
+    if params[:entry].try(:is_a?, Array)
+      params[:entry].each_with_index do |id, index|
+        ActiveRecord::Base.connection.execute("UPDATE discography_entries SET sort_order = #{index + 1} WHERE id = #{id.to_i}")
+      end
+    end
+
+    head :ok
   end
 
   private
