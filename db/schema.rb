@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104032627) do
+ActiveRecord::Schema.define(version: 20150216004505) do
 
   create_table "blocks", force: :cascade do |t|
     t.text     "body",               limit: 65535
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150104032627) do
   end
 
   add_index "discography_entries", ["permalink"], name: "index_discography_entries_on_permalink", using: :btree
+  add_index "discography_entries", ["sort_order"], name: "index_discography_entries_on_sort_order", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "title",              limit: 255
