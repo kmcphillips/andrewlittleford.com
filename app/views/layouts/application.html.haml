@@ -17,7 +17,9 @@
     %meta{:name => "keywords", :content => META[:keywords] || ""}
     %meta{:name => "description", :content => META[:description] || ""}
 
-    = render :partial => "shared/analytics"
+    = render "shared/favicons"
+    = render "shared/social_meta"
+    = render "shared/analytics"
 
   %body
     #background
