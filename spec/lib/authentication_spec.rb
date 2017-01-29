@@ -22,7 +22,7 @@ describe Authentication do
       end
 
       it "should raise if you call it with something else" do
-        expect(->{ @controller.current_user(double) }).to raise_error
+        expect(->{ @controller.current_user(double) }).to raise_error(ArgumentError)
       end
     end
 

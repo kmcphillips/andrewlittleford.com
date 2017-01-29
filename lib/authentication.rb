@@ -2,7 +2,7 @@ module Authentication
 
   def current_user(user=nil)
     if user
-      raise "#{user.class} is not a User model" unless user.is_a?(User)
+      raise ArgumentError, "#{user.class} is not a User model" unless user.is_a?(User)
       session[:current_user] = user.try(:id)
       @current_user = user
     else
