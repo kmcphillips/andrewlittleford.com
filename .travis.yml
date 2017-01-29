@@ -1,15 +1,9 @@
 language: ruby
 rvm:
-  - "1.9.3"
-  - "2.0.0"
-before_script:
-  - "mysql -e 'create database andrewlittleford_test;'"
-  - "cp ./config/database.yml.travis ./config/database.yml"
+- 2.3.1
 script:
-  - bundle exec rake db:migrate
-  - bundle exec rake db:test:prepare
+  - bin/setup
   - bundle exec rspec
-notifications:
-  email:
-    on_success: change
-    on_failure: change
+cache: bundler
+services:
+  - mysql
