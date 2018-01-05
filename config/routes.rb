@@ -1,4 +1,6 @@
 AndrewlittlefordCom::Application.routes.draw do
+  get "ping" => "ping#index"
+
   # news
   root :to => "posts#index"
   get 'news/:id' => 'posts#show'
