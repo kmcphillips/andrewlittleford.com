@@ -2,9 +2,9 @@ source 'http://rubygems.org'
 
 gem 'rails', '4.2.7.1'
 
-gem 'rake'
-
 gem 'mysql2'
+gem 'puma'
+gem 'rake'
 gem 'haml-rails'
 gem 'sass-rails'
 gem 'will_paginate'
@@ -29,11 +29,10 @@ group :development do
   gem 'capistrano', '3.6.1'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
-  gem 'capistrano3-unicorn'
+  gem 'capistrano3-puma'
 end
 
 group :development, :test do
-  gem 'thin'
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'factory_girl_rails'
@@ -42,8 +41,3 @@ end
 group :test do
   gem 'timecop'
 end
-
-group :production do
-  gem 'unicorn'
-end
-
