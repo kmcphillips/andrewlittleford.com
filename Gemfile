@@ -16,7 +16,7 @@ gem 'rinku', require: 'rails_rinku'
 gem 'rdiscount'
 gem 'sprockets', '~> 3.7.2'
 gem 'rails-html-sanitizer', '~> 1.0.4'
-gem 'nokogiri', '~> 1.10.8'
+gem 'nokogiri', '~> 1.11.4'
 gem 'execjs'
 gem 'therubyracer'
 
