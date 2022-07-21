@@ -231,7 +231,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.9)
     timecop (0.8.1)
-    tzinfo (1.2.7)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     will_paginate (3.0.7)
 
